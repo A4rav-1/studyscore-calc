@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { SUBJECT_BY_CODE } from "../app/data/subjects.ts";
+import {
+  RAW_EXAM_MAXIMUMS_BY_CODE,
+  SUBJECT_BY_CODE,
+  SUBJECTS,
+} from "../app/data/subjects.ts";
 import {
   calculateAtar,
   calculateScaledStudyScore,
@@ -44,6 +48,37 @@ test("study score validates rank bounds", () => {
       }),
     /Unit 3 rank must be between 1 and the cohort size/,
   );
+});
+
+test("every supported study has raw exam totals matching its assessment structure", () => {
+  const expectedTotalsByCode: Readonly<Record<string, readonly number[]>> = {
+    AC: [100], AH: [100], AL03: [100], IT02: [100], IT03: [100], AT: [80],
+    SA: [80], BI: [120], BM: [75], CH: [120], CC: [80], DA: [100, 80],
+    DR: [100, 60], EC: [80], EN: [60], EF: [60], EG: [75], EV: [120],
+    XI03: [50], FT: [90], GE: [80], HH: [90], HI17: [70], HA: [70], HR: [70],
+    LS: [80], LI: [40], MA10: [80], NF: [40, 60], NJ: [40, 80], NS: [40, 80],
+    ME: [80], OS: [90], PL: [60], PE: [110], PH: [120], PS06: [80], DT: [90],
+    PY: [120], RS: [80], SO03: [80], SE03: [100], TS: [100, 50], VC: [80],
+    AR: [80, 75], CN: [80, 75], LO57: [80, 75], CK: [80, 75], CL: [80, 75],
+    FR: [80, 75], GN: [80, 75], MG: [80, 75], HI: [80, 75], IX: [80, 75],
+    IL: [80, 75], JS: [80, 75], KS: [80, 75], LA: [95], PN: [80, 75],
+    LO49: [80, 75], RU: [80, 75], SP: [80, 75], TU: [80, 75], LO31: [80, 75],
+  };
+
+  assert.deepEqual(RAW_EXAM_MAXIMUMS_BY_CODE, expectedTotalsByCode);
+  assert.deepEqual(
+    SUBJECTS.map((subject) => subject.code).sort(),
+    Object.keys(expectedTotalsByCode).sort(),
+  );
+
+  for (const subject of SUBJECTS) {
+    assert.deepEqual(subject.examMaximumMarks, expectedTotalsByCode[subject.code]);
+    assert.equal(subject.examMaximumMarks.length, subject.examWeights.length);
+  }
+});
+
+test("General Mathematics uses the VCAA paper totals", () => {
+  assert.deepEqual(getSubject("NF").examMaximumMarks, [40, 60]);
 });
 
 test("VTAC scaling interpolates between report anchors", () => {

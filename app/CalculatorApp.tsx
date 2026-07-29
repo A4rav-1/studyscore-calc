@@ -534,7 +534,7 @@ export function CalculatorApp() {
               <div className="card-section">
                 <div className="section-heading exam-heading">
                   <span className="step-number">3</span>
-                  <h2>Expected exam mark{selectedSubject.examWeights.length > 1 ? "s" : ""}</h2>
+                  <h2>Expected raw exam mark{selectedSubject.examWeights.length > 1 ? "s" : ""}</h2>
                   <span className="exam-count">
                     {selectedSubject.examWeights.length} exam{selectedSubject.examWeights.length > 1 ? "s" : ""}
                   </span>
@@ -581,7 +581,7 @@ export function CalculatorApp() {
               <p>
                 {studyScore === null
                   ? "Fill every field to see your score."
-                  : `Based on your school, SAC ranks and ${selectedSubject.examWeights.length === 1 ? "exam mark" : "exam marks"}.`}
+                  : `Based on your school, SAC ranks and ${selectedSubject.examWeights.length === 1 ? "raw exam mark" : "raw exam marks"}.`}
               </p>
               <button
                 className="primary-action"
