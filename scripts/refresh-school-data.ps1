@@ -52,6 +52,8 @@ if ($schools.Count -lt 50) {
 $outputDirectory = Join-Path $PSScriptRoot "..\app\data"
 New-Item -ItemType Directory -Path $outputDirectory -Force | Out-Null
 $outputPath = Join-Path $outputDirectory "schools.json"
-$schools | ConvertTo-Json -Depth 3 | Set-Content -Path $outputPath -Encoding utf8
+$json = $schools | ConvertTo-Json -Depth 3
+$utf8WithoutBom = New-Object System.Text.UTF8Encoding($false)
+[System.IO.File]::WriteAllText($outputPath, $json, $utf8WithoutBom)
 
 Write-Output "Saved $($schools.Count) schools to $outputPath"

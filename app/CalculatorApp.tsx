@@ -257,7 +257,9 @@ export function CalculatorApp() {
     if (rowId) {
       searchParameters.set("slot", rowId);
     }
-    window.history.pushState({}, "", `/?${searchParameters.toString()}`);
+    const currentUrl = new URL(window.location.href);
+    const nextPath = `${currentUrl.pathname}?${searchParameters.toString()}`;
+    window.history.pushState({}, "", nextPath);
     setActiveView(view);
     setTargetAtarRowId(rowId);
     window.scrollTo({ top: 0, behavior: "smooth" });
