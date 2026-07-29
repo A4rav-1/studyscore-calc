@@ -215,6 +215,11 @@ export function CalculatorApp() {
     });
   }, [selectedSchool, selectedSubject, studyForm]);
 
+  const scaledStudyScore =
+    studyScore === null
+      ? null
+      : calculateScaledStudyScore(studyScore, selectedSubject);
+
   const atarCalculation = useMemo<{
     result: AtarResult | null;
     error: string | null;
@@ -630,6 +635,11 @@ export function CalculatorApp() {
                   ? "Fill every field to see your score."
                   : `Based on your school, SAC ranks and ${selectedSubject.examWeights.length === 1 ? "raw exam mark" : "raw exam marks"}.`}
               </p>
+              <div className="scaled-study-score">
+                <span>Estimated scaled study score</span>
+                <strong>{scaledStudyScore?.toFixed(1) ?? "—"}</strong>
+                <small>2025 VTAC scaling</small>
+              </div>
               <button
                 className="primary-action"
                 type="button"

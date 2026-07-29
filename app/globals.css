@@ -575,6 +575,42 @@ select:focus-visible {
   line-height: 1.5;
 }
 
+.scaled-study-score {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr auto;
+  gap: 2px 12px;
+  align-items: baseline;
+  padding: 13px 14px;
+  border: 1px solid rgb(255 255 255 / 16%);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 7%);
+  text-align: left;
+}
+
+.scaled-study-score span,
+.scaled-study-score small {
+  color: #b9ccbe;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.scaled-study-score strong {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  color: #fff;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.scaled-study-score small {
+  color: #8fa997;
+  font-size: 9px;
+}
+
 .primary-action {
   display: flex;
   width: 100%;
