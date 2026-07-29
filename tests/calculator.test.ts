@@ -22,7 +22,7 @@ test("study score calculation returns an exact integer", () => {
     unit3CohortSize: 100,
     unit4Rank: 50,
     unit4CohortSize: 100,
-    examPercentages: [60],
+    examMarks: [36],
   });
 
   assert.equal(score, 30);
@@ -40,7 +40,7 @@ test("study score validates rank bounds", () => {
         unit3CohortSize: 30,
         unit4Rank: 1,
         unit4CohortSize: 30,
-        examPercentages: [80],
+        examMarks: [192],
       }),
     /Unit 3 rank must be between 1 and the cohort size/,
   );

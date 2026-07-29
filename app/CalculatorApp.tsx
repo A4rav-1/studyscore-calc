@@ -45,7 +45,7 @@ type StudyFormState = {
   unit3CohortSize: string;
   unit4Rank: string;
   unit4CohortSize: string;
-  examPercentages: readonly string[];
+  examMarks: readonly string[];
 };
 
 const schools = schoolsJson as readonly SchoolRecord[];
@@ -65,7 +65,7 @@ function createDefaultStudyForm(subjectCode = "EN"): StudyFormState {
     unit3CohortSize: "",
     unit4Rank: "",
     unit4CohortSize: "",
-    examPercentages: subject.examWeights.map(() => ""),
+    examMarks: subject.examMaximumMarks.map(() => ""),
   };
 }
 
@@ -77,7 +77,7 @@ function parseInteger(value: string): number | null {
   return Number.isInteger(parsedValue) ? parsedValue : null;
 }
 
-function parsePercentage(value: string): number | null {
+function parseExamMark(value: string): number | null {
   if (value.trim() === "") {
     return null;
   }
@@ -184,7 +184,7 @@ export function CalculatorApp() {
     const unit3CohortSize = parseInteger(studyForm.unit3CohortSize);
     const unit4Rank = parseInteger(studyForm.unit4Rank);
     const unit4CohortSize = parseInteger(studyForm.unit4CohortSize);
-    const examPercentages = studyForm.examPercentages.map(parsePercentage);
+    const examMarks = studyForm.examMarks.map(parseExamMark);
 
     if (
       unit3Rank === null ||
@@ -195,7 +195,10 @@ export function CalculatorApp() {
       unit4Rank < 1 ||
       unit3Rank > unit3CohortSize ||
       unit4Rank > unit4CohortSize ||
-      examPercentages.some((percentage) => percentage === null)
+      examMarks.some(
+        (mark, index) =>
+          mark === null || mark > selectedSubject.examMaximumMarks[index],
+      )
     ) {
       return null;
     }
@@ -207,7 +210,7 @@ export function CalculatorApp() {
       unit3CohortSize,
       unit4Rank,
       unit4CohortSize,
-      examPercentages: examPercentages as readonly number[],
+      examMarks: examMarks as readonly number[],
     });
   }, [selectedSchool, selectedSubject, studyForm]);
 
@@ -270,8 +273,8 @@ export function CalculatorApp() {
     setStudyForm((current) => ({
       ...current,
       subjectCode: subject.code,
-      examPercentages: subject.examWeights.map(
-        (_, index) => current.examPercentages[index] ?? "",
+      examMarks: subject.examMaximumMarks.map(
+        (_, index) => current.examMarks[index] ?? "",
       ),
     }));
   }
@@ -540,25 +543,27 @@ export function CalculatorApp() {
                   {selectedSubject.examLabels.map((label, index) => (
                     <label className="field" key={label}>
                       <span>{label}</span>
-                      <div className="percentage-input">
+                      <div className="mark-input">
                         <input
                           inputMode="decimal"
                           min="0"
-                          max="100"
+                          max={selectedSubject.examMaximumMarks[index]}
                           step="0.1"
                           type="number"
-                          value={studyForm.examPercentages[index] ?? ""}
-                          placeholder="75"
+                          value={studyForm.examMarks[index] ?? ""}
+                          placeholder={String(
+                            Math.round(selectedSubject.examMaximumMarks[index] * 0.75),
+                          )}
                           onChange={(event) => {
-                            const nextPercentages = [...studyForm.examPercentages];
-                            nextPercentages[index] = numberInputValue(event.target.value);
+                            const nextMarks = [...studyForm.examMarks];
+                            nextMarks[index] = numberInputValue(event.target.value);
                             setStudyForm((current) => ({
                               ...current,
-                              examPercentages: nextPercentages,
+                              examMarks: nextMarks,
                             }));
                           }}
                         />
-                        <span>%</span>
+                        <span>/ {selectedSubject.examMaximumMarks[index]}</span>
                       </div>
                     </label>
                   ))}

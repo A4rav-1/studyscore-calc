@@ -366,20 +366,20 @@ select:focus-visible {
   text-transform: uppercase;
 }
 
-.percentage-input {
+.mark-input {
   position: relative;
 }
 
-.percentage-input input {
-  padding-right: 38px;
+.mark-input input {
+  padding-right: 54px;
 }
 
-.percentage-input span {
+.mark-input span {
   position: absolute;
   top: 50%;
   right: 14px;
   color: #858b86;
-  font-size: 13px;
+  font-size: 11px;
   transform: translateY(-50%);
 }
 

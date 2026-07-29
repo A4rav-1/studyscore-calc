@@ -1,3 +1,5 @@
+import examMarksJson from "./exam-marks.json" with { type: "json" };
+
 export type SubjectDefinition = {
   code: string;
   name: string;
@@ -6,6 +8,7 @@ export type SubjectDefinition = {
   unit4Weight: number;
   examWeights: readonly number[];
   examLabels: readonly string[];
+  examMaximumMarks: readonly number[];
   scaling: readonly [number, number, number, number, number, number, number];
 };
 
@@ -67,6 +70,53 @@ const ASSESSMENT_PROFILES = {
     examLabels: ["Performance exam", "Written exam"],
   },
 } as const;
+
+const examMaximumMarksByVCAAName = examMarksJson as Record<
+  string,
+  readonly number[]
+>;
+
+const VCAA_NAME_ALIASES: Readonly<Record<string, string>> = {
+  "agricultural & horticultural studies":
+    "Agricultural and Horticultural Studies",
+  "data analytics": "Applied Computing: Data Analytics",
+  "software development": "Applied Computing: Software Development",
+  "history: ancient history": "Ancient History",
+  "history: australian history": "Australian History",
+  "history: revolutions": "History Revolutions",
+};
+
+const EXTERNAL_ASSESSMENT_OVERRIDES: Readonly<Record<string, readonly number[]>> = {
+  "Extended Investigation": [200],
+};
+
+function resolveExamMaximumMarks(
+  subjectName: string,
+  examWeights: readonly number[],
+): readonly number[] {
+  const canonicalName =
+    VCAA_NAME_ALIASES[subjectName.toLowerCase()] ?? subjectName;
+  const publishedMarks =
+    EXTERNAL_ASSESSMENT_OVERRIDES[subjectName] ??
+    examMaximumMarksByVCAAName[canonicalName];
+
+  if (!publishedMarks) {
+    throw new Error(`Missing VCAA exam mark data for ${subjectName}.`);
+  }
+
+  if (publishedMarks.length === examWeights.length) {
+    return publishedMarks;
+  }
+
+  if (publishedMarks.length === 1 && examWeights.length === 2) {
+    const totalWeight = examWeights.reduce((total, weight) => total + weight, 0);
+    return examWeights.map((weight) =>
+      Math.round((publishedMarks[0] * weight) / totalWeight),
+    );
+  }
+
+  throw new Error(`Exam mark data does not match the assessment profile for ${subjectName}.`);
+}
 
 const SUBJECT_SEEDS: readonly SubjectSeed[] = [
   ["AC", "Accounting", "standard", [20, 25, 31, 36, 41, 46, 50]],
@@ -141,6 +191,10 @@ export const SUBJECTS: readonly SubjectDefinition[] = SUBJECT_SEEDS.map(
     name,
     englishGroup,
     ...ASSESSMENT_PROFILES[profileName],
+    examMaximumMarks: resolveExamMaximumMarks(
+      name,
+      ASSESSMENT_PROFILES[profileName].examWeights,
+    ),
     scaling,
   }),
 );

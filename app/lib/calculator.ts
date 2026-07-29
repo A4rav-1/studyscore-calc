@@ -12,7 +12,7 @@ export type StudyScoreInput = {
   unit3CohortSize: number;
   unit4Rank: number;
   unit4CohortSize: number;
-  examPercentages: readonly number[];
+  examMarks: readonly number[];
 };
 
 export type AtarSubjectInput = {
@@ -211,13 +211,14 @@ export function calculateStudyScore(input: StudyScoreInput): number {
   validateRank(input.unit3Rank, input.unit3CohortSize, "Unit 3");
   validateRank(input.unit4Rank, input.unit4CohortSize, "Unit 4");
 
-  if (input.examPercentages.length !== input.subject.examWeights.length) {
+  if (input.examMarks.length !== input.subject.examWeights.length) {
     throw new Error("The exam mark count does not match this subject.");
   }
 
-  for (const examPercentage of input.examPercentages) {
-    if (!Number.isFinite(examPercentage) || examPercentage < 0 || examPercentage > 100) {
-      throw new Error("Exam marks must be between 0 and 100.");
+  for (const [index, examMark] of input.examMarks.entries()) {
+    const maximumMark = input.subject.examMaximumMarks[index];
+    if (!Number.isFinite(examMark) || examMark < 0 || examMark > maximumMark) {
+      throw new Error(`Exam marks must be between 0 and ${maximumMark}.`);
     }
   }
 
@@ -235,8 +236,12 @@ export function calculateStudyScore(input: StudyScoreInput): number {
   const unit4ZScore =
     rankToZScore(input.unit4Rank, input.unit4CohortSize) * 0.78 +
     schoolZScore;
-  const examZScores = input.examPercentages.map((percentage) =>
-    clamp((percentage - 60) / 16, -2.75, 2.75),
+  const examZScores = input.examMarks.map((mark, index) =>
+    clamp(
+      ((mark / input.subject.examMaximumMarks[index]) * 100 - 60) / 16,
+      -2.75,
+      2.75,
+    ),
   );
 
   const compositeZScore =

@@ -1,0 +1,334 @@
+{
+    "Aboriginal Languages of Victoria":  [
+                                             180
+                                         ],
+    "Accounting":  [
+                       200
+                   ],
+    "Agricultural and Horticultural Studies":  [
+                                                   200
+                                               ],
+    "Algorithmics (HESS)":  [
+                                200
+                            ],
+    "Applied Computing: Data Analytics":  [
+                                              200
+                                          ],
+    "Applied Computing: Software Development":  [
+                                                    200
+                                                ],
+    "Arabic":  [
+                   400
+               ],
+    "Armenian":  [
+                     400
+                 ],
+    "Art Creative Practice":  [
+                                  160
+                              ],
+    "Art Making and Exhibiting":  [
+                                      160
+                                  ],
+    "Auslan":  [
+                   200
+               ],
+    "Bengali":  [
+                    400
+                ],
+    "Biology":  [
+                    240
+                ],
+    "Bosnian":  [
+                    400
+                ],
+    "Business (VCE VET)":  [
+                               200
+                           ],
+    "Business Management":  [
+                                150
+                            ],
+    "Chemistry":  [
+                      240
+                  ],
+    "Chin Hakha":  [
+                       400
+                   ],
+    "Chinese Language, Culture and Society":  [
+                                                  200
+                                              ],
+    "Chinese First Language":  [
+                                   200
+                               ],
+    "Chinese Second Language":  [
+                                    400
+                                ],
+    "Chinese Second Language Advanced":  [
+                                             400
+                                         ],
+    "Classical Hebrew":  [
+                             200
+                         ],
+    "Classical Studies":  [
+                              160
+                          ],
+    "Community Services (VCE VET)":  [
+                                         200
+                                     ],
+    "Creative and Digital Media (VCE VET)":  [
+                                                 180
+                                             ],
+    "Croatian":  [
+                     400
+                 ],
+    "Dance":  [
+                  320,
+                  160
+              ],
+    "Dance (VCE VET)":  [
+                            400
+                        ],
+    "Drama":  [
+                  300,
+                  120
+              ],
+    "Dutch":  [
+                  400
+              ],
+    "Economics":  [
+                      160
+                  ],
+    "Engineering Studies (VCE VET)":  [
+                                          200
+                                      ],
+    "English":  [
+                    60
+                ],
+    "English as an Additional Language":  [
+                                              60
+                                          ],
+    "English Language":  [
+                             150
+                         ],
+    "Environmental Science":  [
+                                  240
+                              ],
+    "Filipino":  [
+                     400
+                 ],
+    "Food Studies":  [
+                         180
+                     ],
+    "French":  [
+                   400
+               ],
+    "Furnishing (VCE VET)":  [
+                                 200
+                             ],
+    "Geography":  [
+                      160
+                  ],
+    "German":  [
+                   400
+               ],
+    "Greek":  [
+                  400
+              ],
+    "Health (VCE VET)":  [
+                             200
+                         ],
+    "Health and Human Development":  [
+                                         180
+                                     ],
+    "Hebrew":  [
+                   400
+               ],
+    "Hindi":  [
+                  400
+              ],
+    "Ancient History":  [
+                            140
+                        ],
+    "Australian History":  [
+                               140
+                           ],
+    "History Revolutions":  [
+                                140
+                            ],
+    "Hospitality (VCE VET)":  [
+                                  240
+                              ],
+    "Hospitality (Cookery)(VCE VET)":  [
+                                           240
+                                       ],
+    "Hungarian":  [
+                      400
+                  ],
+    "Indonesian Second Language":  [
+                                       400
+                                   ],
+    "Industry and Enterprise":  [
+                                    140
+                                ],
+    "Information and Communications Technology (VCE VET)":  [
+                                                                180
+                                                            ],
+    "Integrated Technologies (VCE VET)":  [
+                                              200
+                                          ],
+    "Italian":  [
+                    400
+                ],
+    "Japanese First Language":  [
+                                    200
+                                ],
+    "Japanese Second Language":  [
+                                     400
+                                 ],
+    "Karen":  [
+                  400
+              ],
+    "Khmer":  [
+                  400
+              ],
+    "Korean First Language":  [
+                                  200
+                              ],
+    "Korean Second Language":  [
+                                   400
+                               ],
+    "Laboratory Skills (VCE VET)":  [
+                                        200
+                                    ],
+    "Latin":  [
+                  190
+              ],
+    "Legal Studies":  [
+                          160
+                      ],
+    "Literature":  [
+                       80
+                   ],
+    "Macedonian":  [
+                       400
+                   ],
+    "Foundation Mathematics":  [
+                                   160
+                               ],
+    "General Mathematics":  [
+                                80,
+                                120
+                            ],
+    "Mathematical Methods":  [
+                                 80,
+                                 160
+                             ],
+    "Specialist Mathematics":  [
+                                   80,
+                                   160
+                               ],
+    "Media":  [
+                  160
+              ],
+    "Music Contemporary Performance":  [
+                                           180,
+                                           120
+                                       ],
+    "Music Composition":  [
+                              150
+                          ],
+    "Music Inquiry":  [
+                          150
+                      ],
+    "Music Repertoire Performance":  [
+                                         160,
+                                         120
+                                     ],
+    "Music Performance (VCE VET)":  [
+                                        200
+                                    ],
+    "Music Sound Production (VCE VET)":  [
+                                             200
+                                         ],
+    "Outdoor and Environmental Studies":  [
+                                              180
+                                          ],
+    "Persian":  [
+                    400
+                ],
+    "Philosophy":  [
+                       120
+                   ],
+    "Physical Education":  [
+                               220
+                           ],
+    "Physics":  [
+                    240
+                ],
+    "Polish":  [
+                   400
+               ],
+    "Politics":  [
+                     160
+                 ],
+    "Portuguese":  [
+                       400
+                   ],
+    "Product Design and Technologies":  [
+                                            180
+                                        ],
+    "Psychology":  [
+                       240
+                   ],
+    "Punjabi":  [
+                    400
+                ],
+    "Religion and Society":  [
+                                 160
+                             ],
+    "Russian":  [
+                    400
+                ],
+    "Serbian":  [
+                    400
+                ],
+    "Sinhala":  [
+                    400
+                ],
+    "Sociology":  [
+                      160
+                  ],
+    "Spanish":  [
+                    400
+                ],
+    "Sport and Recreation (VCE VET)":  [
+                                           200
+                                       ],
+    "Systems Engineering":  [
+                                200
+                            ],
+    "Swedish":  [
+                    400
+                ],
+    "Tamil":  [
+                  400
+              ],
+    "Texts and Traditions":  [
+                                 180
+                             ],
+    "Theatre Studies":  [
+                            300,
+                            100
+                        ],
+    "Turkish":  [
+                    400
+                ],
+    "Vietnamese First Language":  [
+                                      200
+                                  ],
+    "Vietnamese Second Language":  [
+                                       400
+                                   ],
+    "Visual Communication Design":  [
+                                        160
+                                    ]
+}
