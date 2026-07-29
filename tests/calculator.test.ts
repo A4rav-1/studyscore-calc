@@ -112,6 +112,22 @@ test("Mazenod General Mathematics perfect inputs reach 50", () => {
   assert.equal(score, 50);
 });
 
+test("Mazenod Software Development rank one with the state-high 83 exam mark reaches 50", () => {
+  const score = calculateStudyScore({
+    subject: getSubject("IT03"),
+    school: {
+      medianStudyScore: 33,
+      scoresAbove40Percent: 15.3,
+    },
+    unit3Rank: 1,
+    unit3CohortSize: 100,
+    unit4Rank: 1,
+    unit4CohortSize: 100,
+    examMarks: [83],
+  });
+  assert.equal(score, 50);
+});
+
 test("top-end performance remains separated from 45 through 50", () => {
   const english = getSubject("EN");
   const topEndCases: readonly [number, number, number][] = [

@@ -152,6 +152,30 @@ function performanceToRawStudyScore(performance: number): number {
   return 50;
 }
 
+function rawMarkToExamPerformance(
+  mark: number,
+  maximumMark: number,
+  anchors: readonly (readonly [number, number])[],
+): number {
+  const markPercentage = (mark / maximumMark) * 100;
+
+  for (let index = 0; index < anchors.length - 1; index += 1) {
+    const [lowerMarkPercentage, lowerPerformance] = anchors[index];
+    const [upperMarkPercentage, upperPerformance] = anchors[index + 1];
+    if (markPercentage <= upperMarkPercentage) {
+      return interpolate(
+        markPercentage,
+        lowerMarkPercentage,
+        upperMarkPercentage,
+        lowerPerformance,
+        upperPerformance,
+      );
+    }
+  }
+
+  return anchors[anchors.length - 1][1];
+}
+
 export function calculateStudyScore(input: StudyScoreInput): number {
   validateRank(input.unit3Rank, input.unit3CohortSize, "Unit 3");
   validateRank(input.unit4Rank, input.unit4CohortSize, "Unit 4");
@@ -185,16 +209,20 @@ export function calculateStudyScore(input: StudyScoreInput): number {
     0,
     100,
   );
-  const examPercentages = input.examMarks.map(
-    (mark, index) => (mark / input.subject.examMaximumMarks[index]) * 100,
+  const examPerformances = input.examMarks.map((mark, index) =>
+    rawMarkToExamPerformance(
+      mark,
+      input.subject.examMaximumMarks[index],
+      input.subject.examPerformanceAnchors,
+    ),
   );
 
   const weightedPerformance =
     unit3Performance * input.subject.unit3Weight +
     unit4Performance * input.subject.unit4Weight +
-    examPercentages.reduce(
-      (total, percentage, index) =>
-        total + percentage * input.subject.examWeights[index],
+    examPerformances.reduce(
+      (total, performance, index) =>
+        total + performance * input.subject.examWeights[index],
       0,
     );
 

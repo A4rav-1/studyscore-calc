@@ -7,6 +7,7 @@ export type SubjectDefinition = {
   examWeights: readonly number[];
   examLabels: readonly string[];
   examMaximumMarks: readonly number[];
+  examPerformanceAnchors: readonly (readonly [number, number])[];
   scaling: readonly [number, number, number, number, number, number, number];
 };
 
@@ -162,6 +163,28 @@ export const RAW_EXAM_MAXIMUMS_BY_CODE: Readonly<Record<string, readonly number[
   LO49: [80, 75], RU: [80, 75], SP: [80, 75], TU: [80, 75], LO31: [80, 75],
 };
 
+const DEFAULT_EXAM_PERFORMANCE_ANCHORS: readonly (readonly [number, number])[] = [
+  [0, 0],
+  [100, 100],
+];
+
+/**
+ * Historical raw-mark anchors. The second value is the exam-performance level
+ * used by the estimator after accounting for paper difficulty.
+ */
+const EXAM_PERFORMANCE_ANCHORS_BY_CODE: Readonly<
+  Record<string, readonly (readonly [number, number])[]>
+> = {
+  IT03: [
+    [0, 0],
+    [60, 60],
+    [70, 82],
+    [80, 96],
+    [83, 100],
+    [100, 100],
+  ],
+};
+
 function resolveExamMaximumMarks(
   code: string,
   examWeights: readonly number[],
@@ -174,6 +197,12 @@ function resolveExamMaximumMarks(
     throw new Error(`Raw exam mark data does not match the assessment profile for ${code}.`);
   }
   return rawMarks;
+}
+
+function resolveExamPerformanceAnchors(
+  code: string,
+): readonly (readonly [number, number])[] {
+  return EXAM_PERFORMANCE_ANCHORS_BY_CODE[code] ?? DEFAULT_EXAM_PERFORMANCE_ANCHORS;
 }
 
 const SUBJECT_SEEDS: readonly SubjectSeed[] = [
@@ -253,6 +282,7 @@ export const SUBJECTS: readonly SubjectDefinition[] = SUBJECT_SEEDS.map(
       code,
       ASSESSMENT_PROFILES[profileName].examWeights,
     ),
+    examPerformanceAnchors: resolveExamPerformanceAnchors(code),
     scaling,
   }),
 );
