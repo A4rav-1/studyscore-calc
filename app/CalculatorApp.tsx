@@ -436,7 +436,7 @@ export function CalculatorApp() {
         <section className="calculator-page">
           <div className="page-heading">
             <span className="eyebrow"><BookOpen size={15} /> VCE study score</span>
-            <h1>What study score will you get?</h1>
+            <h1>Study score calculator</h1>
             <p>Enter your ranks and expected exam marks. Your result updates instantly.</p>
           </div>
 
@@ -651,7 +651,7 @@ export function CalculatorApp() {
         <section className="calculator-page atar-page">
           <div className="page-heading">
             <span className="eyebrow"><Calculator size={15} /> ATAR calculator</span>
-            <h1>Turn study scores into your ATAR.</h1>
+            <h1>ATAR calculator</h1>
             <p>Enter raw scores. Scaling and your best four are handled automatically.</p>
           </div>
 

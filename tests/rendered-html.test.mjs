@@ -31,7 +31,8 @@ test("server-renders the finished calculator", async () => {
   assert.match(html, /What are you calculating\?/);
   assert.match(html, /Combine your scaled study scores/);
   assert.match(html, /<title>VCEcalc — Study Score &amp; ATAR Calculator<\/title>/i);
-  assert.match(html, /What study score will you get\?/);
+  assert.match(html, /Study score calculator/);
+  assert.match(html, /ATAR calculator/);
   assert.match(html, /Use in ATAR calculator/);
   assert.match(html, /VCAA weights/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
