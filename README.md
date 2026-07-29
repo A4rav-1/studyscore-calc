@@ -20,5 +20,5 @@ powershell -ExecutionPolicy Bypass -File .\scripts\refresh-school-data.ps1
 ## GitHub Pages
 
 The GitHub Pages workflow publishes the static build after each push to `main`.
-Create the repository as `vce-score-calculator`, enable Pages with GitHub
+Create the repository as `studyscore-calc`, enable Pages with GitHub
 Actions as the source, then push this project to its `main` branch.

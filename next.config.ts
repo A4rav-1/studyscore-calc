@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const isGitHubPagesBuild = process.env.GITHUB_PAGES === "true";
-const githubPagesBasePath = "/vce-score-calculator";
+const githubPagesBasePath = "/studyscore-calc";
 
 const nextConfig: NextConfig = {
   output: isGitHubPagesBuild ? "export" : undefined,
