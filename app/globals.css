@@ -144,6 +144,125 @@ select:focus-visible {
   text-transform: uppercase;
 }
 
+.landing-chooser {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgb(14 30 21 / 55%);
+  backdrop-filter: blur(8px);
+}
+
+.landing-chooser-card {
+  width: min(680px, 100%);
+  padding: clamp(30px, 6vw, 56px);
+  border: 1px solid rgb(255 255 255 / 58%);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 100% 0%, rgb(255 112 67 / 16%), transparent 16rem),
+    var(--card);
+  box-shadow: 0 28px 90px rgb(0 0 0 / 30%);
+  text-align: center;
+}
+
+.landing-kicker {
+  display: inline-flex;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: var(--green-light);
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.landing-chooser h1 {
+  margin: 16px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.landing-chooser p {
+  max-width: 410px;
+  margin: 16px auto 28px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.landing-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.landing-choice {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 17px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.landing-choice:hover {
+  border-color: var(--orange);
+  box-shadow: 0 12px 22px rgb(23 33 27 / 10%);
+  transform: translateY(-2px);
+}
+
+.landing-choice-icon {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  place-items: center;
+  border-radius: 12px;
+}
+
+.study-choice .landing-choice-icon {
+  background: var(--green-light);
+  color: var(--green);
+}
+
+.atar-choice .landing-choice-icon {
+  background: #fff0e9;
+  color: var(--orange-dark);
+}
+
+.landing-choice strong,
+.landing-choice small {
+  display: block;
+}
+
+.landing-choice strong {
+  font-size: 14px;
+  font-weight: 780;
+}
+
+.landing-choice small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 560;
+  line-height: 1.35;
+}
+
+.landing-choice > svg {
+  color: var(--orange-dark);
+}
+
 .calculator-page {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
@@ -754,6 +873,18 @@ footer {
 }
 
 @media (max-width: 680px) {
+  .landing-chooser {
+    padding: 16px;
+  }
+
+  .landing-chooser-card {
+    border-radius: 22px;
+  }
+
+  .landing-actions {
+    grid-template-columns: 1fr;
+  }
+
   .site-header {
     grid-template-columns: 1fr auto;
     min-height: 64px;

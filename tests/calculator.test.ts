@@ -81,6 +81,62 @@ test("General Mathematics uses the VCAA paper totals", () => {
   assert.deepEqual(getSubject("NF").examMaximumMarks, [40, 60]);
 });
 
+test("perfect ranks and full marks reach 50 for every supported study", () => {
+  for (const subject of SUBJECTS) {
+    const score = calculateStudyScore({
+      subject,
+      school: null,
+      unit3Rank: 1,
+      unit3CohortSize: 100,
+      unit4Rank: 1,
+      unit4CohortSize: 100,
+      examMarks: subject.examMaximumMarks,
+    });
+    assert.equal(score, 50, `${subject.name} should reach a raw 50`);
+  }
+});
+
+test("Mazenod General Mathematics perfect inputs reach 50", () => {
+  const score = calculateStudyScore({
+    subject: getSubject("NF"),
+    school: {
+      medianStudyScore: 33,
+      scoresAbove40Percent: 15.3,
+    },
+    unit3Rank: 1,
+    unit3CohortSize: 100,
+    unit4Rank: 1,
+    unit4CohortSize: 100,
+    examMarks: [40, 60],
+  });
+  assert.equal(score, 50);
+});
+
+test("top-end performance remains separated from 45 through 50", () => {
+  const english = getSubject("EN");
+  const topEndCases: readonly [number, number, number][] = [
+    [90, 11, 45],
+    [94, 7, 46],
+    [96, 5, 47],
+    [98, 3, 48],
+    [99, 2, 49],
+    [100, 1, 50],
+  ];
+
+  for (const [performance, rank, expectedScore] of topEndCases) {
+    const score = calculateStudyScore({
+      subject: english,
+      school: null,
+      unit3Rank: rank,
+      unit3CohortSize: 101,
+      unit4Rank: rank,
+      unit4CohortSize: 101,
+      examMarks: [(performance / 100) * 60],
+    });
+    assert.equal(score, expectedScore);
+  }
+});
+
 test("VTAC scaling interpolates between report anchors", () => {
   const methods = getSubject("NJ");
   assert.equal(calculateScaledStudyScore(40, methods), 46);

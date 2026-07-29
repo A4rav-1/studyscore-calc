@@ -34,6 +34,20 @@ export type AtarResult = {
 
 const RAW_SCORE_ANCHORS = [20, 25, 30, 35, 40, 45, 50] as const;
 
+const PERFORMANCE_TO_RAW_STUDY_SCORE: readonly [number, number][] = [
+  [0, 0],
+  [35, 20],
+  [55, 30],
+  [70, 35],
+  [82, 40],
+  [90, 45],
+  [94, 46],
+  [96, 47],
+  [98, 48],
+  [99, 49],
+  [100, 50],
+];
+
 const AGGREGATE_TO_ATAR: readonly [number, number][] = [
   [0, 0],
   [50, 20],
@@ -101,97 +115,6 @@ function interpolate(
   return outputStart + progress * (outputEnd - outputStart);
 }
 
-function inverseNormalCdf(probability: number): number {
-  const boundedProbability = clamp(probability, 0.0001, 0.9999);
-  const coefficientsA = [
-    -39.69683028665376,
-    220.9460984245205,
-    -275.9285104469687,
-    138.357751867269,
-    -30.66479806614716,
-    2.506628277459239,
-  ];
-  const coefficientsB = [
-    -54.47609879822406,
-    161.5858368580409,
-    -155.6989798598866,
-    66.80131188771972,
-    -13.28068155288572,
-  ];
-  const coefficientsC = [
-    -0.007784894002430293,
-    -0.3223964580411365,
-    -2.400758277161838,
-    -2.549732539343734,
-    4.374664141464968,
-    2.938163982698783,
-  ];
-  const coefficientsD = [
-    0.007784695709041462,
-    0.3224671290700398,
-    2.445134137142996,
-    3.754408661907416,
-  ];
-  const lowerBoundary = 0.02425;
-  const upperBoundary = 1 - lowerBoundary;
-
-  if (boundedProbability < lowerBoundary) {
-    const q = Math.sqrt(-2 * Math.log(boundedProbability));
-    return (
-      (((((coefficientsC[0] * q + coefficientsC[1]) * q + coefficientsC[2]) *
-        q +
-        coefficientsC[3]) *
-        q +
-        coefficientsC[4]) *
-        q +
-        coefficientsC[5]) /
-      ((((coefficientsD[0] * q + coefficientsD[1]) * q + coefficientsD[2]) *
-        q +
-        coefficientsD[3]) *
-        q +
-        1)
-    );
-  }
-
-  if (boundedProbability > upperBoundary) {
-    const q = Math.sqrt(-2 * Math.log(1 - boundedProbability));
-    return -(
-      (((((coefficientsC[0] * q + coefficientsC[1]) * q + coefficientsC[2]) *
-        q +
-        coefficientsC[3]) *
-        q +
-        coefficientsC[4]) *
-        q +
-        coefficientsC[5]) /
-      ((((coefficientsD[0] * q + coefficientsD[1]) * q + coefficientsD[2]) *
-        q +
-        coefficientsD[3]) *
-        q +
-        1)
-    );
-  }
-
-  const q = boundedProbability - 0.5;
-  const r = q * q;
-  return (
-    (((((coefficientsA[0] * r + coefficientsA[1]) * r + coefficientsA[2]) *
-      r +
-      coefficientsA[3]) *
-      r +
-      coefficientsA[4]) *
-      r +
-      coefficientsA[5]) *
-    q /
-    (((((coefficientsB[0] * r + coefficientsB[1]) * r + coefficientsB[2]) *
-      r +
-      coefficientsB[3]) *
-      r +
-      coefficientsB[4]) *
-      r +
-      1)
-  );
-}
-
 function validateRank(rank: number, cohortSize: number, label: string): void {
   if (!Number.isInteger(rank) || !Number.isInteger(cohortSize)) {
     throw new Error(`${label} rank and cohort size must be whole numbers.`);
@@ -202,9 +125,31 @@ function validateRank(rank: number, cohortSize: number, label: string): void {
   }
 }
 
-function rankToZScore(rank: number, cohortSize: number): number {
-  const percentile = (cohortSize - rank + 0.5) / cohortSize;
-  return clamp(inverseNormalCdf(percentile), -2.75, 2.75);
+function rankToPercentile(rank: number, cohortSize: number): number {
+  if (cohortSize === 1) {
+    return 100;
+  }
+  return ((cohortSize - rank) / (cohortSize - 1)) * 100;
+}
+
+function performanceToRawStudyScore(performance: number): number {
+  const boundedPerformance = clamp(performance, 0, 100);
+
+  for (let index = 0; index < PERFORMANCE_TO_RAW_STUDY_SCORE.length - 1; index += 1) {
+    const [lowerPerformance, lowerStudyScore] = PERFORMANCE_TO_RAW_STUDY_SCORE[index];
+    const [upperPerformance, upperStudyScore] = PERFORMANCE_TO_RAW_STUDY_SCORE[index + 1];
+    if (boundedPerformance <= upperPerformance) {
+      return interpolate(
+        boundedPerformance,
+        lowerPerformance,
+        upperPerformance,
+        lowerStudyScore,
+        upperStudyScore,
+      );
+    }
+  }
+
+  return 50;
 }
 
 export function calculateStudyScore(input: StudyScoreInput): number {
@@ -222,38 +167,38 @@ export function calculateStudyScore(input: StudyScoreInput): number {
     }
   }
 
-  const schoolZScore = input.school
+  const schoolRankAdjustment = input.school
     ? clamp(
-        ((input.school.medianStudyScore - 30) / 7) * 0.5 +
-          ((input.school.scoresAbove40Percent - 8) / 20) * 0.25,
-        -0.9,
-        1.3,
+        ((input.school.medianStudyScore - 30) / 7) * 3 +
+          ((input.school.scoresAbove40Percent - 8) / 20) * 2,
+        -5,
+        5,
       )
     : 0;
-  const unit3ZScore =
-    rankToZScore(input.unit3Rank, input.unit3CohortSize) * 0.78 +
-    schoolZScore;
-  const unit4ZScore =
-    rankToZScore(input.unit4Rank, input.unit4CohortSize) * 0.78 +
-    schoolZScore;
-  const examZScores = input.examMarks.map((mark, index) =>
-    clamp(
-      ((mark / input.subject.examMaximumMarks[index]) * 100 - 60) / 16,
-      -2.75,
-      2.75,
-    ),
+  const unit3Performance = clamp(
+    rankToPercentile(input.unit3Rank, input.unit3CohortSize) + schoolRankAdjustment,
+    0,
+    100,
+  );
+  const unit4Performance = clamp(
+    rankToPercentile(input.unit4Rank, input.unit4CohortSize) + schoolRankAdjustment,
+    0,
+    100,
+  );
+  const examPercentages = input.examMarks.map(
+    (mark, index) => (mark / input.subject.examMaximumMarks[index]) * 100,
   );
 
-  const compositeZScore =
-    unit3ZScore * input.subject.unit3Weight +
-    unit4ZScore * input.subject.unit4Weight +
-    examZScores.reduce(
-      (total, zScore, index) =>
-        total + zScore * input.subject.examWeights[index],
+  const weightedPerformance =
+    unit3Performance * input.subject.unit3Weight +
+    unit4Performance * input.subject.unit4Weight +
+    examPercentages.reduce(
+      (total, percentage, index) =>
+        total + percentage * input.subject.examWeights[index],
       0,
     );
 
-  return Math.round(clamp(30 + 7 * compositeZScore, 0, 50));
+  return Math.round(performanceToRawStudyScore(weightedPerformance));
 }
 
 export function calculateScaledStudyScore(

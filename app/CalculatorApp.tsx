@@ -127,6 +127,7 @@ function loadStoredAtarRows(): readonly AtarRow[] | null {
 
 export function CalculatorApp() {
   const [activeView, setActiveView] = useState<CalculatorView>("study");
+  const [isLandingChooserOpen, setIsLandingChooserOpen] = useState(true);
   const [targetAtarRowId, setTargetAtarRowId] = useState<string | null>(null);
   const [studyForm, setStudyForm] = useState<StudyFormState>(() =>
     createDefaultStudyForm(),
@@ -268,6 +269,11 @@ export function CalculatorApp() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
+  function selectCalculatorFromLanding(view: CalculatorView): void {
+    setIsLandingChooserOpen(false);
+    navigateTo(view);
+  }
+
   function updateStudySubject(subjectCode: string): void {
     const subject = SUBJECT_BY_CODE.get(subjectCode) ?? SUBJECTS[0];
     setStudyForm((current) => ({
@@ -384,6 +390,47 @@ export function CalculatorApp() {
         </nav>
         <span className="data-year">2025 data</span>
       </header>
+
+      {isLandingChooserOpen ? (
+        <section
+          className="landing-chooser"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="landing-chooser-title"
+        >
+          <div className="landing-chooser-card">
+            <span className="landing-kicker">VCEcalc</span>
+            <h1 id="landing-chooser-title">What are you calculating?</h1>
+            <p>Choose a calculator to get started. You can switch whenever you need.</p>
+            <div className="landing-actions">
+              <button
+                className="landing-choice study-choice"
+                type="button"
+                onClick={() => selectCalculatorFromLanding("study")}
+              >
+                <span className="landing-choice-icon"><BookOpen size={22} /></span>
+                <span>
+                  <strong>Study score</strong>
+                  <small>Estimate from ranks and raw exam marks</small>
+                </span>
+                <ArrowRight size={20} aria-hidden="true" />
+              </button>
+              <button
+                className="landing-choice atar-choice"
+                type="button"
+                onClick={() => selectCalculatorFromLanding("atar")}
+              >
+                <span className="landing-choice-icon"><Calculator size={22} /></span>
+                <span>
+                  <strong>ATAR</strong>
+                  <small>Combine your scaled study scores</small>
+                </span>
+                <ArrowRight size={20} aria-hidden="true" />
+              </button>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {activeView === "study" ? (
         <section className="calculator-page">

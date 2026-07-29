@@ -28,6 +28,8 @@ test("server-renders the finished calculator", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
+  assert.match(html, /What are you calculating\?/);
+  assert.match(html, /Combine your scaled study scores/);
   assert.match(html, /<title>VCEcalc — Study Score &amp; ATAR Calculator<\/title>/i);
   assert.match(html, /What study score will you get\?/);
   assert.match(html, /Use in ATAR calculator/);
