@@ -1,0 +1,702 @@
+﻿[
+    {
+        "name":  "Ballarat Clarendon College",
+        "locality":  "BALLARAT",
+        "medianStudyScore":  37,
+        "scoresAbove40Percent":  35,
+        "cohortSize":  296
+    },
+    {
+        "name":  "MacRobertson Girls High School",
+        "locality":  "MELBOURNE",
+        "medianStudyScore":  37,
+        "scoresAbove40Percent":  34.7,
+        "cohortSize":  571
+    },
+    {
+        "name":  "Bacchus Marsh Grammar",
+        "locality":  "AINTREE",
+        "medianStudyScore":  36,
+        "scoresAbove40Percent":  33.3,
+        "cohortSize":  55
+    },
+    {
+        "name":  "Nossal High School",
+        "locality":  "BERWICK",
+        "medianStudyScore":  37,
+        "scoresAbove40Percent":  32.4,
+        "cohortSize":  410
+    },
+    {
+        "name":  "Haileybury College (Girls)",
+        "locality":  "KEYSBOROUGH",
+        "medianStudyScore":  36,
+        "scoresAbove40Percent":  31.2,
+        "cohortSize":  420
+    },
+    {
+        "name":  "Ruyton Girls\u0027 School",
+        "locality":  "KEW",
+        "medianStudyScore":  36,
+        "scoresAbove40Percent":  30.9,
+        "cohortSize":  163
+    },
+    {
+        "name":  "Melbourne Girls Grammar",
+        "locality":  "SOUTH YARRA",
+        "medianStudyScore":  36,
+        "scoresAbove40Percent":  30.4,
+        "cohortSize":  236
+    },
+    {
+        "name":  "Melbourne High School",
+        "locality":  "SOUTH YARRA",
+        "medianStudyScore":  36,
+        "scoresAbove40Percent":  29.9,
+        "cohortSize":  722
+    },
+    {
+        "name":  "Melbourne Grammar School",
+        "locality":  "MELBOURNE",
+        "medianStudyScore":  36,
+        "scoresAbove40Percent":  29.3,
+        "cohortSize":  377
+    },
+    {
+        "name":  "Huntingtower School",
+        "locality":  "MOUNT WAVERLEY",
+        "medianStudyScore":  36,
+        "scoresAbove40Percent":  27.7,
+        "cohortSize":  187
+    },
+    {
+        "name":  "Camberwell Girls Grammar School",
+        "locality":  "CANTERBURY",
+        "medianStudyScore":  36,
+        "scoresAbove40Percent":  27.5,
+        "cohortSize":  191
+    },
+    {
+        "name":  "Fintona Girls School",
+        "locality":  "BALWYN",
+        "medianStudyScore":  35,
+        "scoresAbove40Percent":  26.8,
+        "cohortSize":  109
+    },
+    {
+        "name":  "Haileybury College",
+        "locality":  "KEYSBOROUGH",
+        "medianStudyScore":  35,
+        "scoresAbove40Percent":  26.5,
+        "cohortSize":  577
+    },
+    {
+        "name":  "Mount Scopus Memorial College",
+        "locality":  "BURWOOD",
+        "medianStudyScore":  36,
+        "scoresAbove40Percent":  25.5,
+        "cohortSize":  237
+    },
+    {
+        "name":  "Suzanne Cory High School",
+        "locality":  "WERRIBEE",
+        "medianStudyScore":  35,
+        "scoresAbove40Percent":  25,
+        "cohortSize":  432
+    },
+    {
+        "name":  "Bialik College",
+        "locality":  "HAWTHORN",
+        "medianStudyScore":  36,
+        "scoresAbove40Percent":  24.8,
+        "cohortSize":  174
+    },
+    {
+        "name":  "Loreto Mandeville Hall",
+        "locality":  "TOORAK",
+        "medianStudyScore":  36,
+        "scoresAbove40Percent":  24.7,
+        "cohortSize":  264
+    },
+    {
+        "name":  "Korowa Anglican Girls\u0027 School",
+        "locality":  "GLEN IRIS",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  24.5,
+        "cohortSize":  183
+    },
+    {
+        "name":  "Leibler Yavneh College",
+        "locality":  "ELSTERNWICK",
+        "medianStudyScore":  36,
+        "scoresAbove40Percent":  24.1,
+        "cohortSize":  103
+    },
+    {
+        "name":  "Presbyterian Ladies\u0027 College",
+        "locality":  "BURWOOD",
+        "medianStudyScore":  35,
+        "scoresAbove40Percent":  24.1,
+        "cohortSize":  297
+    },
+    {
+        "name":  "Yarra Valley Grammar School",
+        "locality":  "RINGWOOD",
+        "medianStudyScore":  35,
+        "scoresAbove40Percent":  23.8,
+        "cohortSize":  364
+    },
+    {
+        "name":  "St Kevin\u0027s College",
+        "locality":  "TOORAK",
+        "medianStudyScore":  35,
+        "scoresAbove40Percent":  23.6,
+        "cohortSize":  392
+    },
+    {
+        "name":  "Methodist Ladies College",
+        "locality":  "KEW",
+        "medianStudyScore":  35,
+        "scoresAbove40Percent":  23.2,
+        "cohortSize":  438
+    },
+    {
+        "name":  "Firbank Grammar School",
+        "locality":  "BRIGHTON",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  23,
+        "cohortSize":  232
+    },
+    {
+        "name":  "Lauriston Girls\u0027 School",
+        "locality":  "ARMADALE",
+        "medianStudyScore":  35,
+        "scoresAbove40Percent":  22.9,
+        "cohortSize":  150
+    },
+    {
+        "name":  "Caulfield Grammar School,ST KILDA EAST",
+        "locality":  "ST KILDA EAST",
+        "medianStudyScore":  35,
+        "scoresAbove40Percent":  22.6,
+        "cohortSize":  466
+    },
+    {
+        "name":  "The King David School",
+        "locality":  "ARMADALE",
+        "medianStudyScore":  36,
+        "scoresAbove40Percent":  22.2,
+        "cohortSize":  116
+    },
+    {
+        "name":  "John Monash Science School",
+        "locality":  "Monash University Clayton",
+        "medianStudyScore":  35,
+        "scoresAbove40Percent":  22,
+        "cohortSize":  438
+    },
+    {
+        "name":  "St Catherine\u0027s School",
+        "locality":  "TOORAK",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  22,
+        "cohortSize":  158
+    },
+    {
+        "name":  "Trinity Grammar School",
+        "locality":  "KEW",
+        "medianStudyScore":  35,
+        "scoresAbove40Percent":  21.6,
+        "cohortSize":  300
+    },
+    {
+        "name":  "Mentone Grammar School",
+        "locality":  "MENTONE",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  21.6,
+        "cohortSize":  345
+    },
+    {
+        "name":  "Beth Rivkah Ladies College",
+        "locality":  "ST KILDA EAST",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  21.5,
+        "cohortSize":  66
+    },
+    {
+        "name":  "Ivanhoe Grammar School,Ivanhoe",
+        "locality":  "IVANHOE",
+        "medianStudyScore":  35,
+        "scoresAbove40Percent":  21.4,
+        "cohortSize":  303
+    },
+    {
+        "name":  "Ivanhoe Grammar School,Doreen",
+        "locality":  "MERNDA",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  21,
+        "cohortSize":  116
+    },
+    {
+        "name":  "Ivanhoe Girls\u0027 Grammar School",
+        "locality":  "IVANHOE",
+        "medianStudyScore":  35,
+        "scoresAbove40Percent":  20.9,
+        "cohortSize":  200
+    },
+    {
+        "name":  "Caulfield Grammar School,WHEELERS HILL",
+        "locality":  "WHEELERS HILL",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  20.9,
+        "cohortSize":  330
+    },
+    {
+        "name":  "Mentone Girls\u0027 Grammar School",
+        "locality":  "MENTONE",
+        "medianStudyScore":  35,
+        "scoresAbove40Percent":  20.6,
+        "cohortSize":  127
+    },
+    {
+        "name":  "Genazzano FCJ College",
+        "locality":  "KEW",
+        "medianStudyScore":  35,
+        "scoresAbove40Percent":  20.4,
+        "cohortSize":  197
+    },
+    {
+        "name":  "Strathcona Baptist Girls\u0027 Grammar School",
+        "locality":  "CANTERBURY",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  20.4,
+        "cohortSize":  189
+    },
+    {
+        "name":  "Camberwell Grammar School",
+        "locality":  "CANTERBURY",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  20.3,
+        "cohortSize":  322
+    },
+    {
+        "name":  "Waverley Christian College",
+        "locality":  "WANTIRNA SOUTH",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  20.1,
+        "cohortSize":  221
+    },
+    {
+        "name":  "Yeshivah College",
+        "locality":  "ST KILDA EAST",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  19.2,
+        "cohortSize":  58
+    },
+    {
+        "name":  "Balwyn High School",
+        "locality":  "BALWYN NORTH",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  19.2,
+        "cohortSize":  622
+    },
+    {
+        "name":  "Scotch College",
+        "locality":  "HAWTHORN",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  19,
+        "cohortSize":  450
+    },
+    {
+        "name":  "Brighton Grammar School",
+        "locality":  "BRIGHTON",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  18.6,
+        "cohortSize":  294
+    },
+    {
+        "name":  "Tintern Grammar",
+        "locality":  "RINGWOOD EAST",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  18.6,
+        "cohortSize":  170
+    },
+    {
+        "name":  "Lowther Hall Anglican Grammar School",
+        "locality":  "ESSENDON",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  18.5,
+        "cohortSize":  126
+    },
+    {
+        "name":  "Sacre Coeur",
+        "locality":  "GLEN IRIS",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  18.5,
+        "cohortSize":  139
+    },
+    {
+        "name":  "Kilvington Grammar School",
+        "locality":  "ORMOND",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  17.7,
+        "cohortSize":  176
+    },
+    {
+        "name":  "St Andrews Christian College",
+        "locality":  "WANTIRNA SOUTH",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  17.6,
+        "cohortSize":  90
+    },
+    {
+        "name":  "St Margaret\u0027s School",
+        "locality":  "BERWICK",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  17.1,
+        "cohortSize":  108
+    },
+    {
+        "name":  "Yesodei HaTorah College",
+        "locality":  "ORMOND",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  17.1,
+        "cohortSize":  31
+    },
+    {
+        "name":  "Penleigh and Essendon Grammar School",
+        "locality":  "KEILOR EAST",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  16.9,
+        "cohortSize":  404
+    },
+    {
+        "name":  "The Knox School",
+        "locality":  "WANTIRNA SOUTH",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  16.9,
+        "cohortSize":  112
+    },
+    {
+        "name":  "Haileybury Rendall School",
+        "locality":  "BERRIMAH",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  16.8,
+        "cohortSize":  97
+    },
+    {
+        "name":  "Goulburn Valley Grammar School",
+        "locality":  "SHEPPARTON",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  16.3,
+        "cohortSize":  163
+    },
+    {
+        "name":  "Siena College",
+        "locality":  "CAMBERWELL",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  16.2,
+        "cohortSize":  167
+    },
+    {
+        "name":  "Girton Grammar School",
+        "locality":  "BENDIGO",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  16.1,
+        "cohortSize":  199
+    },
+    {
+        "name":  "Islamic College of Melbourne",
+        "locality":  "TARNEIT",
+        "medianStudyScore":  32,
+        "scoresAbove40Percent":  15.8,
+        "cohortSize":  165
+    },
+    {
+        "name":  "Alphington Grammar School",
+        "locality":  "ALPHINGTON",
+        "medianStudyScore":  31,
+        "scoresAbove40Percent":  15.7,
+        "cohortSize":  106
+    },
+    {
+        "name":  "Mazenod College",
+        "locality":  "MULGRAVE",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  15.3,
+        "cohortSize":  421
+    },
+    {
+        "name":  "Xavier College",
+        "locality":  "KEW",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  15.2,
+        "cohortSize":  391
+    },
+    {
+        "name":  "Glen Waverley Secondary College",
+        "locality":  "GLEN WAVERLEY",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  14.7,
+        "cohortSize":  675
+    },
+    {
+        "name":  "Oxley Christian College",
+        "locality":  "CHIRNSIDE PARK",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  14.7,
+        "cohortSize":  97
+    },
+    {
+        "name":  "Wesley College,Melbourne",
+        "locality":  "MELBOURNE",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  14.5,
+        "cohortSize":  211
+    },
+    {
+        "name":  "Toorak College",
+        "locality":  "MOUNT ELIZA",
+        "medianStudyScore":  34,
+        "scoresAbove40Percent":  14.4,
+        "cohortSize":  180
+    },
+    {
+        "name":  "The Geelong College",
+        "locality":  "NEWTOWN",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  14,
+        "cohortSize":  255
+    },
+    {
+        "name":  "Carey Baptist Grammar School",
+        "locality":  "KEW",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  13.8,
+        "cohortSize":  310
+    },
+    {
+        "name":  "Star of the Sea College",
+        "locality":  "BRIGHTON",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  13.7,
+        "cohortSize":  308
+    },
+    {
+        "name":  "Our Lady of Sion College",
+        "locality":  "BOX HILL",
+        "medianStudyScore":  32,
+        "scoresAbove40Percent":  13.6,
+        "cohortSize":  196
+    },
+    {
+        "name":  "Kilbreda College",
+        "locality":  "MENTONE",
+        "medianStudyScore":  32,
+        "scoresAbove40Percent":  13.2,
+        "cohortSize":  211
+    },
+    {
+        "name":  "Charlton College",
+        "locality":  "CHARLTON",
+        "medianStudyScore":  32,
+        "scoresAbove40Percent":  13,
+        "cohortSize":  21
+    },
+    {
+        "name":  "St Leonard\u0027s College",
+        "locality":  "BRIGHTON EAST",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  12.8,
+        "cohortSize":  228
+    },
+    {
+        "name":  "Sirius College,Meadow Fair Campus",
+        "locality":  "BROADMEADOWS",
+        "medianStudyScore":  31,
+        "scoresAbove40Percent":  12.7,
+        "cohortSize":  137
+    },
+    {
+        "name":  "McKinnon Secondary College",
+        "locality":  "MCKINNON",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  12.5,
+        "cohortSize":  679
+    },
+    {
+        "name":  "Victorian College of the Arts",
+        "locality":  "SOUTHBANK",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  12.4,
+        "cohortSize":  179
+    },
+    {
+        "name":  "Peninsula Grammar",
+        "locality":  "MOUNT ELIZA",
+        "medianStudyScore":  32,
+        "scoresAbove40Percent":  12.4,
+        "cohortSize":  288
+    },
+    {
+        "name":  "Kingswood College",
+        "locality":  "BOX HILL",
+        "medianStudyScore":  31,
+        "scoresAbove40Percent":  12.4,
+        "cohortSize":  95
+    },
+    {
+        "name":  "Avila College",
+        "locality":  "MOUNT WAVERLEY",
+        "medianStudyScore":  32,
+        "scoresAbove40Percent":  12.1,
+        "cohortSize":  276
+    },
+    {
+        "name":  "Melbourne Girls\u0027 College",
+        "locality":  "RICHMOND",
+        "medianStudyScore":  32,
+        "scoresAbove40Percent":  12.1,
+        "cohortSize":  388
+    },
+    {
+        "name":  "Westbourne Grammar School",
+        "locality":  "TRUGANINA",
+        "medianStudyScore":  32,
+        "scoresAbove40Percent":  12,
+        "cohortSize":  251
+    },
+    {
+        "name":  "Al-Taqwa College",
+        "locality":  "TRUGANINA",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  11.9,
+        "cohortSize":  135
+    },
+    {
+        "name":  "Edenbrook Secondary College",
+        "locality":  "PAKENHAM",
+        "medianStudyScore":  27,
+        "scoresAbove40Percent":  11.8,
+        "cohortSize":  29
+    },
+    {
+        "name":  "Box Hill High School",
+        "locality":  "BOX HILL",
+        "medianStudyScore":  32,
+        "scoresAbove40Percent":  11.7,
+        "cohortSize":  442
+    },
+    {
+        "name":  "East Doncaster Secondary College",
+        "locality":  "DONCASTER EAST",
+        "medianStudyScore":  32,
+        "scoresAbove40Percent":  11.6,
+        "cohortSize":  435
+    },
+    {
+        "name":  "Catholic Ladies College",
+        "locality":  "ELTHAM",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  11.5,
+        "cohortSize":  193
+    },
+    {
+        "name":  "Kardinia International College",
+        "locality":  "BELL POST HILL",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  11.2,
+        "cohortSize":  320
+    },
+    {
+        "name":  "Darul Ulum College of Victoria",
+        "locality":  "FAWKNER",
+        "medianStudyScore":  31,
+        "scoresAbove40Percent":  11.1,
+        "cohortSize":  141
+    },
+    {
+        "name":  "Bacchus Marsh Grammar",
+        "locality":  "BACCHUS MARSH",
+        "medianStudyScore":  32,
+        "scoresAbove40Percent":  10.9,
+        "cohortSize":  476
+    },
+    {
+        "name":  "Williamstown High School",
+        "locality":  "WILLIAMSTOWN",
+        "medianStudyScore":  32,
+        "scoresAbove40Percent":  10.9,
+        "cohortSize":  385
+    },
+    {
+        "name":  "Alice Miller School",
+        "locality":  "MACEDON",
+        "medianStudyScore":  32,
+        "scoresAbove40Percent":  10.7,
+        "cohortSize":  56
+    },
+    {
+        "name":  "Geelong Grammar School",
+        "locality":  "CORIO",
+        "medianStudyScore":  32,
+        "scoresAbove40Percent":  10.6,
+        "cohortSize":  278
+    },
+    {
+        "name":  "Wesley College,Glen Waverley",
+        "locality":  "GLEN WAVERLEY",
+        "medianStudyScore":  32,
+        "scoresAbove40Percent":  10.6,
+        "cohortSize":  139
+    },
+    {
+        "name":  "Auburn High School",
+        "locality":  "HAWTHORN EAST",
+        "medianStudyScore":  31,
+        "scoresAbove40Percent":  10.6,
+        "cohortSize":  201
+    },
+    {
+        "name":  "Sirius College,Ibrahim Dellal Campus",
+        "locality":  "SUNSHINE WEST",
+        "medianStudyScore":  28,
+        "scoresAbove40Percent":  10.6,
+        "cohortSize":  97
+    },
+    {
+        "name":  "Haileybury - Pangea Campus",
+        "locality":  "KEYSBOROUGH",
+        "medianStudyScore":  30,
+        "scoresAbove40Percent":  10.5,
+        "cohortSize":  52
+    },
+    {
+        "name":  "Our Lady of Mercy College",
+        "locality":  "HEIDELBERG",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  10.3,
+        "cohortSize":  272
+    },
+    {
+        "name":  "St Michael\u0027s Grammar School",
+        "locality":  "ST KILDA",
+        "medianStudyScore":  33,
+        "scoresAbove40Percent":  10.3,
+        "cohortSize":  216
+    },
+    {
+        "name":  "Kew High School",
+        "locality":  "KEW EAST",
+        "medianStudyScore":  31,
+        "scoresAbove40Percent":  10.3,
+        "cohortSize":  297
+    },
+    {
+        "name":  "Ballarat Grammar",
+        "locality":  "WENDOUREE",
+        "medianStudyScore":  32,
+        "scoresAbove40Percent":  10.2,
+        "cohortSize":  410
+    }
+]
