@@ -219,7 +219,7 @@ test("ATAR calculation applies primary four and two increments", () => {
   );
 });
 
-test("ATAR calculation disregards the final three of nine subjects", () => {
+test("ATAR calculation disregards the final subject of seven", () => {
   const result = calculateAtar([
     { id: "en", subject: getSubject("EN"), rawStudyScore: 32 },
     { id: "methods", subject: getSubject("NJ"), rawStudyScore: 45 },
@@ -228,8 +228,6 @@ test("ATAR calculation disregards the final three of nine subjects", () => {
     { id: "physics", subject: getSubject("PH"), rawStudyScore: 39 },
     { id: "business", subject: getSubject("BM"), rawStudyScore: 37 },
     { id: "general", subject: getSubject("NF"), rawStudyScore: 35 },
-    { id: "economics", subject: getSubject("EC"), rawStudyScore: 33 },
-    { id: "legal", subject: getSubject("LS"), rawStudyScore: 31 },
   ]);
 
   assert.equal(
@@ -242,7 +240,7 @@ test("ATAR calculation disregards the final three of nine subjects", () => {
   );
   assert.equal(
     result.contributions.filter((item) => item.role === "unused").length,
-    3,
+    1,
   );
   assert.equal(
     result.contributions.find((item) => item.id === "en")?.role,
@@ -252,7 +250,7 @@ test("ATAR calculation disregards the final three of nine subjects", () => {
   const groups = groupAtarContributions(result.contributions);
   assert.deepEqual(
     groups.map((group) => [group.title, group.contributions.length]),
-    [["Top 4", 4], ["Bottom 2", 2], ["Other subjects", 3]],
+    [["Top 4", 4], ["Bottom 2", 2], ["Other subjects", 1]],
   );
   assert.equal(groups[0].contributions[0].id, "en");
 });

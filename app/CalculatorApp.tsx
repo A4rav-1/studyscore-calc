@@ -51,8 +51,8 @@ type StudyFormState = {
 };
 
 const schools = schoolsJson as readonly SchoolRecord[];
-const MINIMUM_ATAR_SUBJECTS = 7;
-const MAXIMUM_ATAR_SUBJECTS = 9;
+const MINIMUM_ATAR_SUBJECTS = 4;
+const MAXIMUM_ATAR_SUBJECTS = 7;
 const LEGACY_PLACEHOLDER_ATAR_ROWS: readonly AtarRow[] = [
   { id: "subject-1", subjectCode: "EN", rawStudyScore: "" },
   { id: "subject-2", subjectCode: "NJ", rawStudyScore: "" },
@@ -64,9 +64,6 @@ const DEFAULT_ATAR_ROWS: readonly AtarRow[] = [
   { id: "subject-empty-2", subjectCode: "", rawStudyScore: "" },
   { id: "subject-empty-3", subjectCode: "", rawStudyScore: "" },
   { id: "subject-empty-4", subjectCode: "", rawStudyScore: "" },
-  { id: "subject-empty-5", subjectCode: "", rawStudyScore: "" },
-  { id: "subject-empty-6", subjectCode: "", rawStudyScore: "" },
-  { id: "subject-empty-7", subjectCode: "", rawStudyScore: "" },
 ];
 const ENGLISH_SUBJECTS = SUBJECTS.filter((subject) => subject.englishGroup);
 
@@ -126,6 +123,12 @@ function isLegacyPlaceholderRows(rows: readonly AtarRow[]): boolean {
   );
 }
 
+function hasOnlyBlankAtarRows(rows: readonly AtarRow[]): boolean {
+  return rows.every(
+    (row) => row.subjectCode === "" && row.rawStudyScore === "",
+  );
+}
+
 function loadStoredAtarRows(): readonly AtarRow[] | null {
   const storedRows = window.localStorage.getItem("vce-atar-subjects");
   if (!storedRows) {
@@ -150,7 +153,9 @@ function loadStoredAtarRows(): readonly AtarRow[] | null {
       )
     ) {
       const rows = parsedRows as readonly AtarRow[];
-      return rows.length === 0 || isLegacyPlaceholderRows(rows)
+      return rows.length === 0 ||
+        isLegacyPlaceholderRows(rows) ||
+        hasOnlyBlankAtarRows(rows)
         ? DEFAULT_ATAR_ROWS
         : addBlankAtarRows(rows);
     }
@@ -879,7 +884,7 @@ export function CalculatorApp() {
           <div className="page-heading">
             <span className="eyebrow"><Calculator size={15} /> ATAR calculator</span>
             <h1>ATAR calculator</h1>
-            <p>Add up to nine subjects. Your ATAR and contribution groups update as you enter scores.</p>
+            <p>Add up to seven subjects. Your ATAR and contribution groups update as you enter scores.</p>
           </div>
 
           <div className="calculator-grid atar-grid">
