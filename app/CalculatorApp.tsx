@@ -51,7 +51,7 @@ type StudyFormState = {
 };
 
 const schools = schoolsJson as readonly SchoolRecord[];
-const MINIMUM_ATAR_SUBJECTS = 4;
+const MINIMUM_ATAR_SUBJECTS = 7;
 const MAXIMUM_ATAR_SUBJECTS = 9;
 const LEGACY_PLACEHOLDER_ATAR_ROWS: readonly AtarRow[] = [
   { id: "subject-1", subjectCode: "EN", rawStudyScore: "" },
@@ -64,6 +64,9 @@ const DEFAULT_ATAR_ROWS: readonly AtarRow[] = [
   { id: "subject-empty-2", subjectCode: "", rawStudyScore: "" },
   { id: "subject-empty-3", subjectCode: "", rawStudyScore: "" },
   { id: "subject-empty-4", subjectCode: "", rawStudyScore: "" },
+  { id: "subject-empty-5", subjectCode: "", rawStudyScore: "" },
+  { id: "subject-empty-6", subjectCode: "", rawStudyScore: "" },
+  { id: "subject-empty-7", subjectCode: "", rawStudyScore: "" },
 ];
 const ENGLISH_SUBJECTS = SUBJECTS.filter((subject) => subject.englishGroup);
 
@@ -98,6 +101,20 @@ function createAtarRow(): AtarRow {
     subjectCode: "",
     rawStudyScore: "",
   };
+}
+
+function addBlankAtarRows(rows: readonly AtarRow[]): readonly AtarRow[] {
+  return [
+    ...rows,
+    ...Array.from(
+      { length: Math.max(0, MINIMUM_ATAR_SUBJECTS - rows.length) },
+      (_, index): AtarRow => ({
+        id: `subject-empty-${rows.length + index + 1}`,
+        subjectCode: "",
+        rawStudyScore: "",
+      }),
+    ),
+  ];
 }
 
 function isLegacyPlaceholderRows(rows: readonly AtarRow[]): boolean {
@@ -135,7 +152,7 @@ function loadStoredAtarRows(): readonly AtarRow[] | null {
       const rows = parsedRows as readonly AtarRow[];
       return rows.length === 0 || isLegacyPlaceholderRows(rows)
         ? DEFAULT_ATAR_ROWS
-        : rows;
+        : addBlankAtarRows(rows);
     }
     console.error("Saved ATAR subjects have an invalid structure.");
   } catch (error) {
@@ -155,8 +172,6 @@ export function CalculatorApp() {
   const [atarRows, setAtarRows] = useState<readonly AtarRow[]>(
     DEFAULT_ATAR_ROWS,
   );
-  const [isAtarCalculationRequested, setIsAtarCalculationRequested] =
-    useState(false);
 
   useEffect(() => {
     const restoreLocation = () => {
@@ -314,18 +329,36 @@ export function CalculatorApp() {
     readonly { title: string; rows: readonly AtarRow[] }[]
   >(() => {
     const calculationResult = atarCalculation.result;
-    if (!isAtarCalculationRequested || !calculationResult) {
+    if (!calculationResult) {
       return [];
     }
 
     const rowsById = new Map(atarRows.map((row) => [row.id, row]));
-    return groupAtarContributions(calculationResult.contributions).map((group) => ({
+    const groups = groupAtarContributions(calculationResult.contributions).map((group) => ({
       title: group.title,
       rows: group.contributions
         .map((contribution) => rowsById.get(contribution.id))
         .filter((row): row is AtarRow => row !== undefined),
     }));
-  }, [atarCalculation.result, atarRows, isAtarCalculationRequested]);
+    const blankRows = atarRows.filter(
+      (row) => row.subjectCode === "" && row.rawStudyScore === "",
+    );
+    const otherSubjectGroup = groups.find(
+      (group) => group.title === "Other subjects",
+    );
+
+    if (blankRows.length === 0) {
+      return groups;
+    }
+    if (otherSubjectGroup) {
+      return groups.map((group) =>
+        group.title === "Other subjects"
+          ? { ...group, rows: [...group.rows, ...blankRows] }
+          : group,
+      );
+    }
+    return [...groups, { title: "Other subjects", rows: blankRows }];
+  }, [atarCalculation.result, atarRows]);
 
   function navigateTo(view: CalculatorView, rowId: string | null = null): void {
     const searchParameters = new URLSearchParams();
@@ -358,7 +391,6 @@ export function CalculatorApp() {
   }
 
   function updateAtarRow(rowId: string, patch: Partial<AtarRow>): void {
-    setIsAtarCalculationRequested(false);
     setAtarRows((current) =>
       current.map((row) => (row.id === rowId ? { ...row, ...patch } : row)),
     );
@@ -368,7 +400,6 @@ export function CalculatorApp() {
     if (atarRows.length >= MAXIMUM_ATAR_SUBJECTS) {
       return;
     }
-    setIsAtarCalculationRequested(false);
     setAtarRows((current) => [...current, createAtarRow()]);
   }
 
@@ -376,7 +407,6 @@ export function CalculatorApp() {
     if (atarRows.length <= MINIMUM_ATAR_SUBJECTS) {
       return;
     }
-    setIsAtarCalculationRequested(false);
     setAtarRows((current) => current.filter((row) => row.id !== rowId));
   }
 
@@ -390,7 +420,6 @@ export function CalculatorApp() {
       return;
     }
 
-    setIsAtarCalculationRequested(false);
     setAtarRows((current) => {
       const score = String(studyScore);
       const targetIndex = current.findIndex((row) => row.id === targetAtarRowId);
@@ -444,7 +473,6 @@ export function CalculatorApp() {
 
   function resetAtarRows(): void {
     setAtarRows(DEFAULT_ATAR_ROWS);
-    setIsAtarCalculationRequested(false);
   }
 
   function renderAtarRow(row: AtarRow, displayNumber: number) {
@@ -454,9 +482,9 @@ export function CalculatorApp() {
       subject && row.rawStudyScore !== "" && rawScore >= 0 && rawScore <= 50
         ? calculateScaledStudyScore(rawScore, subject)
         : null;
-    const contribution = isAtarCalculationRequested
-      ? atarCalculation.result?.contributions.find((item) => item.id === row.id)
-      : undefined;
+    const contribution = atarCalculation.result?.contributions.find(
+      (item) => item.id === row.id,
+    );
     const isEnglishSlot = atarRows[0]?.id === row.id;
     const subjectOptions = isEnglishSlot ? ENGLISH_SUBJECTS : SUBJECTS;
     const contributionLabel = contribution?.role === "primary"
@@ -851,7 +879,7 @@ export function CalculatorApp() {
           <div className="page-heading">
             <span className="eyebrow"><Calculator size={15} /> ATAR calculator</span>
             <h1>ATAR calculator</h1>
-            <p>Add up to nine subjects. Your English subject, best three, two increments and excluded subjects are separated after calculation.</p>
+            <p>Add up to nine subjects. Your ATAR and contribution groups update as you enter scores.</p>
           </div>
 
           <div className="calculator-grid atar-grid">
@@ -891,13 +919,6 @@ export function CalculatorApp() {
                 >
                   <Plus size={16} /> Add subject ({atarRows.length}/{MAXIMUM_ATAR_SUBJECTS})
                 </button>
-                <button
-                  className="calculate-atar-button"
-                  type="button"
-                  onClick={() => setIsAtarCalculationRequested(true)}
-                >
-                  <Calculator size={16} /> Calculate ATAR
-                </button>
                 <button className="reset-button" type="button" onClick={resetAtarRows}>
                   <RotateCcw size={15} /> Reset
                 </button>
@@ -906,10 +927,10 @@ export function CalculatorApp() {
 
             <aside className="result-card atar-result-card" aria-live="polite">
               <span className="result-label">Estimated ATAR</span>
-              <div className={`atar-number ${isAtarCalculationRequested && atarCalculation.result ? "has-score" : ""}`}>
-                {isAtarCalculationRequested ? atarCalculation.result?.atar.toFixed(2) ?? "—" : "—"}
+              <div className={`atar-number ${atarCalculation.result ? "has-score" : ""}`}>
+                {atarCalculation.result?.atar.toFixed(2) ?? "—"}
               </div>
-              {isAtarCalculationRequested && atarCalculation.result ? (
+              {atarCalculation.result ? (
                 <>
                   <div className="aggregate-row">
                     <span>Scaled aggregate</span>
@@ -918,7 +939,7 @@ export function CalculatorApp() {
                   <p>Your English subject, next best three and up to two 10% increments are included.</p>
                 </>
               ) : (
-                <p>{isAtarCalculationRequested ? atarCalculation.error : "Add your subjects and select Calculate ATAR."}</p>
+                <p>{atarCalculation.error}</p>
               )}
               <div className="result-source">
                 <Check size={15} /> 2025 VTAC scaling and aggregate table

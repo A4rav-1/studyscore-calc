@@ -873,7 +873,6 @@ select:focus-visible {
 }
 
 .add-subject-button,
-.calculate-atar-button,
 .atar-actions .reset-button {
   display: inline-flex;
   align-items: center;
@@ -886,19 +885,8 @@ select:focus-visible {
 }
 
 .add-subject-button:hover:not(:disabled),
-.calculate-atar-button:hover,
 .atar-actions .reset-button:hover {
   background: var(--green-light);
-}
-
-.calculate-atar-button {
-  border: 1px solid var(--green);
-  background: var(--green);
-  color: #fff;
-}
-
-.calculate-atar-button:hover {
-  background: #205e43;
 }
 
 .add-subject-button:disabled {
