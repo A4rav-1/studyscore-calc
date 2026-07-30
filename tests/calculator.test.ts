@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { parseExamMark } from "../app/lib/input.ts";
+import { getStudyInputIssues, parseExamMark } from "../app/lib/input.ts";
 import {
   RAW_EXAM_MAXIMUMS_BY_CODE,
   SUBJECT_BY_CODE,
@@ -22,6 +22,22 @@ test("exam mark parsing permits marks above 100 for subjects with larger papers"
   assert.equal(parseExamMark("110"), 110);
   assert.equal(parseExamMark(""), null);
   assert.equal(parseExamMark("-1"), null);
+});
+
+test("study input validation reports subject-specific exam and rank errors", () => {
+  const issues = getStudyInputIssues({
+    unit3Rank: "101",
+    unit3CohortSize: "100",
+    unit4Rank: "1.5",
+    unit4CohortSize: "100",
+    examMarks: ["121"],
+    examMaximumMarks: [120],
+  });
+
+  assert.equal(issues.unit3, "Unit 3 rank must be between 1 and 100.");
+  assert.equal(issues.unit4, "Unit 4 rank and cohort must be whole numbers.");
+  assert.deepEqual(issues.examMarks, ["Enter a mark from 0 to 120."]);
+  assert.equal(issues.firstError, issues.unit3);
 });
 
 test("Biology accepts a raw exam mark above 100 up to its 120-mark maximum", () => {

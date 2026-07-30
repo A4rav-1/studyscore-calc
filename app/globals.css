@@ -425,6 +425,20 @@ select:focus-visible {
   outline: none;
 }
 
+.field input.input-invalid,
+.rank-row input.input-invalid {
+  border-color: #c34227;
+  box-shadow: 0 0 0 3px rgb(195 66 39 / 10%);
+}
+
+.field-error {
+  margin: 8px 0 0;
+  color: #b13b24;
+  font-size: 11px;
+  font-weight: 680;
+  line-height: 1.35;
+}
+
 .input-with-icon {
   position: relative;
 }

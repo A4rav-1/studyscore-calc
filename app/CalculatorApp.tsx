@@ -21,7 +21,7 @@ import {
   calculateStudyScore,
   type AtarResult,
 } from "./lib/calculator";
-import { parseExamMark } from "./lib/input";
+import { getStudyInputIssues, parseExamMark } from "./lib/input";
 
 type CalculatorView = "study" | "atar";
 
@@ -170,6 +170,18 @@ export function CalculatorApp() {
         school.name.toLocaleLowerCase() ===
         studyForm.schoolName.trim().toLocaleLowerCase(),
     ) ?? null;
+  const studyInputIssues = useMemo(
+    () =>
+      getStudyInputIssues({
+        unit3Rank: studyForm.unit3Rank,
+        unit3CohortSize: studyForm.unit3CohortSize,
+        unit4Rank: studyForm.unit4Rank,
+        unit4CohortSize: studyForm.unit4CohortSize,
+        examMarks: studyForm.examMarks,
+        examMaximumMarks: selectedSubject.examMaximumMarks,
+      }),
+    [selectedSubject.examMaximumMarks, studyForm],
+  );
 
   const studyScore = useMemo(() => {
     const unit3Rank = parseInteger(studyForm.unit3Rank);
@@ -179,6 +191,7 @@ export function CalculatorApp() {
     const examMarks = studyForm.examMarks.map(parseExamMark);
 
     if (
+      studyInputIssues.firstError !== null ||
       unit3Rank === null ||
       unit3CohortSize === null ||
       unit4Rank === null ||
@@ -204,7 +217,7 @@ export function CalculatorApp() {
       unit4CohortSize,
       examMarks: examMarks as readonly number[],
     });
-  }, [selectedSchool, selectedSubject, studyForm]);
+  }, [selectedSchool, selectedSubject, studyForm, studyInputIssues.firstError]);
 
   const scaledStudyScore =
     studyScore === null
@@ -449,6 +462,8 @@ export function CalculatorApp() {
                     <div className="input-with-icon">
                       <School size={17} aria-hidden="true" />
                       <input
+                        aria-invalid={studyInputIssues.unit3 !== null}
+                        className={studyInputIssues.unit3 ? "input-invalid" : ""}
                         list="victorian-schools"
                         value={studyForm.schoolName}
                         placeholder="Start typing your school"
@@ -506,6 +521,8 @@ export function CalculatorApp() {
                     <label>
                       <span className="sr-only">Unit 3 rank</span>
                       <input
+                        aria-invalid={studyInputIssues.unit3 !== null}
+                        className={studyInputIssues.unit3 ? "input-invalid" : ""}
                         inputMode="numeric"
                         min="1"
                         type="number"
@@ -522,6 +539,8 @@ export function CalculatorApp() {
                     <label>
                       <span className="sr-only">Unit 3 cohort size</span>
                       <input
+                        aria-invalid={studyInputIssues.unit3 !== null}
+                        className={studyInputIssues.unit3 ? "input-invalid" : ""}
                         inputMode="numeric"
                         min="1"
                         type="number"
@@ -541,6 +560,8 @@ export function CalculatorApp() {
                     <label>
                       <span className="sr-only">Unit 4 rank</span>
                       <input
+                        aria-invalid={studyInputIssues.unit4 !== null}
+                        className={studyInputIssues.unit4 ? "input-invalid" : ""}
                         inputMode="numeric"
                         min="1"
                         type="number"
@@ -557,6 +578,8 @@ export function CalculatorApp() {
                     <label>
                       <span className="sr-only">Unit 4 cohort size</span>
                       <input
+                        aria-invalid={studyInputIssues.unit4 !== null}
+                        className={studyInputIssues.unit4 ? "input-invalid" : ""}
                         inputMode="numeric"
                         min="1"
                         type="number"
@@ -571,6 +594,12 @@ export function CalculatorApp() {
                       />
                     </label>
                   </div>
+                  {studyInputIssues.unit3 ? (
+                    <p className="field-error" role="alert">{studyInputIssues.unit3}</p>
+                  ) : null}
+                  {studyInputIssues.unit4 ? (
+                    <p className="field-error" role="alert">{studyInputIssues.unit4}</p>
+                  ) : null}
                 </div>
               </div>
 
@@ -588,6 +617,8 @@ export function CalculatorApp() {
                       <span>{label}</span>
                       <div className="mark-input">
                         <input
+                          aria-invalid={studyInputIssues.examMarks[index] !== null}
+                          className={studyInputIssues.examMarks[index] ? "input-invalid" : ""}
                           inputMode="decimal"
                           min="0"
                           max={selectedSubject.examMaximumMarks[index]}
@@ -608,6 +639,11 @@ export function CalculatorApp() {
                         />
                         <span>/ {selectedSubject.examMaximumMarks[index]}</span>
                       </div>
+                      {studyInputIssues.examMarks[index] ? (
+                        <small className="field-error" role="alert">
+                          {studyInputIssues.examMarks[index]}
+                        </small>
+                      ) : null}
                     </label>
                   ))}
                 </div>
@@ -623,7 +659,7 @@ export function CalculatorApp() {
               <h2>{studyScore === null ? "Enter your results" : selectedSubject.name}</h2>
               <p>
                 {studyScore === null
-                  ? "Fill every field to see your score."
+                  ? studyInputIssues.firstError ?? "Fill every field to see your score."
                   : `Based on your school, SAC ranks and ${selectedSubject.examWeights.length === 1 ? "raw exam mark" : "raw exam marks"}.`}
               </p>
               <div className="scaled-study-score">
