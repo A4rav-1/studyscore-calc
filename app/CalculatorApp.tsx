@@ -51,6 +51,7 @@ type StudyFormState = {
 };
 
 const schools = schoolsJson as readonly SchoolRecord[];
+const MINIMUM_ATAR_SUBJECTS = 4;
 const MAXIMUM_ATAR_SUBJECTS = 9;
 const LEGACY_PLACEHOLDER_ATAR_ROWS: readonly AtarRow[] = [
   { id: "subject-1", subjectCode: "EN", rawStudyScore: "" },
@@ -58,7 +59,12 @@ const LEGACY_PLACEHOLDER_ATAR_ROWS: readonly AtarRow[] = [
   { id: "subject-3", subjectCode: "BI", rawStudyScore: "" },
   { id: "subject-4", subjectCode: "CH", rawStudyScore: "" },
 ];
-const DEFAULT_ATAR_ROWS: readonly AtarRow[] = [];
+const DEFAULT_ATAR_ROWS: readonly AtarRow[] = [
+  { id: "subject-empty-1", subjectCode: "", rawStudyScore: "" },
+  { id: "subject-empty-2", subjectCode: "", rawStudyScore: "" },
+  { id: "subject-empty-3", subjectCode: "", rawStudyScore: "" },
+  { id: "subject-empty-4", subjectCode: "", rawStudyScore: "" },
+];
 const ENGLISH_SUBJECTS = SUBJECTS.filter((subject) => subject.englishGroup);
 
 function createDefaultStudyForm(subjectCode = "EN"): StudyFormState {
@@ -127,7 +133,9 @@ function loadStoredAtarRows(): readonly AtarRow[] | null {
       )
     ) {
       const rows = parsedRows as readonly AtarRow[];
-      return isLegacyPlaceholderRows(rows) ? DEFAULT_ATAR_ROWS : rows;
+      return rows.length === 0 || isLegacyPlaceholderRows(rows)
+        ? DEFAULT_ATAR_ROWS
+        : rows;
     }
     console.error("Saved ATAR subjects have an invalid structure.");
   } catch (error) {
@@ -365,6 +373,9 @@ export function CalculatorApp() {
   }
 
   function removeAtarRow(rowId: string): void {
+    if (atarRows.length <= MINIMUM_ATAR_SUBJECTS) {
+      return;
+    }
     setIsAtarCalculationRequested(false);
     setAtarRows((current) => current.filter((row) => row.id !== rowId));
   }
@@ -405,7 +416,8 @@ export function CalculatorApp() {
       }
 
       const emptyIndex = current.findIndex(
-        (row, index) => index > 0 && row.subjectCode === "",
+        (row, index) =>
+          row.subjectCode === "" && (index > 0 || selectedSubject.englishGroup),
       );
       if (emptyIndex >= 0) {
         return current.map((row, index) =>
@@ -513,6 +525,7 @@ export function CalculatorApp() {
           className="icon-button"
           type="button"
           aria-label={`Remove subject ${displayNumber}`}
+          disabled={atarRows.length <= MINIMUM_ATAR_SUBJECTS}
           onClick={() => removeAtarRow(row.id)}
         >
           <Trash2 size={16} />
