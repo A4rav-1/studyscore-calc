@@ -26,6 +26,11 @@ export type AtarContribution = AtarSubjectInput & {
   scaledStudyScore: number;
 };
 
+export type AtarContributionGroup = {
+  title: "Top 4" | "Bottom 2" | "Other subjects";
+  contributions: readonly AtarContribution[];
+};
+
 export type AtarResult = {
   atar: number;
   aggregate: number;
@@ -345,4 +350,31 @@ export function calculateAtar(inputs: readonly AtarSubjectInput[]): AtarResult {
     atar: aggregateToAtar(roundedAggregate),
     contributions,
   };
+}
+
+export function groupAtarContributions(
+  contributions: readonly AtarContribution[],
+): readonly AtarContributionGroup[] {
+  const groupDefinitions: readonly {
+    title: AtarContributionGroup["title"];
+    role: AtarContribution["role"];
+  }[] = [
+    { title: "Top 4", role: "primary" },
+    { title: "Bottom 2", role: "increment" },
+    { title: "Other subjects", role: "unused" },
+  ];
+
+  return groupDefinitions
+    .map(({ title, role }) => ({
+      title,
+      contributions: contributions
+        .filter((contribution) => contribution.role === role)
+        .sort((first, second) => {
+          if (role === "primary" && first.subject.englishGroup !== second.subject.englishGroup) {
+            return first.subject.englishGroup ? -1 : 1;
+          }
+          return second.scaledStudyScore - first.scaledStudyScore;
+        }),
+    }))
+    .filter((group) => group.contributions.length > 0);
 }

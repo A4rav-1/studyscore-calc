@@ -10,6 +10,7 @@ import {
   calculateAtar,
   calculateScaledStudyScore,
   calculateStudyScore,
+  groupAtarContributions,
 } from "../app/lib/calculator.ts";
 
 function getSubject(code: string) {
@@ -216,6 +217,44 @@ test("ATAR calculation applies primary four and two increments", () => {
     result.contributions.filter((item) => item.role === "increment").length,
     2,
   );
+});
+
+test("ATAR calculation disregards the final three of nine subjects", () => {
+  const result = calculateAtar([
+    { id: "en", subject: getSubject("EN"), rawStudyScore: 32 },
+    { id: "methods", subject: getSubject("NJ"), rawStudyScore: 45 },
+    { id: "chem", subject: getSubject("CH"), rawStudyScore: 43 },
+    { id: "bio", subject: getSubject("BI"), rawStudyScore: 41 },
+    { id: "physics", subject: getSubject("PH"), rawStudyScore: 39 },
+    { id: "business", subject: getSubject("BM"), rawStudyScore: 37 },
+    { id: "general", subject: getSubject("NF"), rawStudyScore: 35 },
+    { id: "economics", subject: getSubject("EC"), rawStudyScore: 33 },
+    { id: "legal", subject: getSubject("LS"), rawStudyScore: 31 },
+  ]);
+
+  assert.equal(
+    result.contributions.filter((item) => item.role === "primary").length,
+    4,
+  );
+  assert.equal(
+    result.contributions.filter((item) => item.role === "increment").length,
+    2,
+  );
+  assert.equal(
+    result.contributions.filter((item) => item.role === "unused").length,
+    3,
+  );
+  assert.equal(
+    result.contributions.find((item) => item.id === "en")?.role,
+    "primary",
+  );
+
+  const groups = groupAtarContributions(result.contributions);
+  assert.deepEqual(
+    groups.map((group) => [group.title, group.contributions.length]),
+    [["Top 4", 4], ["Bottom 2", 2], ["Other subjects", 3]],
+  );
+  assert.equal(groups[0].contributions[0].id, "en");
 });
 
 test("ATAR calculation requires an English-group subject", () => {

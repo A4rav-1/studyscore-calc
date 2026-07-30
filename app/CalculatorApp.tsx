@@ -19,6 +19,7 @@ import {
   calculateAtar,
   calculateScaledStudyScore,
   calculateStudyScore,
+  groupAtarContributions,
   type AtarResult,
 } from "./lib/calculator";
 import { getStudyInputIssues, parseExamMark } from "./lib/input";
@@ -50,12 +51,15 @@ type StudyFormState = {
 };
 
 const schools = schoolsJson as readonly SchoolRecord[];
-const DEFAULT_ATAR_ROWS: readonly AtarRow[] = [
+const MAXIMUM_ATAR_SUBJECTS = 9;
+const LEGACY_PLACEHOLDER_ATAR_ROWS: readonly AtarRow[] = [
   { id: "subject-1", subjectCode: "EN", rawStudyScore: "" },
   { id: "subject-2", subjectCode: "NJ", rawStudyScore: "" },
   { id: "subject-3", subjectCode: "BI", rawStudyScore: "" },
   { id: "subject-4", subjectCode: "CH", rawStudyScore: "" },
 ];
+const DEFAULT_ATAR_ROWS: readonly AtarRow[] = [];
+const ENGLISH_SUBJECTS = SUBJECTS.filter((subject) => subject.englishGroup);
 
 function createDefaultStudyForm(subjectCode = "EN"): StudyFormState {
   const subject = SUBJECT_BY_CODE.get(subjectCode) ?? SUBJECTS[0];
@@ -82,6 +86,23 @@ function numberInputValue(value: string): string {
   return value.replace(/[^0-9.]/g, "");
 }
 
+function createAtarRow(): AtarRow {
+  return {
+    id: `subject-${crypto.randomUUID()}`,
+    subjectCode: "",
+    rawStudyScore: "",
+  };
+}
+
+function isLegacyPlaceholderRows(rows: readonly AtarRow[]): boolean {
+  return rows.length === LEGACY_PLACEHOLDER_ATAR_ROWS.length && rows.every(
+    (row, index) =>
+      row.id === LEGACY_PLACEHOLDER_ATAR_ROWS[index].id &&
+      row.subjectCode === LEGACY_PLACEHOLDER_ATAR_ROWS[index].subjectCode &&
+      row.rawStudyScore === "",
+  );
+}
+
 function loadStoredAtarRows(): readonly AtarRow[] | null {
   const storedRows = window.localStorage.getItem("vce-atar-subjects");
   if (!storedRows) {
@@ -92,8 +113,7 @@ function loadStoredAtarRows(): readonly AtarRow[] | null {
     const parsedRows: unknown = JSON.parse(storedRows);
     if (
       Array.isArray(parsedRows) &&
-      parsedRows.length >= 4 &&
-      parsedRows.length <= 6 &&
+        parsedRows.length <= MAXIMUM_ATAR_SUBJECTS &&
       parsedRows.every(
         (row) =>
           typeof row === "object" &&
@@ -106,7 +126,8 @@ function loadStoredAtarRows(): readonly AtarRow[] | null {
           typeof row.rawStudyScore === "string",
       )
     ) {
-      return parsedRows as readonly AtarRow[];
+      const rows = parsedRows as readonly AtarRow[];
+      return isLegacyPlaceholderRows(rows) ? DEFAULT_ATAR_ROWS : rows;
     }
     console.error("Saved ATAR subjects have an invalid structure.");
   } catch (error) {
@@ -126,6 +147,8 @@ export function CalculatorApp() {
   const [atarRows, setAtarRows] = useState<readonly AtarRow[]>(
     DEFAULT_ATAR_ROWS,
   );
+  const [isAtarCalculationRequested, setIsAtarCalculationRequested] =
+    useState(false);
 
   useEffect(() => {
     const restoreLocation = () => {
@@ -228,9 +251,21 @@ export function CalculatorApp() {
     result: AtarResult | null;
     error: string | null;
   }>(() => {
-    const populatedRows = atarRows.filter(
-      (row) => row.subjectCode !== "" && row.rawStudyScore !== "",
+    const hasSubjectWithoutScore = atarRows.some(
+      (row) => row.subjectCode !== "" && row.rawStudyScore === "",
     );
+    const hasScoreWithoutSubject = atarRows.some(
+      (row) => row.subjectCode === "" && row.rawStudyScore !== "",
+    );
+
+    if (hasSubjectWithoutScore) {
+      return { result: null, error: "Enter a study score for every chosen subject" };
+    }
+    if (hasScoreWithoutSubject) {
+      return { result: null, error: "Choose a subject for every entered score" };
+    }
+
+    const populatedRows = atarRows.filter((row) => row.subjectCode !== "");
 
     if (populatedRows.length < 4) {
       return { result: null, error: "Enter at least four study scores" };
@@ -257,12 +292,32 @@ export function CalculatorApp() {
     const validInputs = inputs.filter(
       (input): input is NonNullable<typeof input> => input !== null,
     );
-    if (!validInputs.some((input) => input.subject.englishGroup)) {
-      return { result: null, error: "Add an English-group subject" };
+    if (!validInputs[0]?.subject.englishGroup) {
+      return {
+        result: null,
+        error: "Your first subject must be English, EAL, English Language or Literature",
+      };
     }
 
     return { result: calculateAtar(validInputs), error: null };
   }, [atarRows]);
+
+  const atarRowGroups = useMemo<
+    readonly { title: string; rows: readonly AtarRow[] }[]
+  >(() => {
+    const calculationResult = atarCalculation.result;
+    if (!isAtarCalculationRequested || !calculationResult) {
+      return [];
+    }
+
+    const rowsById = new Map(atarRows.map((row) => [row.id, row]));
+    return groupAtarContributions(calculationResult.contributions).map((group) => ({
+      title: group.title,
+      rows: group.contributions
+        .map((contribution) => rowsById.get(contribution.id))
+        .filter((row): row is AtarRow => row !== undefined),
+    }));
+  }, [atarCalculation.result, atarRows, isAtarCalculationRequested]);
 
   function navigateTo(view: CalculatorView, rowId: string | null = null): void {
     const searchParameters = new URLSearchParams();
@@ -295,29 +350,22 @@ export function CalculatorApp() {
   }
 
   function updateAtarRow(rowId: string, patch: Partial<AtarRow>): void {
+    setIsAtarCalculationRequested(false);
     setAtarRows((current) =>
       current.map((row) => (row.id === rowId ? { ...row, ...patch } : row)),
     );
   }
 
   function addAtarRow(): void {
-    if (atarRows.length >= 6) {
+    if (atarRows.length >= MAXIMUM_ATAR_SUBJECTS) {
       return;
     }
-    setAtarRows((current) => [
-      ...current,
-      {
-        id: `subject-${Date.now()}`,
-        subjectCode: "",
-        rawStudyScore: "",
-      },
-    ]);
+    setIsAtarCalculationRequested(false);
+    setAtarRows((current) => [...current, createAtarRow()]);
   }
 
   function removeAtarRow(rowId: string): void {
-    if (atarRows.length <= 4) {
-      return;
-    }
+    setIsAtarCalculationRequested(false);
     setAtarRows((current) => current.filter((row) => row.id !== rowId));
   }
 
@@ -331,36 +379,50 @@ export function CalculatorApp() {
       return;
     }
 
-    if (targetAtarRowId) {
-      updateAtarRow(targetAtarRowId, {
-        subjectCode: selectedSubject.code,
-        rawStudyScore: String(studyScore),
-      });
-    } else {
-      const matchingRow = atarRows.find(
+    setIsAtarCalculationRequested(false);
+    setAtarRows((current) => {
+      const score = String(studyScore);
+      const targetIndex = current.findIndex((row) => row.id === targetAtarRowId);
+      const isValidTarget =
+        targetIndex > 0 ||
+        (targetIndex === 0 && selectedSubject.englishGroup);
+
+      if (isValidTarget) {
+        return current.map((row, index) =>
+          index === targetIndex
+            ? { ...row, subjectCode: selectedSubject.code, rawStudyScore: score }
+            : row,
+        );
+      }
+
+      const matchingIndex = current.findIndex(
         (row) => row.subjectCode === selectedSubject.code,
       );
-      if (matchingRow) {
-        updateAtarRow(matchingRow.id, { rawStudyScore: String(studyScore) });
-      } else {
-        const emptyRow = atarRows.find((row) => row.subjectCode === "");
-        if (emptyRow) {
-          updateAtarRow(emptyRow.id, {
-            subjectCode: selectedSubject.code,
-            rawStudyScore: String(studyScore),
-          });
-        } else if (atarRows.length < 6) {
-          setAtarRows((current) => [
-            ...current,
-            {
-              id: `subject-${Date.now()}`,
-              subjectCode: selectedSubject.code,
-              rawStudyScore: String(studyScore),
-            },
-          ]);
-        }
+      if (matchingIndex >= 0) {
+        return current.map((row, index) =>
+          index === matchingIndex ? { ...row, rawStudyScore: score } : row,
+        );
       }
-    }
+
+      const emptyIndex = current.findIndex(
+        (row, index) => index > 0 && row.subjectCode === "",
+      );
+      if (emptyIndex >= 0) {
+        return current.map((row, index) =>
+          index === emptyIndex
+            ? { ...row, subjectCode: selectedSubject.code, rawStudyScore: score }
+            : row,
+        );
+      }
+
+      if (current.length === 0 && !selectedSubject.englishGroup) {
+        return [createAtarRow(), { ...createAtarRow(), subjectCode: selectedSubject.code, rawStudyScore: score }];
+      }
+      if (current.length < MAXIMUM_ATAR_SUBJECTS) {
+        return [...current, { ...createAtarRow(), subjectCode: selectedSubject.code, rawStudyScore: score }];
+      }
+      return current;
+    });
     navigateTo("atar");
   }
 
@@ -370,6 +432,93 @@ export function CalculatorApp() {
 
   function resetAtarRows(): void {
     setAtarRows(DEFAULT_ATAR_ROWS);
+    setIsAtarCalculationRequested(false);
+  }
+
+  function renderAtarRow(row: AtarRow, displayNumber: number) {
+    const subject = SUBJECT_BY_CODE.get(row.subjectCode);
+    const rawScore = Number(row.rawStudyScore);
+    const scaledScore =
+      subject && row.rawStudyScore !== "" && rawScore >= 0 && rawScore <= 50
+        ? calculateScaledStudyScore(rawScore, subject)
+        : null;
+    const contribution = isAtarCalculationRequested
+      ? atarCalculation.result?.contributions.find((item) => item.id === row.id)
+      : undefined;
+    const isEnglishSlot = atarRows[0]?.id === row.id;
+    const subjectOptions = isEnglishSlot ? ENGLISH_SUBJECTS : SUBJECTS;
+    const contributionLabel = contribution?.role === "primary"
+      ? "Top 4"
+      : contribution?.role === "increment"
+        ? "10%"
+        : contribution?.role === "unused"
+          ? "Not counted"
+          : isEnglishSlot
+            ? "Required"
+            : "";
+
+    return (
+      <div className="atar-row" key={row.id}>
+        <span className="subject-number">{displayNumber}</span>
+        <label className="select-wrap">
+          <span className="sr-only">
+            {isEnglishSlot ? "English-group subject" : `Subject ${displayNumber}`}
+          </span>
+          <select
+            value={row.subjectCode}
+            onChange={(event) =>
+              updateAtarRow(row.id, { subjectCode: event.target.value })
+            }
+          >
+            <option value="">
+              {isEnglishSlot ? "Choose English subject" : "Choose subject"}
+            </option>
+            {subjectOptions.map((option) => (
+              <option key={option.code} value={option.code}>
+                {option.name}
+              </option>
+            ))}
+          </select>
+          <ChevronDown size={16} aria-hidden="true" />
+        </label>
+        <label className="raw-score-field">
+          <span className="sr-only">Raw study score</span>
+          <input
+            inputMode="decimal"
+            min="0"
+            max="50"
+            step="1"
+            type="number"
+            value={row.rawStudyScore}
+            placeholder="40"
+            onChange={(event) =>
+              updateAtarRow(row.id, {
+                rawStudyScore: numberInputValue(event.target.value),
+              })
+            }
+          />
+        </label>
+        <span className="scaled-score">{scaledScore?.toFixed(1) ?? "—"}</span>
+        <span className={`contribution-tag ${contribution?.role ?? "required"}`}>
+          {contributionLabel}
+        </span>
+        <button
+          className="estimate-button"
+          type="button"
+          onClick={() => openStudyCalculator(row)}
+        >
+          Estimate score <ArrowRight size={14} />
+        </button>
+        <button
+          className="icon-button"
+          type="button"
+          aria-label={`Remove subject ${displayNumber}`}
+          onClick={() => removeAtarRow(row.id)}
+        >
+          <Trash2 size={16} />
+        </button>
+      </div>
+    );
   }
 
   return (
@@ -689,102 +838,52 @@ export function CalculatorApp() {
           <div className="page-heading">
             <span className="eyebrow"><Calculator size={15} /> ATAR calculator</span>
             <h1>ATAR calculator</h1>
-            <p>Enter raw scores. Scaling and your best four are handled automatically.</p>
+            <p>Add up to nine subjects. Your English subject, best three, two increments and excluded subjects are separated after calculation.</p>
           </div>
 
           <div className="calculator-grid atar-grid">
             <div className="input-card atar-input-card">
               <div className="atar-table-header" aria-hidden="true">
+                <span />
                 <span>Subject</span>
                 <span>Raw score</span>
                 <span>Scaled</span>
                 <span />
+                <span />
+                <span />
               </div>
               <div className="atar-rows">
-                {atarRows.map((row, index) => {
-                  const subject = SUBJECT_BY_CODE.get(row.subjectCode);
-                  const rawScore = Number(row.rawStudyScore);
-                  const scaledScore =
-                    subject && row.rawStudyScore !== "" && rawScore >= 0 && rawScore <= 50
-                      ? calculateScaledStudyScore(rawScore, subject)
-                      : null;
-                  const contribution = atarCalculation.result?.contributions.find(
-                    (item) => item.id === row.id,
-                  );
-
-                  return (
-                    <div className="atar-row" key={row.id}>
-                      <span className="subject-number">{index + 1}</span>
-                      <label className="select-wrap">
-                        <span className="sr-only">Subject {index + 1}</span>
-                        <select
-                          value={row.subjectCode}
-                          onChange={(event) =>
-                            updateAtarRow(row.id, { subjectCode: event.target.value })
-                          }
-                        >
-                          <option value="">Choose subject</option>
-                          {SUBJECTS.map((option) => (
-                            <option key={option.code} value={option.code}>
-                              {option.name}
-                            </option>
-                          ))}
-                        </select>
-                        <ChevronDown size={16} aria-hidden="true" />
-                      </label>
-                      <label className="raw-score-field">
-                        <span className="sr-only">Raw study score</span>
-                        <input
-                          inputMode="decimal"
-                          min="0"
-                          max="50"
-                          step="1"
-                          type="number"
-                          value={row.rawStudyScore}
-                          placeholder="40"
-                          onChange={(event) =>
-                            updateAtarRow(row.id, {
-                              rawStudyScore: numberInputValue(event.target.value),
-                            })
-                          }
-                        />
-                      </label>
-                      <span className="scaled-score">{scaledScore?.toFixed(1) ?? "—"}</span>
-                      <span className={`contribution-tag ${contribution?.role ?? ""}`}>
-                        {contribution?.role === "primary"
-                          ? "Top 4"
-                          : contribution?.role === "increment"
-                            ? "10%"
-                            : ""}
-                      </span>
-                      <button
-                        className="estimate-button"
-                        type="button"
-                        onClick={() => openStudyCalculator(row)}
-                      >
-                        Estimate score <ArrowRight size={14} />
-                      </button>
-                      <button
-                        className="icon-button"
-                        type="button"
-                        aria-label={`Remove subject ${index + 1}`}
-                        disabled={atarRows.length <= 4}
-                        onClick={() => removeAtarRow(row.id)}
-                      >
-                        <Trash2 size={16} />
-                      </button>
-                    </div>
-                  );
-                })}
+                {atarRows.length === 0 ? (
+                  <div className="atar-empty-state">
+                    <strong>Start with an English subject</strong>
+                    <span>Add English, EAL, English Language or Literature first.</span>
+                  </div>
+                ) : atarRowGroups.length > 0 ? (
+                  atarRowGroups.map((group) => (
+                    <section className="atar-row-group" key={group.title}>
+                      <h2>{group.title}</h2>
+                      {group.rows.map((row, index) => renderAtarRow(row, index + 1))}
+                    </section>
+                  ))
+                ) : (
+                  atarRows.map((row, index) => renderAtarRow(row, index + 1))
+                )}
               </div>
               <div className="atar-actions">
                 <button
                   className="add-subject-button"
                   type="button"
-                  disabled={atarRows.length >= 6}
+                  disabled={atarRows.length >= MAXIMUM_ATAR_SUBJECTS}
                   onClick={addAtarRow}
                 >
-                  <Plus size={16} /> Add subject
+                  <Plus size={16} /> Add subject ({atarRows.length}/{MAXIMUM_ATAR_SUBJECTS})
+                </button>
+                <button
+                  className="calculate-atar-button"
+                  type="button"
+                  onClick={() => setIsAtarCalculationRequested(true)}
+                >
+                  <Calculator size={16} /> Calculate ATAR
                 </button>
                 <button className="reset-button" type="button" onClick={resetAtarRows}>
                   <RotateCcw size={15} /> Reset
@@ -794,10 +893,10 @@ export function CalculatorApp() {
 
             <aside className="result-card atar-result-card" aria-live="polite">
               <span className="result-label">Estimated ATAR</span>
-              <div className={`atar-number ${atarCalculation.result ? "has-score" : ""}`}>
-                {atarCalculation.result?.atar.toFixed(2) ?? "—"}
+              <div className={`atar-number ${isAtarCalculationRequested && atarCalculation.result ? "has-score" : ""}`}>
+                {isAtarCalculationRequested ? atarCalculation.result?.atar.toFixed(2) ?? "—" : "—"}
               </div>
-              {atarCalculation.result ? (
+              {isAtarCalculationRequested && atarCalculation.result ? (
                 <>
                   <div className="aggregate-row">
                     <span>Scaled aggregate</span>
@@ -806,7 +905,7 @@ export function CalculatorApp() {
                   <p>Your English subject, next best three and up to two 10% increments are included.</p>
                 </>
               ) : (
-                <p>{atarCalculation.error}</p>
+                <p>{isAtarCalculationRequested ? atarCalculation.error : "Add your subjects and select Calculate ATAR."}</p>
               )}
               <div className="result-source">
                 <Check size={15} /> 2025 VTAC scaling and aggregate table

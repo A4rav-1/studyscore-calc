@@ -702,9 +702,9 @@ select:focus-visible {
 
 .atar-table-header {
   display: grid;
-  grid-template-columns: minmax(190px, 1fr) 90px 62px 54px;
+  grid-template-columns: 24px minmax(190px, 1fr) 90px 62px 72px 138px 32px;
   gap: 10px;
-  padding: 8px 45px 10px 40px;
+  padding: 8px 10px 10px;
   color: #858b86;
   font-size: 10px;
   font-weight: 760;
@@ -717,10 +717,50 @@ select:focus-visible {
   gap: 8px;
 }
 
+.atar-empty-state {
+  display: grid;
+  min-height: 155px;
+  place-content: center;
+  gap: 6px;
+  padding: 22px;
+  border: 1px dashed #cfd4cd;
+  border-radius: 13px;
+  background: #fbfcf9;
+  color: #69736b;
+  text-align: center;
+}
+
+.atar-empty-state strong {
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.atar-empty-state span {
+  font-size: 12px;
+}
+
+.atar-row-group {
+  display: grid;
+  gap: 8px;
+}
+
+.atar-row-group + .atar-row-group {
+  margin-top: 9px;
+}
+
+.atar-row-group h2 {
+  margin: 4px 2px 1px;
+  color: #657168;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .atar-row {
   position: relative;
   display: grid;
-  grid-template-columns: 24px minmax(190px, 1fr) 90px 62px 54px 138px 32px;
+  grid-template-columns: 24px minmax(190px, 1fr) 90px 62px 72px 138px 32px;
   gap: 10px;
   align-items: center;
   padding: 11px 10px;
@@ -779,6 +819,16 @@ select:focus-visible {
   color: #b34624;
 }
 
+.contribution-tag.unused {
+  background: #f0f1ed;
+  color: #747c75;
+}
+
+.contribution-tag.required {
+  background: #f4f0df;
+  color: #8a6c1a;
+}
+
 .estimate-button {
   display: inline-flex;
   align-items: center;
@@ -823,6 +873,7 @@ select:focus-visible {
 }
 
 .add-subject-button,
+.calculate-atar-button,
 .atar-actions .reset-button {
   display: inline-flex;
   align-items: center;
@@ -835,8 +886,19 @@ select:focus-visible {
 }
 
 .add-subject-button:hover:not(:disabled),
+.calculate-atar-button:hover,
 .atar-actions .reset-button:hover {
   background: var(--green-light);
+}
+
+.calculate-atar-button {
+  border: 1px solid var(--green);
+  background: var(--green);
+  color: #fff;
+}
+
+.calculate-atar-button:hover {
+  background: #205e43;
 }
 
 .add-subject-button:disabled {
@@ -908,7 +970,7 @@ footer {
   }
 
   .atar-row {
-    grid-template-columns: 24px minmax(160px, 1fr) 80px 58px 50px 32px;
+    grid-template-columns: 24px minmax(160px, 1fr) 80px 58px 68px 32px;
   }
 
   .estimate-button {
@@ -1009,6 +1071,11 @@ footer {
     grid-template-columns: 25px minmax(0, 1fr) 76px 32px;
     gap: 8px;
     padding: 10px;
+  }
+
+  .atar-actions {
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   .atar-row .select-wrap {
