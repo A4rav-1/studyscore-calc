@@ -21,6 +21,7 @@ import {
   calculateStudyScore,
   type AtarResult,
 } from "./lib/calculator";
+import { parseExamMark } from "./lib/input";
 
 type CalculatorView = "study" | "atar";
 
@@ -75,16 +76,6 @@ function parseInteger(value: string): number | null {
   }
   const parsedValue = Number(value);
   return Number.isInteger(parsedValue) ? parsedValue : null;
-}
-
-function parseExamMark(value: string): number | null {
-  if (value.trim() === "") {
-    return null;
-  }
-  const parsedValue = Number(value);
-  return Number.isFinite(parsedValue) && parsedValue >= 0 && parsedValue <= 100
-    ? parsedValue
-    : null;
 }
 
 function numberInputValue(value: string): string {

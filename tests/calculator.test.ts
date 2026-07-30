@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { parseExamMark } from "../app/lib/input.ts";
 import {
   RAW_EXAM_MAXIMUMS_BY_CODE,
   SUBJECT_BY_CODE,
@@ -16,6 +17,26 @@ function getSubject(code: string) {
   assert.ok(subject, `Subject ${code} must exist.`);
   return subject;
 }
+
+test("exam mark parsing permits marks above 100 for subjects with larger papers", () => {
+  assert.equal(parseExamMark("110"), 110);
+  assert.equal(parseExamMark(""), null);
+  assert.equal(parseExamMark("-1"), null);
+});
+
+test("Biology accepts a raw exam mark above 100 up to its 120-mark maximum", () => {
+  const score = calculateStudyScore({
+    subject: getSubject("BI"),
+    school: null,
+    unit3Rank: 1,
+    unit3CohortSize: 100,
+    unit4Rank: 1,
+    unit4CohortSize: 100,
+    examMarks: [110],
+  });
+
+  assert.ok(score >= 0 && score <= 50);
+});
 
 test("study score calculation returns an exact integer", () => {
   const subject = getSubject("EN");
