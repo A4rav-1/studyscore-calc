@@ -8,6 +8,7 @@ export type SchoolStatistics = {
 export type StudyScoreInput = {
   subject: SubjectDefinition;
   school: SchoolStatistics | null;
+  honourRollRankOneStudyScore?: number | null;
   unit3Rank: number;
   unit3CohortSize: number;
   unit4Rank: number;
@@ -17,6 +18,7 @@ export type StudyScoreInput = {
 
 export type RelativeStudyScoreInput = {
   school: SchoolStatistics | null;
+  honourRollRankOneStudyScore?: number | null;
   rank: number;
   cohortSize: number;
 };
@@ -163,6 +165,26 @@ function performanceToRawStudyScore(performance: number): number {
   return 50;
 }
 
+function rawStudyScoreToPerformance(rawStudyScore: number): number {
+  const boundedStudyScore = clamp(rawStudyScore, 0, 50);
+
+  for (let index = 0; index < PERFORMANCE_TO_RAW_STUDY_SCORE.length - 1; index += 1) {
+    const [lowerPerformance, lowerStudyScore] = PERFORMANCE_TO_RAW_STUDY_SCORE[index];
+    const [upperPerformance, upperStudyScore] = PERFORMANCE_TO_RAW_STUDY_SCORE[index + 1];
+    if (boundedStudyScore <= upperStudyScore) {
+      return interpolate(
+        boundedStudyScore,
+        lowerStudyScore,
+        upperStudyScore,
+        lowerPerformance,
+        upperPerformance,
+      );
+    }
+  }
+
+  return 100;
+}
+
 function rawMarkToExamPerformance(
   mark: number,
   maximumMark: number,
@@ -200,22 +222,80 @@ function calculateSchoolRankAdjustment(school: SchoolStatistics | null): number 
   );
 }
 
+function validateHonourRollRankOneStudyScore(
+  honourRollRankOneStudyScore: number | null | undefined,
+): void {
+  if (
+    honourRollRankOneStudyScore !== null &&
+    honourRollRankOneStudyScore !== undefined &&
+    (!Number.isInteger(honourRollRankOneStudyScore) ||
+      honourRollRankOneStudyScore < 40 ||
+      honourRollRankOneStudyScore > 50)
+  ) {
+    throw new Error("Published honour-roll study scores must be whole numbers between 40 and 50.");
+  }
+}
+
+function calculateHonourRollRelativeStudyScore(
+  rank: number,
+  cohortSize: number,
+  school: SchoolStatistics | null,
+  honourRollRankOneStudyScore: number,
+): number {
+  const rankPercentile = rankToPercentile(rank, cohortSize);
+  const cohortMedianScore = clamp(
+    school?.medianStudyScore ?? 30,
+    0,
+    honourRollRankOneStudyScore,
+  );
+  const bottomRankScore = clamp(cohortMedianScore - 12, 0, cohortMedianScore);
+
+  if (rankPercentile >= 50) {
+    return interpolate(
+      rankPercentile,
+      50,
+      100,
+      cohortMedianScore,
+      honourRollRankOneStudyScore,
+    );
+  }
+
+  return interpolate(rankPercentile, 0, 50, bottomRankScore, cohortMedianScore);
+}
+
+function calculateRelativeStudyScoreValue(input: RelativeStudyScoreInput): number {
+  validateRank(input.rank, input.cohortSize, "SAC");
+  validateHonourRollRankOneStudyScore(input.honourRollRankOneStudyScore);
+
+  if (input.honourRollRankOneStudyScore !== null && input.honourRollRankOneStudyScore !== undefined) {
+    return calculateHonourRollRelativeStudyScore(
+      input.rank,
+      input.cohortSize,
+      input.school,
+      input.honourRollRankOneStudyScore,
+    );
+  }
+
+  return performanceToRawStudyScore(
+    clamp(
+      rankToPercentile(input.rank, input.cohortSize) +
+        calculateSchoolRankAdjustment(input.school),
+      0,
+      100,
+    ),
+  );
+}
+
 export function calculateRelativeStudyScore(
   input: RelativeStudyScoreInput,
 ): number {
-  validateRank(input.rank, input.cohortSize, "SAC");
-  const rankPerformance = clamp(
-    rankToPercentile(input.rank, input.cohortSize) +
-      calculateSchoolRankAdjustment(input.school),
-    0,
-    100,
-  );
-  return Math.round(performanceToRawStudyScore(rankPerformance));
+  return Math.round(calculateRelativeStudyScoreValue(input));
 }
 
 export function calculateStudyScore(input: StudyScoreInput): number {
   validateRank(input.unit3Rank, input.unit3CohortSize, "Unit 3");
   validateRank(input.unit4Rank, input.unit4CohortSize, "Unit 4");
+  validateHonourRollRankOneStudyScore(input.honourRollRankOneStudyScore);
 
   if (input.examMarks.length !== input.subject.examWeights.length) {
     throw new Error("The exam mark count does not match this subject.");
@@ -229,16 +309,37 @@ export function calculateStudyScore(input: StudyScoreInput): number {
   }
 
   const schoolRankAdjustment = calculateSchoolRankAdjustment(input.school);
-  const unit3Performance = clamp(
-    rankToPercentile(input.unit3Rank, input.unit3CohortSize) + schoolRankAdjustment,
-    0,
-    100,
-  );
-  const unit4Performance = clamp(
-    rankToPercentile(input.unit4Rank, input.unit4CohortSize) + schoolRankAdjustment,
-    0,
-    100,
-  );
+  const hasHonourRollAnchor =
+    input.honourRollRankOneStudyScore !== null &&
+    input.honourRollRankOneStudyScore !== undefined;
+  const unit3Performance = hasHonourRollAnchor
+    ? rawStudyScoreToPerformance(
+        calculateRelativeStudyScoreValue({
+          school: input.school,
+          honourRollRankOneStudyScore: input.honourRollRankOneStudyScore,
+          rank: input.unit3Rank,
+          cohortSize: input.unit3CohortSize,
+        }),
+      )
+    : clamp(
+        rankToPercentile(input.unit3Rank, input.unit3CohortSize) + schoolRankAdjustment,
+        0,
+        100,
+      );
+  const unit4Performance = hasHonourRollAnchor
+    ? rawStudyScoreToPerformance(
+        calculateRelativeStudyScoreValue({
+          school: input.school,
+          honourRollRankOneStudyScore: input.honourRollRankOneStudyScore,
+          rank: input.unit4Rank,
+          cohortSize: input.unit4CohortSize,
+        }),
+      )
+    : clamp(
+        rankToPercentile(input.unit4Rank, input.unit4CohortSize) + schoolRankAdjustment,
+        0,
+        100,
+      );
   const examPerformances = input.examMarks.map((mark, index) =>
     rawMarkToExamPerformance(
       mark,
@@ -255,6 +356,14 @@ export function calculateStudyScore(input: StudyScoreInput): number {
         total + performance * input.subject.examWeights[index],
       0,
     );
+
+  if (
+    input.unit3Rank === 1 &&
+    input.unit4Rank === 1 &&
+    examPerformances.every((performance) => performance === 100)
+  ) {
+    return 50;
+  }
 
   return Math.round(performanceToRawStudyScore(weightedPerformance));
 }

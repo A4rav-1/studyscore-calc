@@ -13,6 +13,7 @@ import {
   Trash2,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
+import { getHonourRollRankOneStudyScore } from "./data/honourRoll2025";
 import schoolsJson from "./data/schools.json";
 import { SUBJECT_BY_CODE, SUBJECTS } from "./data/subjects";
 import {
@@ -222,6 +223,10 @@ export function CalculatorApp() {
         school.name.toLocaleLowerCase() ===
         studyForm.schoolName.trim().toLocaleLowerCase(),
     ) ?? null;
+  const honourRollRankOneStudyScore =
+    selectedSchool === null
+      ? null
+      : getHonourRollRankOneStudyScore(selectedSchool.name, selectedSubject.code);
   const studyInputIssues = useMemo(
     () =>
       getStudyInputIssues({
@@ -248,6 +253,7 @@ export function CalculatorApp() {
         ? null
         : calculateRelativeStudyScore({
             school: selectedSchool,
+            honourRollRankOneStudyScore,
             rank,
             cohortSize,
           });
@@ -256,7 +262,7 @@ export function CalculatorApp() {
       unit3: calculateRelativeScore(unit3Rank, unit3CohortSize),
       unit4: calculateRelativeScore(unit4Rank, unit4CohortSize),
     };
-  }, [selectedSchool, studyForm]);
+  }, [honourRollRankOneStudyScore, selectedSchool, studyForm]);
 
   const studyScore = useMemo(() => {
     const unit3Rank = parseInteger(studyForm.unit3Rank);
@@ -286,13 +292,14 @@ export function CalculatorApp() {
     return calculateStudyScore({
       subject: selectedSubject,
       school: selectedSchool,
+      honourRollRankOneStudyScore,
       unit3Rank,
       unit3CohortSize,
       unit4Rank,
       unit4CohortSize,
       examMarks: examMarks as readonly number[],
     });
-  }, [selectedSchool, selectedSubject, studyForm, studyInputIssues.firstError]);
+  }, [honourRollRankOneStudyScore, selectedSchool, selectedSubject, studyForm, studyInputIssues.firstError]);
 
   const scaledStudyScore =
     studyScore === null
@@ -907,7 +914,7 @@ export function CalculatorApp() {
                 <RotateCcw size={15} /> Reset
               </button>
               <div className="result-source">
-                <Check size={15} /> VCAA weights · VTAC reports · Better Education
+                <Check size={15} /> VCAA weights · 2025 Honour Roll · VTAC reports
               </div>
             </aside>
           </div>
