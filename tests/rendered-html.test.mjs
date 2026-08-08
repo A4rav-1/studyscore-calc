@@ -36,5 +36,6 @@ test("server-renders the finished calculator", async () => {
   assert.match(html, /Estimated scaled study score/);
   assert.match(html, /Use in ATAR calculator/);
   assert.match(html, /VCAA weights/);
+  assert.match(html, /Academy of Mary Immaculate, Fitzroy/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/i);
 });

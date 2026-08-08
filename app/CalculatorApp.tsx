@@ -13,7 +13,11 @@ import {
   Trash2,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import { getHonourRollRankOneStudyScore } from "./data/honourRoll2025";
+import {
+  getHonourRollSchoolName,
+  getHonourRollStudyScores,
+  HONOUR_ROLL_2025_SCHOOL_OPTIONS,
+} from "./data/honourRoll2025";
 import schoolsJson from "./data/schools.json";
 import { SUBJECT_BY_CODE, SUBJECTS } from "./data/subjects";
 import {
@@ -34,7 +38,10 @@ type SchoolRecord = {
   medianStudyScore: number;
   scoresAbove40Percent: number;
   cohortSize: number;
+  honourRollSchoolName: string | null;
 };
+
+type SchoolStatisticsRecord = Omit<SchoolRecord, "honourRollSchoolName">;
 
 type AtarRow = {
   id: string;
@@ -52,7 +59,28 @@ type StudyFormState = {
   examMarks: readonly string[];
 };
 
-const schools = schoolsJson as readonly SchoolRecord[];
+const schoolStatistics = schoolsJson as readonly SchoolStatisticsRecord[];
+const schoolStatisticsHonourRollNames = new Set(
+  schoolStatistics
+    .map((school) => getHonourRollSchoolName(school.name))
+    .filter((schoolName): schoolName is string => schoolName !== null),
+);
+const schools: readonly SchoolRecord[] = [
+  ...schoolStatistics.map((school) => ({
+    ...school,
+    honourRollSchoolName: getHonourRollSchoolName(school.name),
+  })),
+  ...HONOUR_ROLL_2025_SCHOOL_OPTIONS
+    .filter((school) => !schoolStatisticsHonourRollNames.has(school.name))
+    .map((school) => ({
+      name: school.name,
+      locality: school.locality || "VCAA 2025 Honour Roll",
+      medianStudyScore: 30,
+      scoresAbove40Percent: 8,
+      cohortSize: 0,
+      honourRollSchoolName: school.name,
+    })),
+];
 const MINIMUM_ATAR_SUBJECTS = 4;
 const MAXIMUM_ATAR_SUBJECTS = 7;
 const LEGACY_PLACEHOLDER_ATAR_ROWS: readonly AtarRow[] = [
@@ -223,10 +251,13 @@ export function CalculatorApp() {
         school.name.toLocaleLowerCase() ===
         studyForm.schoolName.trim().toLocaleLowerCase(),
     ) ?? null;
-  const honourRollRankOneStudyScore =
-    selectedSchool === null
+  const honourRollStudyScores =
+    selectedSchool === null || selectedSchool.honourRollSchoolName === null
       ? null
-      : getHonourRollRankOneStudyScore(selectedSchool.name, selectedSubject.code);
+      : getHonourRollStudyScores(
+          selectedSchool.honourRollSchoolName,
+          selectedSubject.code,
+        );
   const studyInputIssues = useMemo(
     () =>
       getStudyInputIssues({
@@ -253,7 +284,7 @@ export function CalculatorApp() {
         ? null
         : calculateRelativeStudyScore({
             school: selectedSchool,
-            honourRollRankOneStudyScore,
+            honourRollStudyScores,
             rank,
             cohortSize,
           });
@@ -262,7 +293,7 @@ export function CalculatorApp() {
       unit3: calculateRelativeScore(unit3Rank, unit3CohortSize),
       unit4: calculateRelativeScore(unit4Rank, unit4CohortSize),
     };
-  }, [honourRollRankOneStudyScore, selectedSchool, studyForm]);
+  }, [honourRollStudyScores, selectedSchool, studyForm]);
 
   const studyScore = useMemo(() => {
     const unit3Rank = parseInteger(studyForm.unit3Rank);
@@ -292,14 +323,14 @@ export function CalculatorApp() {
     return calculateStudyScore({
       subject: selectedSubject,
       school: selectedSchool,
-      honourRollRankOneStudyScore,
+      honourRollStudyScores,
       unit3Rank,
       unit3CohortSize,
       unit4Rank,
       unit4CohortSize,
       examMarks: examMarks as readonly number[],
     });
-  }, [honourRollRankOneStudyScore, selectedSchool, selectedSubject, studyForm, studyInputIssues.firstError]);
+  }, [honourRollStudyScores, selectedSchool, selectedSubject, studyForm, studyInputIssues.firstError]);
 
   const scaledStudyScore =
     studyScore === null

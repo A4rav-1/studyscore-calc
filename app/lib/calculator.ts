@@ -8,7 +8,7 @@ export type SchoolStatistics = {
 export type StudyScoreInput = {
   subject: SubjectDefinition;
   school: SchoolStatistics | null;
-  honourRollRankOneStudyScore?: number | null;
+  honourRollStudyScores?: readonly number[] | null;
   unit3Rank: number;
   unit3CohortSize: number;
   unit4Rank: number;
@@ -18,7 +18,7 @@ export type StudyScoreInput = {
 
 export type RelativeStudyScoreInput = {
   school: SchoolStatistics | null;
-  honourRollRankOneStudyScore?: number | null;
+  honourRollStudyScores?: readonly number[] | null;
   rank: number;
   cohortSize: number;
 };
@@ -222,17 +222,20 @@ function calculateSchoolRankAdjustment(school: SchoolStatistics | null): number 
   );
 }
 
-function validateHonourRollRankOneStudyScore(
-  honourRollRankOneStudyScore: number | null | undefined,
+function validateHonourRollStudyScores(
+  honourRollStudyScores: readonly number[] | null | undefined,
 ): void {
-  if (
-    honourRollRankOneStudyScore !== null &&
-    honourRollRankOneStudyScore !== undefined &&
-    (!Number.isInteger(honourRollRankOneStudyScore) ||
-      honourRollRankOneStudyScore < 40 ||
-      honourRollRankOneStudyScore > 50)
-  ) {
-    throw new Error("Published honour-roll study scores must be whole numbers between 40 and 50.");
+  if (honourRollStudyScores === null || honourRollStudyScores === undefined) {
+    return;
+  }
+
+  for (const [index, studyScore] of honourRollStudyScores.entries()) {
+    if (!Number.isInteger(studyScore) || studyScore < 40 || studyScore > 50) {
+      throw new Error("Published honour-roll study scores must be whole numbers between 40 and 50.");
+    }
+    if (index > 0 && studyScore > honourRollStudyScores[index - 1]) {
+      throw new Error("Published honour-roll study scores must be sorted highest first.");
+    }
   }
 }
 
@@ -240,42 +243,32 @@ function calculateHonourRollRelativeStudyScore(
   rank: number,
   cohortSize: number,
   school: SchoolStatistics | null,
-  honourRollRankOneStudyScore: number,
+  honourRollStudyScores: readonly number[],
 ): number {
-  const rankPercentile = rankToPercentile(rank, cohortSize);
-  const cohortMedianScore = clamp(
-    school?.medianStudyScore ?? 30,
-    0,
-    honourRollRankOneStudyScore,
-  );
-  const bottomRankScore = clamp(cohortMedianScore - 12, 0, cohortMedianScore);
-
-  if (rankPercentile >= 50) {
-    return interpolate(
-      rankPercentile,
-      50,
-      100,
-      cohortMedianScore,
-      honourRollRankOneStudyScore,
-    );
+  const publishedStudyScore = honourRollStudyScores[rank - 1];
+  if (publishedStudyScore !== undefined) {
+    return publishedStudyScore;
   }
 
-  return interpolate(rankPercentile, 0, 50, bottomRankScore, cohortMedianScore);
+  const firstUnpublishedRank = honourRollStudyScores.length + 1;
+  const cohortBottomScore = Math.min(
+    39,
+    calculateBaselineRelativeStudyScore({
+      school,
+      rank: cohortSize,
+      cohortSize,
+    }),
+  );
+  return interpolate(
+    rank,
+    firstUnpublishedRank,
+    cohortSize,
+    39,
+    cohortBottomScore,
+  );
 }
 
-function calculateRelativeStudyScoreValue(input: RelativeStudyScoreInput): number {
-  validateRank(input.rank, input.cohortSize, "SAC");
-  validateHonourRollRankOneStudyScore(input.honourRollRankOneStudyScore);
-
-  if (input.honourRollRankOneStudyScore !== null && input.honourRollRankOneStudyScore !== undefined) {
-    return calculateHonourRollRelativeStudyScore(
-      input.rank,
-      input.cohortSize,
-      input.school,
-      input.honourRollRankOneStudyScore,
-    );
-  }
-
+function calculateBaselineRelativeStudyScore(input: RelativeStudyScoreInput): number {
   return performanceToRawStudyScore(
     clamp(
       rankToPercentile(input.rank, input.cohortSize) +
@@ -284,6 +277,22 @@ function calculateRelativeStudyScoreValue(input: RelativeStudyScoreInput): numbe
       100,
     ),
   );
+}
+
+function calculateRelativeStudyScoreValue(input: RelativeStudyScoreInput): number {
+  validateRank(input.rank, input.cohortSize, "SAC");
+  validateHonourRollStudyScores(input.honourRollStudyScores);
+
+  if (input.honourRollStudyScores !== null && input.honourRollStudyScores !== undefined && input.honourRollStudyScores.length > 0) {
+    return calculateHonourRollRelativeStudyScore(
+      input.rank,
+      input.cohortSize,
+      input.school,
+      input.honourRollStudyScores,
+    );
+  }
+
+  return calculateBaselineRelativeStudyScore(input);
 }
 
 export function calculateRelativeStudyScore(
@@ -295,7 +304,7 @@ export function calculateRelativeStudyScore(
 export function calculateStudyScore(input: StudyScoreInput): number {
   validateRank(input.unit3Rank, input.unit3CohortSize, "Unit 3");
   validateRank(input.unit4Rank, input.unit4CohortSize, "Unit 4");
-  validateHonourRollRankOneStudyScore(input.honourRollRankOneStudyScore);
+  validateHonourRollStudyScores(input.honourRollStudyScores);
 
   if (input.examMarks.length !== input.subject.examWeights.length) {
     throw new Error("The exam mark count does not match this subject.");
@@ -309,14 +318,15 @@ export function calculateStudyScore(input: StudyScoreInput): number {
   }
 
   const schoolRankAdjustment = calculateSchoolRankAdjustment(input.school);
-  const hasHonourRollAnchor =
-    input.honourRollRankOneStudyScore !== null &&
-    input.honourRollRankOneStudyScore !== undefined;
-  const unit3Performance = hasHonourRollAnchor
+  const hasHonourRollCurve =
+    input.honourRollStudyScores !== null &&
+    input.honourRollStudyScores !== undefined &&
+    input.honourRollStudyScores.length > 0;
+  const unit3Performance = hasHonourRollCurve
     ? rawStudyScoreToPerformance(
         calculateRelativeStudyScoreValue({
           school: input.school,
-          honourRollRankOneStudyScore: input.honourRollRankOneStudyScore,
+          honourRollStudyScores: input.honourRollStudyScores,
           rank: input.unit3Rank,
           cohortSize: input.unit3CohortSize,
         }),
@@ -326,11 +336,11 @@ export function calculateStudyScore(input: StudyScoreInput): number {
         0,
         100,
       );
-  const unit4Performance = hasHonourRollAnchor
+  const unit4Performance = hasHonourRollCurve
     ? rawStudyScoreToPerformance(
         calculateRelativeStudyScoreValue({
           school: input.school,
-          honourRollRankOneStudyScore: input.honourRollRankOneStudyScore,
+          honourRollStudyScores: input.honourRollStudyScores,
           rank: input.unit4Rank,
           cohortSize: input.unit4CohortSize,
         }),

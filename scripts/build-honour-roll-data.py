@@ -1,4 +1,4 @@
-"""Build anonymised rank-one school/subject anchors from VCAA's workbook."""
+"""Build anonymised all-school, all-subject score distributions from VCAA data."""
 
 from __future__ import annotations
 
@@ -97,11 +97,37 @@ def normalise_school_name(value: str, include_locality: bool = True) -> str:
     return re.sub(r"[^a-z0-9]+", "", comparable_value.lower())
 
 
-def build_rank_one_scores(workbook_path: Path, schools_path: Path) -> tuple[dict[str, dict[str, int]], list[str]]:
+def split_school_locality(school_name: str) -> tuple[str, str]:
+    school_parts = school_name.rsplit(",", maxsplit=1)
+    if len(school_parts) == 1:
+        return school_name, ""
+    return school_parts[0].strip(), school_parts[1].strip()
+
+
+def build_score_distributions(
+    workbook_path: Path,
+    schools_path: Path,
+) -> tuple[dict[str, dict[str, list[int]]], dict[str, str], list[str]]:
     schools = json.loads(schools_path.read_text(encoding="utf-8"))
     worksheet = load_workbook(workbook_path, read_only=True, data_only=True).active
-    source_rows = list(worksheet.iter_rows(values_only=True))
-    source_schools = {school for _, school, _, _ in source_rows if school}
+    source_rows = worksheet.iter_rows(values_only=True)
+    scores_by_school_and_subject: dict[str, dict[str, list[int]]] = {}
+    source_schools: set[str] = set()
+    current_school_name: str | None = None
+
+    for _, school_name, subject_name, study_score in source_rows:
+        if school_name:
+            current_school_name = school_name
+            source_schools.add(school_name)
+        if current_school_name is None or subject_name is None or study_score is None:
+            continue
+        school_scores = scores_by_school_and_subject.setdefault(current_school_name, {})
+        school_scores.setdefault(subject_name, []).append(int(study_score))
+
+    for school_scores in scores_by_school_and_subject.values():
+        for subject_scores in school_scores.values():
+            subject_scores.sort(reverse=True)
+
     source_schools_by_full_name = {
         normalise_school_name(school): school for school in source_schools
     }
@@ -109,11 +135,7 @@ def build_rank_one_scores(workbook_path: Path, schools_path: Path) -> tuple[dict
         normalise_school_name(school, include_locality=False): school
         for school in source_schools
     }
-    source_subject_to_code = {
-        source_subject: code for code, source_subject in SOURCE_SUBJECT_BY_CODE.items()
-    }
-
-    anchors: dict[str, dict[str, int]] = {}
+    school_aliases: dict[str, str] = {}
     missing_schools: list[str] = []
     for local_school in schools:
         local_school_name = local_school["name"]
@@ -129,20 +151,13 @@ def build_rank_one_scores(workbook_path: Path, schools_path: Path) -> tuple[dict
         if source_school_name is None:
             missing_schools.append(local_school_name)
             continue
+        school_aliases[local_school_name] = source_school_name
 
-        school_anchors: dict[str, int] = {}
-        for _, row_school_name, source_subject, study_score in source_rows:
-            if row_school_name != source_school_name:
-                continue
-            subject_code = source_subject_to_code.get(source_subject)
-            if subject_code is None:
-                continue
-            school_anchors[subject_code] = max(school_anchors.get(subject_code, 0), int(study_score))
-
-        if school_anchors:
-            anchors[local_school_name] = dict(sorted(school_anchors.items()))
-
-    return dict(sorted(anchors.items())), missing_schools
+    return (
+        dict(sorted(scores_by_school_and_subject.items())),
+        dict(sorted(school_aliases.items())),
+        missing_schools,
+    )
 
 
 def main() -> None:
@@ -152,31 +167,62 @@ def main() -> None:
     parser.add_argument("--schools", type=Path, default=Path("app/data/schools.json"))
     arguments = parser.parse_args()
 
-    anchors, missing_schools = build_rank_one_scores(arguments.workbook, arguments.schools)
+    distributions, school_aliases, missing_schools = build_score_distributions(
+        arguments.workbook,
+        arguments.schools,
+    )
     source = "https://www.vcaa.vic.edu.au/sites/default/files/2026-02/2025StudentData.xlsx"
+    school_options = [
+        {"name": school_name, "locality": split_school_locality(school_name)[1]}
+        for school_name in distributions
+    ]
     output = f'''/**
- * Highest published 2025 VCE study score for each bundled school and subject.
+ * Every published 2025 VCE 40+ study score, grouped by school and subject.
  * Source: {source}
  *
- * The VCAA workbook only lists published 40+ results. These anchors contain no
- * student names and are used as rank-one calibration points, never as a score cap.
+ * Student names are intentionally excluded. Scores are sorted highest first and
+ * form the published part of each school/subject rank curve.
  */
-export const HONOUR_ROLL_2025_RANK_ONE_SCORES: Readonly<
-  Record<string, Readonly<Record<string, number>>>
-> = {json.dumps(anchors, ensure_ascii=False, indent=2, sort_keys=True)};
+export type HonourRollSchoolOption = {{
+  name: string;
+  locality: string;
+}};
 
-export function getHonourRollRankOneStudyScore(
+export const HONOUR_ROLL_2025_SCHOOL_OPTIONS: readonly HonourRollSchoolOption[] = {json.dumps(school_options, ensure_ascii=False, indent=2)};
+
+export const HONOUR_ROLL_2025_SCHOOL_ALIASES: Readonly<Record<string, string>> = {json.dumps(school_aliases, ensure_ascii=False, indent=2, sort_keys=True)};
+
+export const HONOUR_ROLL_2025_SUBJECT_BY_CODE: Readonly<Record<string, string>> = {json.dumps(SOURCE_SUBJECT_BY_CODE, ensure_ascii=False, indent=2, sort_keys=True)};
+
+export const HONOUR_ROLL_2025_SCORES: Readonly<
+  Record<string, Readonly<Record<string, readonly number[]>>>
+> = {json.dumps(distributions, ensure_ascii=False, indent=2, sort_keys=True)};
+
+export function getHonourRollSchoolName(schoolName: string): string | null {{
+  if (HONOUR_ROLL_2025_SCORES[schoolName]) {{
+    return schoolName;
+  }}
+  return HONOUR_ROLL_2025_SCHOOL_ALIASES[schoolName] ?? null;
+}}
+
+export function getHonourRollStudyScores(
   schoolName: string,
   subjectCode: string,
-): number | null {{
-  return HONOUR_ROLL_2025_RANK_ONE_SCORES[schoolName]?.[subjectCode] ?? null;
+): readonly number[] {{
+  const sourceSchoolName = getHonourRollSchoolName(schoolName);
+  const sourceSubjectName = HONOUR_ROLL_2025_SUBJECT_BY_CODE[subjectCode];
+  if (sourceSchoolName === null || sourceSubjectName === undefined) {{
+    return [];
+  }}
+  return HONOUR_ROLL_2025_SCORES[sourceSchoolName]?.[sourceSubjectName] ?? [];
 }}
 '''
     arguments.output.write_text(output, encoding="utf-8", newline="\n")
-    print(f"Anchored schools: {len(anchors)}")
-    print(f"Subject anchors: {sum(len(values) for values in anchors.values())}")
+    print(f"Schools: {len(distributions)}")
+    print(f"Published scores: {sum(len(scores) for subjects in distributions.values() for scores in subjects.values())}")
+    print(f"Subjects: {len({subject for subjects in distributions.values() for subject in subjects})}")
     print("Schools without published anchors:", ", ".join(missing_schools))
-    print("Mazenod:", anchors.get("Mazenod College"))
+    print("Mazenod General Mathematics:", distributions.get("Mazenod College, Mulgrave", {}).get("General Mathematics"))
 
 
 if __name__ == "__main__":

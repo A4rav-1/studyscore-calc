@@ -6,7 +6,12 @@ import {
   SUBJECT_BY_CODE,
   SUBJECTS,
 } from "../app/data/subjects.ts";
-import { getHonourRollRankOneStudyScore } from "../app/data/honourRoll2025.ts";
+import {
+  getHonourRollSchoolName,
+  getHonourRollStudyScores,
+  HONOUR_ROLL_2025_SCHOOL_OPTIONS,
+  HONOUR_ROLL_2025_SCORES,
+} from "../app/data/honourRoll2025.ts";
 import {
   calculateAtar,
   calculateRelativeStudyScore,
@@ -92,9 +97,11 @@ test("relative study score converts a SAC rank into the matching rank guide", ()
   );
 });
 
-test("published honour-roll results anchor rank one and preserve the school median", () => {
-  const mazenodBiologyAnchor = getHonourRollRankOneStudyScore("Mazenod College", "BI");
-  assert.equal(mazenodBiologyAnchor, 42);
+test("published honour-roll results retain every score and align rank positions", () => {
+  const mazenodGeneralMathematicsScores = getHonourRollStudyScores("Mazenod College", "NF");
+  assert.equal(getHonourRollSchoolName("Mazenod College"), "Mazenod College, Mulgrave");
+  assert.deepEqual(mazenodGeneralMathematicsScores.slice(0, 5), [50, 50, 50, 49, 49]);
+  assert.equal(mazenodGeneralMathematicsScores.length, 31);
 
   const school = {
     medianStudyScore: 33,
@@ -103,51 +110,75 @@ test("published honour-roll results anchor rank one and preserve the school medi
   assert.equal(
     calculateRelativeStudyScore({
       school,
-      honourRollRankOneStudyScore: mazenodBiologyAnchor,
-      rank: 1,
+      honourRollStudyScores: mazenodGeneralMathematicsScores,
+      rank: 4,
       cohortSize: 101,
     }),
-    42,
+    49,
   );
   assert.equal(
     calculateRelativeStudyScore({
       school,
-      honourRollRankOneStudyScore: mazenodBiologyAnchor,
-      rank: 51,
+      honourRollStudyScores: mazenodGeneralMathematicsScores,
+      rank: 31,
       cohortSize: 101,
     }),
-    33,
+    40,
+  );
+  assert.equal(
+    calculateRelativeStudyScore({
+      school,
+      honourRollStudyScores: mazenodGeneralMathematicsScores,
+      rank: 32,
+      cohortSize: 101,
+    }),
+    39,
   );
 });
 
-test("honour-roll anchors affect the study-score estimate without becoming a cap", () => {
-  const biologyScore = calculateStudyScore({
-    subject: getSubject("BI"),
+test("full honour-roll data covers every published school, subject and score", () => {
+  const publishedScoreCount = Object.values(HONOUR_ROLL_2025_SCORES).reduce(
+    (schoolTotal, subjectScores) =>
+      schoolTotal + Object.values(subjectScores).reduce(
+        (subjectTotal, scores) => subjectTotal + scores.length,
+        0,
+      ),
+    0,
+  );
+
+  assert.equal(HONOUR_ROLL_2025_SCHOOL_OPTIONS.length, 533);
+  assert.equal(publishedScoreCount, 20466);
+});
+
+test("honour-roll rank curves affect the study-score estimate without becoming a cap", () => {
+  const mazenodGeneralMathematicsScores = getHonourRollStudyScores("Mazenod College", "NF");
+  const partialExamScore = calculateStudyScore({
+    subject: getSubject("NF"),
     school: {
       medianStudyScore: 33,
       scoresAbove40Percent: 15.3,
     },
-    honourRollRankOneStudyScore: 42,
+    honourRollStudyScores: mazenodGeneralMathematicsScores,
     unit3Rank: 1,
     unit3CohortSize: 101,
     unit4Rank: 1,
     unit4CohortSize: 101,
-    examMarks: [60],
+    examMarks: [20, 30],
   });
-  assert.equal(biologyScore, 34);
+  assert.equal(partialExamScore, 35);
 
   const fullPerformanceScore = calculateStudyScore({
-    subject: getSubject("BI"),
+    subject: getSubject("NF"),
     school: {
       medianStudyScore: 33,
       scoresAbove40Percent: 15.3,
     },
-    honourRollRankOneStudyScore: 42,
+    honourRollStudyScores: mazenodGeneralMathematicsScores,
     unit3Rank: 1,
     unit3CohortSize: 101,
     unit4Rank: 1,
     unit4CohortSize: 101,
-    examMarks: [120],
+    examMarks: [40, 60],
   });
   assert.equal(fullPerformanceScore, 50);
 });
@@ -216,8 +247,8 @@ test("perfect ranks and full marks reach 50 for every supported study", () => {
 });
 
 test("Mazenod General Mathematics perfect inputs reach 50", () => {
-  const honourRollRankOneStudyScore = getHonourRollRankOneStudyScore("Mazenod College", "NF");
-  assert.equal(honourRollRankOneStudyScore, 50);
+  const honourRollStudyScores = getHonourRollStudyScores("Mazenod College", "NF");
+  assert.equal(honourRollStudyScores[0], 50);
 
   const score = calculateStudyScore({
     subject: getSubject("NF"),
@@ -225,7 +256,7 @@ test("Mazenod General Mathematics perfect inputs reach 50", () => {
       medianStudyScore: 33,
       scoresAbove40Percent: 15.3,
     },
-    honourRollRankOneStudyScore,
+    honourRollStudyScores,
     unit3Rank: 1,
     unit3CohortSize: 100,
     unit4Rank: 1,
@@ -236,8 +267,8 @@ test("Mazenod General Mathematics perfect inputs reach 50", () => {
 });
 
 test("Mazenod Software Development rank one with an 87 exam mark reaches 50", () => {
-  const honourRollRankOneStudyScore = getHonourRollRankOneStudyScore("Mazenod College", "IT03");
-  assert.equal(honourRollRankOneStudyScore, 50);
+  const honourRollStudyScores = getHonourRollStudyScores("Mazenod College", "IT03");
+  assert.equal(honourRollStudyScores[0], 50);
 
   const calculateMazenodSoftwareScore = (examMark: number): number => calculateStudyScore({
     subject: getSubject("IT03"),
@@ -245,7 +276,7 @@ test("Mazenod Software Development rank one with an 87 exam mark reaches 50", ()
       medianStudyScore: 33,
       scoresAbove40Percent: 15.3,
     },
-    honourRollRankOneStudyScore,
+    honourRollStudyScores,
     unit3Rank: 1,
     unit3CohortSize: 100,
     unit4Rank: 1,
