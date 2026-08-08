@@ -180,7 +180,7 @@ const EXAM_PERFORMANCE_ANCHORS_BY_CODE: Readonly<
     [60, 60],
     [70, 82],
     [80, 96],
-    [83, 100],
+    [87, 100],
     [100, 100],
   ],
 };
