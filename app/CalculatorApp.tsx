@@ -29,6 +29,7 @@ import {
   type AtarResult,
 } from "./lib/calculator";
 import { getStudyInputIssues, parseExamMark } from "./lib/input";
+import { formatRelativeStudyScore } from "./lib/studyScoreDisplay";
 
 type CalculatorView = "study" | "atar";
 
@@ -814,7 +815,7 @@ export function CalculatorApp() {
                     </label>
                     <output className="relative-study-score" aria-label="Unit 3 relative study score">
                       <span>Relative study score</span>
-                      <strong>{relativeRankStudyScores.unit3 ?? "—"}</strong>
+                      <strong>{formatRelativeStudyScore(relativeRankStudyScores.unit3)}</strong>
                     </output>
                   </div>
                   <div className="rank-row">
@@ -857,7 +858,7 @@ export function CalculatorApp() {
                     </label>
                     <output className="relative-study-score" aria-label="Unit 4 relative study score">
                       <span>Relative study score</span>
-                      <strong>{relativeRankStudyScores.unit4 ?? "—"}</strong>
+                      <strong>{formatRelativeStudyScore(relativeRankStudyScores.unit4)}</strong>
                     </output>
                   </div>
                   {studyInputIssues.unit3 ? (

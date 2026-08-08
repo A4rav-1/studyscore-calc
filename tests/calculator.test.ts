@@ -19,6 +19,7 @@ import {
   calculateStudyScore,
   groupAtarContributions,
 } from "../app/lib/calculator.ts";
+import { formatRelativeStudyScore } from "../app/lib/studyScoreDisplay.ts";
 
 function getSubject(code: string) {
   const subject = SUBJECT_BY_CODE.get(code);
@@ -95,6 +96,14 @@ test("relative study score converts a SAC rank into the matching rank guide", ()
     }),
     45,
   );
+});
+
+test("relative study score display follows VCAA's public reporting threshold", () => {
+  assert.equal(formatRelativeStudyScore(null), "—");
+  assert.equal(formatRelativeStudyScore(1), "<20");
+  assert.equal(formatRelativeStudyScore(19), "<20");
+  assert.equal(formatRelativeStudyScore(20), "20");
+  assert.equal(formatRelativeStudyScore(50), "50");
 });
 
 test("published honour-roll results retain every score and align rank positions", () => {
