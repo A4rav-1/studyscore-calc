@@ -15,6 +15,12 @@ export type StudyScoreInput = {
   examMarks: readonly number[];
 };
 
+export type RelativeStudyScoreInput = {
+  school: SchoolStatistics | null;
+  rank: number;
+  cohortSize: number;
+};
+
 export type AtarSubjectInput = {
   id: string;
   subject: SubjectDefinition;
@@ -181,6 +187,32 @@ function rawMarkToExamPerformance(
   return anchors[anchors.length - 1][1];
 }
 
+function calculateSchoolRankAdjustment(school: SchoolStatistics | null): number {
+  if (!school) {
+    return 0;
+  }
+
+  return clamp(
+    ((school.medianStudyScore - 30) / 7) * 3 +
+      ((school.scoresAbove40Percent - 8) / 20) * 2,
+    -5,
+    5,
+  );
+}
+
+export function calculateRelativeStudyScore(
+  input: RelativeStudyScoreInput,
+): number {
+  validateRank(input.rank, input.cohortSize, "SAC");
+  const rankPerformance = clamp(
+    rankToPercentile(input.rank, input.cohortSize) +
+      calculateSchoolRankAdjustment(input.school),
+    0,
+    100,
+  );
+  return Math.round(performanceToRawStudyScore(rankPerformance));
+}
+
 export function calculateStudyScore(input: StudyScoreInput): number {
   validateRank(input.unit3Rank, input.unit3CohortSize, "Unit 3");
   validateRank(input.unit4Rank, input.unit4CohortSize, "Unit 4");
@@ -196,14 +228,7 @@ export function calculateStudyScore(input: StudyScoreInput): number {
     }
   }
 
-  const schoolRankAdjustment = input.school
-    ? clamp(
-        ((input.school.medianStudyScore - 30) / 7) * 3 +
-          ((input.school.scoresAbove40Percent - 8) / 20) * 2,
-        -5,
-        5,
-      )
-    : 0;
+  const schoolRankAdjustment = calculateSchoolRankAdjustment(input.school);
   const unit3Performance = clamp(
     rankToPercentile(input.unit3Rank, input.unit3CohortSize) + schoolRankAdjustment,
     0,

@@ -8,6 +8,7 @@ import {
 } from "../app/data/subjects.ts";
 import {
   calculateAtar,
+  calculateRelativeStudyScore,
   calculateScaledStudyScore,
   calculateStudyScore,
   groupAtarContributions,
@@ -69,6 +70,25 @@ test("study score calculation returns an exact integer", () => {
 
   assert.equal(score, 30);
   assert.equal(Number.isInteger(score), true);
+});
+
+test("relative study score converts a SAC rank into the matching rank guide", () => {
+  assert.equal(
+    calculateRelativeStudyScore({
+      school: null,
+      rank: 1,
+      cohortSize: 101,
+    }),
+    50,
+  );
+  assert.equal(
+    calculateRelativeStudyScore({
+      school: null,
+      rank: 11,
+      cohortSize: 101,
+    }),
+    45,
+  );
 });
 
 test("study score validates rank bounds", () => {

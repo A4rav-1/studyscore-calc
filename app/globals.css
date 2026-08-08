@@ -481,13 +481,40 @@ select:focus-visible {
 
 .rank-row {
   display: grid;
-  grid-template-columns: minmax(70px, 0.8fr) repeat(2, minmax(80px, 1fr));
+  grid-template-columns: minmax(70px, 0.8fr) repeat(2, minmax(80px, 1fr)) minmax(92px, 0.8fr);
   gap: 10px;
   align-items: center;
 }
 
 .rank-row strong {
   font-size: 13px;
+}
+
+.relative-study-score {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 11px;
+  border: 1px solid #d6dfd3;
+  border-radius: 10px;
+  background: #f6faf5;
+  color: var(--green);
+}
+
+.relative-study-score span {
+  color: #6f7c72;
+  font-size: 9px;
+  font-weight: 760;
+  letter-spacing: 0.05em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.relative-study-score strong {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 18px;
 }
 
 .rank-header {
@@ -1040,6 +1067,14 @@ footer {
 
   .rank-row {
     grid-template-columns: 64px repeat(2, minmax(0, 1fr));
+  }
+
+  .rank-header span:last-child {
+    display: none;
+  }
+
+  .relative-study-score {
+    grid-column: 2 / span 2;
   }
 
   .result-card {

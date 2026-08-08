@@ -17,6 +17,7 @@ import schoolsJson from "./data/schools.json";
 import { SUBJECT_BY_CODE, SUBJECTS } from "./data/subjects";
 import {
   calculateAtar,
+  calculateRelativeStudyScore,
   calculateScaledStudyScore,
   calculateStudyScore,
   groupAtarContributions,
@@ -233,6 +234,29 @@ export function CalculatorApp() {
       }),
     [selectedSubject.examMaximumMarks, studyForm],
   );
+  const relativeRankStudyScores = useMemo(() => {
+    const unit3Rank = parseInteger(studyForm.unit3Rank);
+    const unit3CohortSize = parseInteger(studyForm.unit3CohortSize);
+    const unit4Rank = parseInteger(studyForm.unit4Rank);
+    const unit4CohortSize = parseInteger(studyForm.unit4CohortSize);
+    const calculateRelativeScore = (rank: number | null, cohortSize: number | null) =>
+      rank === null ||
+      cohortSize === null ||
+      rank < 1 ||
+      cohortSize < 1 ||
+      rank > cohortSize
+        ? null
+        : calculateRelativeStudyScore({
+            school: selectedSchool,
+            rank,
+            cohortSize,
+          });
+
+    return {
+      unit3: calculateRelativeScore(unit3Rank, unit3CohortSize),
+      unit4: calculateRelativeScore(unit4Rank, unit4CohortSize),
+    };
+  }, [selectedSchool, studyForm]);
 
   const studyScore = useMemo(() => {
     const unit3Rank = parseInteger(studyForm.unit3Rank);
@@ -710,6 +734,7 @@ export function CalculatorApp() {
                     <span />
                     <span>Rank</span>
                     <span>Cohort</span>
+                    <span>Relative SS</span>
                   </div>
                   <div className="rank-row">
                     <strong>Unit 3</strong>
@@ -749,6 +774,10 @@ export function CalculatorApp() {
                         }
                       />
                     </label>
+                    <output className="relative-study-score" aria-label="Unit 3 relative study score">
+                      <span>Rank guide</span>
+                      <strong>{relativeRankStudyScores.unit3 ?? "—"}</strong>
+                    </output>
                   </div>
                   <div className="rank-row">
                     <strong>Unit 4</strong>
@@ -788,6 +817,10 @@ export function CalculatorApp() {
                         }
                       />
                     </label>
+                    <output className="relative-study-score" aria-label="Unit 4 relative study score">
+                      <span>Rank guide</span>
+                      <strong>{relativeRankStudyScores.unit4 ?? "—"}</strong>
+                    </output>
                   </div>
                   {studyInputIssues.unit3 ? (
                     <p className="field-error" role="alert">{studyInputIssues.unit3}</p>
