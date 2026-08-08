@@ -734,7 +734,7 @@ export function CalculatorApp() {
                     <span />
                     <span>Rank</span>
                     <span>Cohort</span>
-                    <span>Relative SS</span>
+                    <span>Relative study score</span>
                   </div>
                   <div className="rank-row">
                     <strong>Unit 3</strong>
@@ -775,7 +775,7 @@ export function CalculatorApp() {
                       />
                     </label>
                     <output className="relative-study-score" aria-label="Unit 3 relative study score">
-                      <span>Rank guide</span>
+                      <span>Relative study score</span>
                       <strong>{relativeRankStudyScores.unit3 ?? "—"}</strong>
                     </output>
                   </div>
@@ -818,7 +818,7 @@ export function CalculatorApp() {
                       />
                     </label>
                     <output className="relative-study-score" aria-label="Unit 4 relative study score">
-                      <span>Rank guide</span>
+                      <span>Relative study score</span>
                       <strong>{relativeRankStudyScores.unit4 ?? "—"}</strong>
                     </output>
                   </div>
