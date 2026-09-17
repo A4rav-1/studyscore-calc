@@ -145,6 +145,54 @@ test("published honour-roll results retain every score and align rank positions"
   );
 });
 
+test("Mazenod Religion and Society averages 37 and floors bottom rank at 30", () => {
+  const honourRollStudyScores = getHonourRollStudyScores("Mazenod College", "RS");
+  const school = {
+    name: "Mazenod College",
+    medianStudyScore: 33,
+    scoresAbove40Percent: 15.3,
+  };
+
+  assert.equal(honourRollStudyScores.length, 30);
+  assert.equal(
+    calculateRelativeStudyScore({
+      school,
+      subjectCode: "RS",
+      honourRollStudyScores,
+      rank: 50,
+      cohortSize: 100,
+    }),
+    37,
+  );
+  assert.equal(
+    calculateRelativeStudyScore({
+      school,
+      subjectCode: "RS",
+      honourRollStudyScores,
+      rank: 100,
+      cohortSize: 100,
+    }),
+    30,
+  );
+});
+
+test("Mazenod Religion and Society calibration is subject-specific", () => {
+  const honourRollStudyScores = getHonourRollStudyScores("Mazenod College", "RS");
+  const bottomRankScore = calculateRelativeStudyScore({
+    school: {
+      name: "Mazenod College",
+      medianStudyScore: 33,
+      scoresAbove40Percent: 15.3,
+    },
+    subjectCode: "EN",
+    honourRollStudyScores,
+    rank: 100,
+    cohortSize: 100,
+  });
+
+  assert.notEqual(bottomRankScore, 30);
+});
+
 test("full honour-roll data covers every published school, subject and score", () => {
   const publishedScoreCount = Object.values(HONOUR_ROLL_2025_SCORES).reduce(
     (schoolTotal, subjectScores) =>

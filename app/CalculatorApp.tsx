@@ -285,6 +285,7 @@ export function CalculatorApp() {
         ? null
         : calculateRelativeStudyScore({
             school: selectedSchool,
+            subjectCode: selectedSubject.code,
             honourRollStudyScores,
             rank,
             cohortSize,
@@ -294,7 +295,7 @@ export function CalculatorApp() {
       unit3: calculateRelativeScore(unit3Rank, unit3CohortSize),
       unit4: calculateRelativeScore(unit4Rank, unit4CohortSize),
     };
-  }, [honourRollStudyScores, selectedSchool, studyForm]);
+  }, [honourRollStudyScores, selectedSchool, selectedSubject.code, studyForm]);
 
   const studyScore = useMemo(() => {
     const unit3Rank = parseInteger(studyForm.unit3Rank);
