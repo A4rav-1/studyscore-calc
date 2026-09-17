@@ -49,10 +49,11 @@ export type AtarResult = {
 
 const RAW_SCORE_ANCHORS = [20, 25, 30, 35, 40, 45, 50] as const;
 
-const MAZENOD_RELIGION_AND_SOCIETY_PROFILE = {
+const MAZENOD_AVERAGE_PROFILE = {
   schoolName: "Mazenod College",
-  subjectCode: "RS",
-  averageStudyScore: 37,
+  religionAndSocietyCode: "RS",
+  neutralScalingSubjectCodes: new Set(["CC", "AR"]),
+  averageStudyScore: 33,
   minimumStudyScore: 30,
   firstUnpublishedStudyScore: 39,
 } as const;
@@ -278,16 +279,20 @@ function calculateHonourRollRelativeStudyScore(
   );
 }
 
-function isMazenodReligionAndSociety(
+function usesMazenodAverageProfile(
   input: RelativeStudyScoreInput,
 ): boolean {
   return (
-    input.school?.name === MAZENOD_RELIGION_AND_SOCIETY_PROFILE.schoolName &&
-    input.subjectCode === MAZENOD_RELIGION_AND_SOCIETY_PROFILE.subjectCode
+    input.school?.name === MAZENOD_AVERAGE_PROFILE.schoolName &&
+    (input.subjectCode === MAZENOD_AVERAGE_PROFILE.religionAndSocietyCode ||
+      (input.subjectCode !== undefined &&
+        MAZENOD_AVERAGE_PROFILE.neutralScalingSubjectCodes.has(
+          input.subjectCode,
+        )))
   );
 }
 
-function calculateMazenodReligionAndSocietyRelativeStudyScore(
+function calculateMazenodAverageProfileRelativeStudyScore(
   input: RelativeStudyScoreInput,
   honourRollStudyScores: readonly number[],
 ): number {
@@ -296,7 +301,13 @@ function calculateMazenodReligionAndSocietyRelativeStudyScore(
     return publishedStudyScore;
   }
 
-  const firstUnpublishedRank = honourRollStudyScores.length + 1;
+  const hasPublishedScores = honourRollStudyScores.length > 0;
+  const firstUnpublishedRank = hasPublishedScores
+    ? honourRollStudyScores.length + 1
+    : 1;
+  const firstUnpublishedStudyScore = hasPublishedScores
+    ? MAZENOD_AVERAGE_PROFILE.firstUnpublishedStudyScore
+    : 50;
   const averageRank = Math.max(
     firstUnpublishedRank,
     (input.cohortSize + 1) / 2,
@@ -307,8 +318,8 @@ function calculateMazenodReligionAndSocietyRelativeStudyScore(
       input.rank,
       firstUnpublishedRank,
       averageRank,
-      MAZENOD_RELIGION_AND_SOCIETY_PROFILE.firstUnpublishedStudyScore,
-      MAZENOD_RELIGION_AND_SOCIETY_PROFILE.averageStudyScore,
+      firstUnpublishedStudyScore,
+      MAZENOD_AVERAGE_PROFILE.averageStudyScore,
     );
   }
 
@@ -316,8 +327,8 @@ function calculateMazenodReligionAndSocietyRelativeStudyScore(
     input.rank,
     averageRank,
     input.cohortSize,
-    MAZENOD_RELIGION_AND_SOCIETY_PROFILE.averageStudyScore,
-    MAZENOD_RELIGION_AND_SOCIETY_PROFILE.minimumStudyScore,
+    MAZENOD_AVERAGE_PROFILE.averageStudyScore,
+    MAZENOD_AVERAGE_PROFILE.minimumStudyScore,
   );
 }
 
@@ -336,14 +347,14 @@ function calculateRelativeStudyScoreValue(input: RelativeStudyScoreInput): numbe
   validateRank(input.rank, input.cohortSize, "SAC");
   validateHonourRollStudyScores(input.honourRollStudyScores);
 
-  if (input.honourRollStudyScores !== null && input.honourRollStudyScores !== undefined && input.honourRollStudyScores.length > 0) {
-    if (isMazenodReligionAndSociety(input)) {
-      return calculateMazenodReligionAndSocietyRelativeStudyScore(
-        input,
-        input.honourRollStudyScores,
-      );
-    }
+  if (usesMazenodAverageProfile(input)) {
+    return calculateMazenodAverageProfileRelativeStudyScore(
+      input,
+      input.honourRollStudyScores ?? [],
+    );
+  }
 
+  if (input.honourRollStudyScores !== null && input.honourRollStudyScores !== undefined && input.honourRollStudyScores.length > 0) {
     return calculateHonourRollRelativeStudyScore(
       input.rank,
       input.cohortSize,
