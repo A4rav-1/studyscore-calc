@@ -145,14 +145,18 @@ test("published honour-roll results retain every score and align rank positions"
   );
 });
 
-test("Mazenod neutral-scaling subjects and Religion average 33 with a bottom rank of 30", () => {
+test("Mazenod subjects average 33, Religion averages 37 and calibrated subjects bottom at 30", () => {
   const school = {
     name: "Mazenod College",
     medianStudyScore: 33,
     scoresAbove40Percent: 15.3,
   };
 
-  for (const subjectCode of ["CC", "AR", "RS"] as const) {
+  for (const [subjectCode, expectedAverage] of [
+    ["EN", 33],
+    ["NF", 33],
+    ["RS", 37],
+  ] as const) {
     const honourRollStudyScores = getHonourRollStudyScores(
       "Mazenod College",
       subjectCode,
@@ -165,8 +169,8 @@ test("Mazenod neutral-scaling subjects and Religion average 33 with a bottom ran
         rank: 50,
         cohortSize: 100,
       }),
-      33,
-      `${subjectCode} should average 33`,
+      expectedAverage,
+      `${subjectCode} should average ${expectedAverage}`,
     );
     assert.equal(
       calculateRelativeStudyScore({
@@ -182,15 +186,15 @@ test("Mazenod neutral-scaling subjects and Religion average 33 with a bottom ran
   }
 });
 
-test("Mazenod average-33 calibration does not affect scaling subjects", () => {
-  const honourRollStudyScores = getHonourRollStudyScores("Mazenod College", "EN");
+test("Mazenod calibration excludes Specialist Mathematics", () => {
+  const honourRollStudyScores = getHonourRollStudyScores("Mazenod College", "NS");
   const bottomRankScore = calculateRelativeStudyScore({
     school: {
       name: "Mazenod College",
       medianStudyScore: 33,
       scoresAbove40Percent: 15.3,
     },
-    subjectCode: "EN",
+    subjectCode: "NS",
     honourRollStudyScores,
     rank: 100,
     cohortSize: 100,

@@ -52,8 +52,9 @@ const RAW_SCORE_ANCHORS = [20, 25, 30, 35, 40, 45, 50] as const;
 const MAZENOD_AVERAGE_PROFILE = {
   schoolName: "Mazenod College",
   religionAndSocietyCode: "RS",
-  neutralScalingSubjectCodes: new Set(["CC", "AR"]),
-  averageStudyScore: 33,
+  specialistMathematicsCode: "NS",
+  defaultAverageStudyScore: 33,
+  religionAndSocietyAverageStudyScore: 37,
   minimumStudyScore: 30,
   firstUnpublishedStudyScore: 39,
 } as const;
@@ -279,22 +280,26 @@ function calculateHonourRollRelativeStudyScore(
   );
 }
 
-function usesMazenodAverageProfile(
+function getMazenodAverageStudyScore(
   input: RelativeStudyScoreInput,
-): boolean {
-  return (
-    input.school?.name === MAZENOD_AVERAGE_PROFILE.schoolName &&
-    (input.subjectCode === MAZENOD_AVERAGE_PROFILE.religionAndSocietyCode ||
-      (input.subjectCode !== undefined &&
-        MAZENOD_AVERAGE_PROFILE.neutralScalingSubjectCodes.has(
-          input.subjectCode,
-        )))
-  );
+): number | null {
+  if (
+    input.school?.name !== MAZENOD_AVERAGE_PROFILE.schoolName ||
+    input.subjectCode === undefined ||
+    input.subjectCode === MAZENOD_AVERAGE_PROFILE.specialistMathematicsCode
+  ) {
+    return null;
+  }
+
+  return input.subjectCode === MAZENOD_AVERAGE_PROFILE.religionAndSocietyCode
+    ? MAZENOD_AVERAGE_PROFILE.religionAndSocietyAverageStudyScore
+    : MAZENOD_AVERAGE_PROFILE.defaultAverageStudyScore;
 }
 
 function calculateMazenodAverageProfileRelativeStudyScore(
   input: RelativeStudyScoreInput,
   honourRollStudyScores: readonly number[],
+  averageStudyScore: number,
 ): number {
   const publishedStudyScore = honourRollStudyScores[input.rank - 1];
   if (publishedStudyScore !== undefined) {
@@ -319,7 +324,7 @@ function calculateMazenodAverageProfileRelativeStudyScore(
       firstUnpublishedRank,
       averageRank,
       firstUnpublishedStudyScore,
-      MAZENOD_AVERAGE_PROFILE.averageStudyScore,
+      averageStudyScore,
     );
   }
 
@@ -327,7 +332,7 @@ function calculateMazenodAverageProfileRelativeStudyScore(
     input.rank,
     averageRank,
     input.cohortSize,
-    MAZENOD_AVERAGE_PROFILE.averageStudyScore,
+    averageStudyScore,
     MAZENOD_AVERAGE_PROFILE.minimumStudyScore,
   );
 }
@@ -347,10 +352,12 @@ function calculateRelativeStudyScoreValue(input: RelativeStudyScoreInput): numbe
   validateRank(input.rank, input.cohortSize, "SAC");
   validateHonourRollStudyScores(input.honourRollStudyScores);
 
-  if (usesMazenodAverageProfile(input)) {
+  const mazenodAverageStudyScore = getMazenodAverageStudyScore(input);
+  if (mazenodAverageStudyScore !== null) {
     return calculateMazenodAverageProfileRelativeStudyScore(
       input,
       input.honourRollStudyScores ?? [],
+      mazenodAverageStudyScore,
     );
   }
 
