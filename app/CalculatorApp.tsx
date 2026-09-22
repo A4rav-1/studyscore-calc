@@ -27,6 +27,7 @@ import {
   calculateStudyScore,
   groupAtarContributions,
   UNIVERSITY_EXTENSION_INCREMENTS,
+  type AtarContributionGroup,
   type AtarResult,
   type UniversityExtensionIncrement,
 } from "./lib/calculator";
@@ -139,6 +140,11 @@ const DEFAULT_ATAR_ROWS: readonly AtarRow[] = [
   { id: "subject-empty-4", subjectCode: "", rawStudyScore: "" },
 ];
 const ENGLISH_SUBJECTS = SUBJECTS.filter((subject) => subject.englishGroup);
+const ATAR_GROUP_DESCRIPTIONS: Readonly<Record<AtarContributionGroup["title"], string>> = {
+  "Top 4": "English plus your next best three",
+  "Bottom 2": "Best two 10% increments",
+  "Other subjects": "Excluded from the aggregate",
+};
 
 function createDefaultStudyForm(subjectCode = "EN"): StudyFormState {
   const subject = SUBJECT_BY_CODE.get(subjectCode) ?? SUBJECTS[0];
@@ -463,7 +469,10 @@ export function CalculatorApp() {
   }, [atarRows, universityExtensionIncrement]);
 
   const atarRowGroups = useMemo<
-    readonly { title: string; rows: readonly AtarRow[] }[]
+    readonly {
+      title: AtarContributionGroup["title"];
+      rows: readonly AtarRow[];
+    }[]
   >(() => {
     const calculationResult = atarCalculation.result;
     if (!calculationResult) {
@@ -736,7 +745,6 @@ export function CalculatorApp() {
           aria-labelledby="landing-chooser-title"
         >
           <div className="landing-chooser-card">
-            <span className="landing-kicker">VCEcalc</span>
             <h1 id="landing-chooser-title">What are you calculating?</h1>
             <p>Choose a calculator to get started. You can switch whenever you need.</p>
             <div className="landing-actions">
@@ -772,7 +780,6 @@ export function CalculatorApp() {
       {activeView === "study" ? (
         <section className="calculator-page">
           <div className="page-heading">
-            <span className="eyebrow"><BookOpen size={15} /> VCE study score</span>
             <h1>Study score calculator</h1>
             <p>Enter your ranks and expected exam marks. Your result updates instantly.</p>
           </div>
@@ -809,7 +816,7 @@ export function CalculatorApp() {
                         2025 median {selectedSchool.reportedMedianStudyScore.toFixed(1)}
                         {selectedSchool.usesImprovementAdjustment &&
                         selectedSchool.medianStudyScore !== null
-                          ? ` · improving trend ${selectedSchool.medianStudyScore.toFixed(2)}`
+                          ? ` · trend-adjusted ${selectedSchool.medianStudyScore.toFixed(2)}`
                           : ""}
                       </span>
                     ) : null}
@@ -1030,11 +1037,23 @@ export function CalculatorApp() {
               </div>
             </aside>
           </div>
+          <div className="mobile-result-dock" aria-hidden="true">
+            <div>
+              <span>Raw study score</span>
+              <strong>
+                {studyScore ?? "—"}
+                <small>/50</small>
+              </strong>
+            </div>
+            <div>
+              <span>Scaled</span>
+              <strong>{scaledStudyScore?.toFixed(1) ?? "—"}</strong>
+            </div>
+          </div>
         </section>
       ) : (
         <section className="calculator-page atar-page">
           <div className="page-heading">
-            <span className="eyebrow"><Calculator size={15} /> ATAR calculator</span>
             <h1>ATAR calculator</h1>
             <p>Add up to seven subjects. Your ATAR and contribution groups update as you enter scores.</p>
           </div>
@@ -1059,7 +1078,10 @@ export function CalculatorApp() {
                 ) : atarRowGroups.length > 0 ? (
                   atarRowGroups.map((group) => (
                     <section className="atar-row-group" key={group.title}>
-                      <h2>{group.title}</h2>
+                      <div className="atar-row-group-heading">
+                        <h2>{group.title}</h2>
+                        <span>{ATAR_GROUP_DESCRIPTIONS[group.title]}</span>
+                      </div>
                       {group.rows.map((row, index) => renderAtarRow(row, index + 1))}
                     </section>
                   ))
@@ -1068,9 +1090,10 @@ export function CalculatorApp() {
                 )}
               </div>
               <div className="university-extension-row">
-                <div>
+                <span className="subject-number extension-number" aria-hidden="true">H</span>
+                <div className="extension-copy">
                   <strong>University extension</strong>
-                  <span>Optional HES increment · counts within the best two increments</span>
+                  <span>Competes for one of the two increment positions</span>
                 </div>
                 <label className="select-wrap">
                   <span className="sr-only">University extension points</span>
@@ -1090,6 +1113,21 @@ export function CalculatorApp() {
                   </select>
                   <ChevronDown size={16} aria-hidden="true" />
                 </label>
+                <output
+                  className={`contribution-tag ${
+                    universityExtensionIncrement === 0
+                      ? "unused"
+                      : atarCalculation.result?.universityExtension.counted
+                        ? "increment"
+                        : "unused"
+                  }`}
+                >
+                  {universityExtensionIncrement === 0
+                    ? "Optional"
+                    : atarCalculation.result?.universityExtension.counted
+                      ? "Included"
+                      : "Not counted"}
+                </output>
               </div>
               <div className="atar-actions">
                 <button
@@ -1136,6 +1174,16 @@ export function CalculatorApp() {
                 <Check size={15} /> 2026 VTAC rules · 2025 scaling and aggregate table
               </div>
             </aside>
+          </div>
+          <div className="mobile-result-dock" aria-hidden="true">
+            <div>
+              <span>Estimated ATAR</span>
+              <strong>{atarCalculation.result?.atar.toFixed(2) ?? "—"}</strong>
+            </div>
+            <div>
+              <span>Aggregate</span>
+              <strong>{atarCalculation.result?.aggregate.toFixed(2) ?? "—"}</strong>
+            </div>
           </div>
         </section>
       )}

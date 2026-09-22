@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Newsreader } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -9,6 +9,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const newsreader = Newsreader({
+  variable: "--font-display",
   subsets: ["latin"],
 });
 
@@ -29,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-AU">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable}`}>
         {children}
       </body>
     </html>
