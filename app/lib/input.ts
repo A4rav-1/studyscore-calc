@@ -7,6 +7,10 @@ export function parseExamMark(value: string): number | null {
   return Number.isFinite(parsedValue) && parsedValue >= 0 ? parsedValue : null;
 }
 
+export function hasCompletedAtarScoreEntry(value: string): boolean {
+  return (value.match(/\d/g) ?? []).length >= 2;
+}
+
 type RankInput = {
   rank: string;
   cohortSize: string;

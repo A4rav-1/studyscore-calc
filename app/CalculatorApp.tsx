@@ -12,7 +12,7 @@ import {
   School,
   Trash2,
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   getHonourRollSchoolName,
   getHonourRollStudyScores,
@@ -31,7 +31,11 @@ import {
   type AtarResult,
   type UniversityExtensionIncrement,
 } from "./lib/calculator";
-import { getStudyInputIssues, parseExamMark } from "./lib/input";
+import {
+  getStudyInputIssues,
+  hasCompletedAtarScoreEntry,
+  parseExamMark,
+} from "./lib/input";
 import {
   calculateSchoolMedianTrend,
   type MedianStudyScoreHistory,
@@ -65,6 +69,21 @@ type AtarRow = {
   id: string;
   subjectCode: string;
   rawStudyScore: string;
+};
+
+type AtarCalculationState = {
+  result: AtarResult | null;
+  error: string | null;
+};
+
+type AtarRowGroupView = {
+  title: AtarContributionGroup["title"];
+  rows: readonly AtarRow[];
+};
+
+type AtarRowGroupSnapshot = {
+  title: AtarContributionGroup["title"];
+  rowIds: readonly string[];
 };
 
 type StudyFormState = {
@@ -265,8 +284,16 @@ export function CalculatorApp() {
   const [atarRows, setAtarRows] = useState<readonly AtarRow[]>(
     DEFAULT_ATAR_ROWS,
   );
+  const [activeAtarScoreRowId, setActiveAtarScoreRowId] = useState<string | null>(
+    null,
+  );
   const [universityExtensionIncrement, setUniversityExtensionIncrement] =
     useState<UniversityExtensionIncrement>(0);
+  const lastStableAtarRowGroupsRef = useRef<readonly AtarRowGroupSnapshot[]>([]);
+  const lastStableAtarCalculationRef = useRef<AtarCalculationState>({
+    result: null,
+    error: "Enter at least four study scores",
+  });
 
   useEffect(() => {
     const restoreLocation = () => {
@@ -410,10 +437,14 @@ export function CalculatorApp() {
       ? null
       : calculateScaledStudyScore(studyScore, selectedSubject);
 
-  const atarCalculation = useMemo<{
-    result: AtarResult | null;
-    error: string | null;
-  }>(() => {
+  const activeAtarScore = atarRows.find(
+    (row) => row.id === activeAtarScoreRowId,
+  )?.rawStudyScore;
+  const shouldDeferAtarUpdates =
+    activeAtarScoreRowId !== null &&
+    !hasCompletedAtarScoreEntry(activeAtarScore ?? "");
+
+  const atarCalculation = useMemo<AtarCalculationState>(() => {
     const hasSubjectWithoutScore = atarRows.some(
       (row) => row.subjectCode !== "" && row.rawStudyScore === "",
     );
@@ -468,12 +499,7 @@ export function CalculatorApp() {
     };
   }, [atarRows, universityExtensionIncrement]);
 
-  const atarRowGroups = useMemo<
-    readonly {
-      title: AtarContributionGroup["title"];
-      rows: readonly AtarRow[];
-    }[]
-  >(() => {
+  const atarRowGroups = useMemo<readonly AtarRowGroupView[]>(() => {
     const calculationResult = atarCalculation.result;
     if (!calculationResult) {
       return [];
@@ -505,6 +531,39 @@ export function CalculatorApp() {
     }
     return [...groups, { title: "Other subjects", rows: blankRows }];
   }, [atarCalculation.result, atarRows]);
+
+  useEffect(() => {
+    if (shouldDeferAtarUpdates) {
+      return;
+    }
+
+    lastStableAtarRowGroupsRef.current = atarRowGroups.map((group) => ({
+      title: group.title,
+      rowIds: group.rows.map((row) => row.id),
+    }));
+    lastStableAtarCalculationRef.current = atarCalculation;
+  }, [atarCalculation, atarRowGroups, shouldDeferAtarUpdates]);
+
+  const displayedAtarRowGroups = useMemo<readonly AtarRowGroupView[]>(() => {
+    const stableGroups = lastStableAtarRowGroupsRef.current;
+    if (!shouldDeferAtarUpdates || stableGroups.length === 0) {
+      return atarRowGroups;
+    }
+
+    const rowsById = new Map(atarRows.map((row) => [row.id, row]));
+    return stableGroups
+      .map((group) => ({
+        title: group.title,
+        rows: group.rowIds
+          .map((rowId) => rowsById.get(rowId))
+          .filter((row): row is AtarRow => row !== undefined),
+      }))
+      .filter((group) => group.rows.length > 0);
+  }, [atarRowGroups, atarRows, shouldDeferAtarUpdates]);
+
+  const displayedAtarCalculation = shouldDeferAtarUpdates
+    ? lastStableAtarCalculationRef.current
+    : atarCalculation;
 
   function navigateTo(view: CalculatorView, rowId: string | null = null): void {
     const searchParameters = new URLSearchParams();
@@ -540,6 +599,19 @@ export function CalculatorApp() {
     setAtarRows((current) =>
       current.map((row) => (row.id === rowId ? { ...row, ...patch } : row)),
     );
+  }
+
+  function beginAtarScoreEntry(rowId: string): void {
+    lastStableAtarRowGroupsRef.current = atarRowGroups.map((group) => ({
+      title: group.title,
+      rowIds: group.rows.map((row) => row.id),
+    }));
+    lastStableAtarCalculationRef.current = atarCalculation;
+    setActiveAtarScoreRowId(rowId);
+  }
+
+  function finishAtarScoreEntry(rowId: string): void {
+    setActiveAtarScoreRowId((current) => (current === rowId ? null : current));
   }
 
   function addAtarRow(): void {
@@ -619,6 +691,7 @@ export function CalculatorApp() {
 
   function resetAtarRows(): void {
     setAtarRows(DEFAULT_ATAR_ROWS);
+    setActiveAtarScoreRowId(null);
     setUniversityExtensionIncrement(0);
   }
 
@@ -629,7 +702,7 @@ export function CalculatorApp() {
       subject && row.rawStudyScore !== "" && rawScore >= 0 && rawScore <= 50
         ? calculateScaledStudyScore(rawScore, subject)
         : null;
-    const contribution = atarCalculation.result?.contributions.find(
+    const contribution = displayedAtarCalculation.result?.contributions.find(
       (item) => item.id === row.id,
     );
     const isEnglishSlot = atarRows[0]?.id === row.id;
@@ -678,11 +751,13 @@ export function CalculatorApp() {
             type="number"
             value={row.rawStudyScore}
             placeholder="40"
+            onFocus={() => beginAtarScoreEntry(row.id)}
             onChange={(event) =>
               updateAtarRow(row.id, {
                 rawStudyScore: numberInputValue(event.target.value),
               })
             }
+            onBlur={() => finishAtarScoreEntry(row.id)}
           />
         </label>
         <span className="scaled-score">{scaledScore?.toFixed(1) ?? "—"}</span>
@@ -1075,8 +1150,8 @@ export function CalculatorApp() {
                     <strong>Start with an English subject</strong>
                     <span>Add English, EAL, English Language or Literature first.</span>
                   </div>
-                ) : atarRowGroups.length > 0 ? (
-                  atarRowGroups.map((group) => (
+                ) : displayedAtarRowGroups.length > 0 ? (
+                  displayedAtarRowGroups.map((group) => (
                     <section className="atar-row-group" key={group.title}>
                       <div className="atar-row-group-heading">
                         <h2>{group.title}</h2>
@@ -1117,14 +1192,14 @@ export function CalculatorApp() {
                   className={`contribution-tag ${
                     universityExtensionIncrement === 0
                       ? "unused"
-                      : atarCalculation.result?.universityExtension.counted
+                      : displayedAtarCalculation.result?.universityExtension.counted
                         ? "increment"
                         : "unused"
                   }`}
                 >
                   {universityExtensionIncrement === 0
                     ? "Optional"
-                    : atarCalculation.result?.universityExtension.counted
+                    : displayedAtarCalculation.result?.universityExtension.counted
                       ? "Included"
                       : "Not counted"}
                 </output>
@@ -1146,20 +1221,20 @@ export function CalculatorApp() {
 
             <aside className="result-card atar-result-card" aria-live="polite">
               <span className="result-label">Estimated ATAR</span>
-              <div className={`atar-number ${atarCalculation.result ? "has-score" : ""}`}>
-                {atarCalculation.result?.atar.toFixed(2) ?? "—"}
+              <div className={`atar-number ${displayedAtarCalculation.result ? "has-score" : ""}`}>
+                {displayedAtarCalculation.result?.atar.toFixed(2) ?? "—"}
               </div>
-              {atarCalculation.result ? (
+              {displayedAtarCalculation.result ? (
                 <>
                   <div className="aggregate-row">
                     <span>Scaled aggregate</span>
-                    <strong>{atarCalculation.result.aggregate.toFixed(2)}</strong>
+                    <strong>{displayedAtarCalculation.result.aggregate.toFixed(2)}</strong>
                   </div>
                   {universityExtensionIncrement > 0 ? (
                     <div className="aggregate-row extension-result-row">
                       <span>University extension</span>
                       <strong>
-                        {atarCalculation.result.universityExtension.counted
+                        {displayedAtarCalculation.result.universityExtension.counted
                           ? `+${universityExtensionIncrement.toFixed(1)}`
                           : "Not counted"}
                       </strong>
@@ -1168,7 +1243,7 @@ export function CalculatorApp() {
                   <p>Your English subject, next best three and best two permissible increments are included.</p>
                 </>
               ) : (
-                <p>{atarCalculation.error}</p>
+                <p>{displayedAtarCalculation.error}</p>
               )}
               <div className="result-source">
                 <Check size={15} /> 2026 VTAC rules · 2025 scaling and aggregate table
@@ -1178,11 +1253,11 @@ export function CalculatorApp() {
           <div className="mobile-result-dock" aria-hidden="true">
             <div>
               <span>Estimated ATAR</span>
-              <strong>{atarCalculation.result?.atar.toFixed(2) ?? "—"}</strong>
+              <strong>{displayedAtarCalculation.result?.atar.toFixed(2) ?? "—"}</strong>
             </div>
             <div>
               <span>Aggregate</span>
-              <strong>{atarCalculation.result?.aggregate.toFixed(2) ?? "—"}</strong>
+              <strong>{displayedAtarCalculation.result?.aggregate.toFixed(2) ?? "—"}</strong>
             </div>
           </div>
         </section>

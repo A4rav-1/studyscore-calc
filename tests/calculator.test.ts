@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { getStudyInputIssues, parseExamMark } from "../app/lib/input.ts";
+import {
+  getStudyInputIssues,
+  hasCompletedAtarScoreEntry,
+  parseExamMark,
+} from "../app/lib/input.ts";
 import {
   RAW_EXAM_MAXIMUMS_BY_CODE,
   SUBJECT_BY_CODE,
@@ -203,6 +207,13 @@ test("Mazenod calibration excludes Specialist Mathematics", () => {
   });
 
   assert.notEqual(bottomRankScore, 30);
+});
+
+test("ATAR sorting waits for two entered digits", () => {
+  assert.equal(hasCompletedAtarScoreEntry(""), false);
+  assert.equal(hasCompletedAtarScoreEntry("4"), false);
+  assert.equal(hasCompletedAtarScoreEntry("40"), true);
+  assert.equal(hasCompletedAtarScoreEntry("3.5"), true);
 });
 
 test("official VCAA school data covers every 2025 provider and five-year trend", () => {
