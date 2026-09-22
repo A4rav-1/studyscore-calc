@@ -2,8 +2,8 @@ import type { SubjectDefinition } from "../data/subjects";
 
 export type SchoolStatistics = {
   name?: string;
-  medianStudyScore: number;
-  scoresAbove40Percent: number;
+  medianStudyScore: number | null;
+  scoresAbove40Percent: number | null;
 };
 
 export type StudyScoreInput = {
@@ -45,7 +45,15 @@ export type AtarResult = {
   atar: number;
   aggregate: number;
   contributions: readonly AtarContribution[];
+  universityExtension: {
+    increment: number;
+    counted: boolean;
+  };
 };
+
+export const UNIVERSITY_EXTENSION_INCREMENTS = [0, 3, 3.5, 4, 4.5, 5] as const;
+export type UniversityExtensionIncrement =
+  (typeof UNIVERSITY_EXTENSION_INCREMENTS)[number];
 
 const RAW_SCORE_ANCHORS = [20, 25, 30, 35, 40, 45, 50] as const;
 
@@ -226,9 +234,15 @@ function calculateSchoolRankAdjustment(school: SchoolStatistics | null): number 
     return 0;
   }
 
+  const medianAdjustment = school.medianStudyScore === null
+    ? 0
+    : ((school.medianStudyScore - 30) / 7) * 3;
+  const highScoreAdjustment = school.scoresAbove40Percent === null
+    ? 0
+    : ((school.scoresAbove40Percent - 8) / 20) * 2;
+
   return clamp(
-    ((school.medianStudyScore - 30) / 7) * 3 +
-      ((school.scoresAbove40Percent - 8) / 20) * 2,
+    medianAdjustment + highScoreAdjustment,
     -5,
     5,
   );
@@ -514,9 +528,16 @@ function aggregateToAtar(aggregate: number): number {
   return 99.95;
 }
 
-export function calculateAtar(inputs: readonly AtarSubjectInput[]): AtarResult {
+export function calculateAtar(
+  inputs: readonly AtarSubjectInput[],
+  universityExtensionIncrement: UniversityExtensionIncrement = 0,
+): AtarResult {
   if (inputs.length < 4) {
     throw new Error("Add at least four subjects.");
+  }
+
+  if (!UNIVERSITY_EXTENSION_INCREMENTS.includes(universityExtensionIncrement)) {
+    throw new Error("University extension increments must be 0, 3, 3.5, 4, 4.5 or 5.");
   }
 
   const uniqueCodes = new Set(inputs.map((input) => input.subject.code));
@@ -547,8 +568,39 @@ export function calculateAtar(inputs: readonly AtarSubjectInput[]): AtarResult {
     requiredEnglish.id,
     ...remainingByScore.slice(0, 3).map((input) => input.id),
   ]);
+  const incrementCandidates: (
+    | { type: "subject"; id: string; value: number }
+    | { type: "university"; value: number }
+  )[] = remainingByScore.slice(3).map((input) => ({
+    type: "subject",
+    id: input.id,
+    value: input.scaledStudyScore * 0.1,
+  }));
+  if (universityExtensionIncrement > 0) {
+    incrementCandidates.push({
+      type: "university",
+      value: universityExtensionIncrement,
+    });
+  }
+  const selectedIncrements = incrementCandidates
+    .sort((first, second) => {
+      const valueDifference = second.value - first.value;
+      if (valueDifference !== 0) {
+        return valueDifference;
+      }
+      if (first.type === second.type) {
+        return 0;
+      }
+      return first.type === "university" ? -1 : 1;
+    })
+    .slice(0, 2);
   const incrementIds = new Set(
-    remainingByScore.slice(3, 5).map((input) => input.id),
+    selectedIncrements.flatMap((increment) =>
+      increment.type === "subject" ? [increment.id] : [],
+    ),
+  );
+  const universityExtensionCounted = selectedIncrements.some(
+    (increment) => increment.type === "university",
   );
   const contributions: AtarContribution[] = scaledInputs.map((input) => ({
     ...input,
@@ -558,7 +610,7 @@ export function calculateAtar(inputs: readonly AtarSubjectInput[]): AtarResult {
         ? "increment"
         : "unused",
   }));
-  const aggregate = contributions.reduce((total, contribution) => {
+  const subjectAggregate = contributions.reduce((total, contribution) => {
     if (contribution.role === "primary") {
       return total + contribution.scaledStudyScore;
     }
@@ -567,12 +619,18 @@ export function calculateAtar(inputs: readonly AtarSubjectInput[]): AtarResult {
     }
     return total;
   }, 0);
+  const aggregate = subjectAggregate +
+    (universityExtensionCounted ? universityExtensionIncrement : 0);
   const roundedAggregate = Number(aggregate.toFixed(2));
 
   return {
     aggregate: roundedAggregate,
     atar: aggregateToAtar(roundedAggregate),
     contributions,
+    universityExtension: {
+      increment: universityExtensionIncrement,
+      counted: universityExtensionCounted,
+    },
   };
 }
 

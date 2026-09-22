@@ -26,23 +26,39 @@ import {
   calculateScaledStudyScore,
   calculateStudyScore,
   groupAtarContributions,
+  UNIVERSITY_EXTENSION_INCREMENTS,
   type AtarResult,
+  type UniversityExtensionIncrement,
 } from "./lib/calculator";
 import { getStudyInputIssues, parseExamMark } from "./lib/input";
+import {
+  calculateSchoolMedianTrend,
+  type MedianStudyScoreHistory,
+} from "./lib/schoolTrend";
 import { formatRelativeStudyScore } from "./lib/studyScoreDisplay";
 
 type CalculatorView = "study" | "atar";
 
 type SchoolRecord = {
   name: string;
+  selectionLabel: string;
   locality: string;
-  medianStudyScore: number;
-  scoresAbove40Percent: number;
-  cohortSize: number;
+  medianStudyScore: number | null;
+  reportedMedianStudyScore: number | null;
+  medianStudyScoreAnnualChange: number | null;
+  usesImprovementAdjustment: boolean;
+  scoresAbove40Percent: number | null;
+  cohortSize: number | null;
   honourRollSchoolName: string | null;
 };
 
-type SchoolStatisticsRecord = Omit<SchoolRecord, "honourRollSchoolName">;
+type SchoolStatisticsRecord = {
+  name: string;
+  locality: string;
+  medianStudyScores: MedianStudyScoreHistory;
+  scoresAbove40Percent: number | null;
+  cohortSize: number | null;
+};
 
 type AtarRow = {
   id: string;
@@ -61,24 +77,50 @@ type StudyFormState = {
 };
 
 const schoolStatistics = schoolsJson as readonly SchoolStatisticsRecord[];
-const schoolStatisticsHonourRollNames = new Set(
+const duplicateSchoolNames = new Set(
   schoolStatistics
-    .map((school) => getHonourRollSchoolName(school.name))
+    .map((school) => school.name)
+    .filter(
+      (name, index, names) =>
+        names.findIndex((candidate) => candidate === name) !== index,
+    ),
+);
+const officialSchools: readonly SchoolRecord[] = schoolStatistics.map((school) => {
+  const trend = calculateSchoolMedianTrend(school.medianStudyScores);
+  return {
+    name: school.name,
+    selectionLabel: duplicateSchoolNames.has(school.name)
+      ? `${school.name} (${school.locality})`
+      : school.name,
+    locality: school.locality,
+    medianStudyScore: trend.effectiveMedianStudyScore,
+    reportedMedianStudyScore: school.medianStudyScores["2025"],
+    medianStudyScoreAnnualChange: trend.annualChange,
+    usesImprovementAdjustment: trend.usesImprovementAdjustment,
+    scoresAbove40Percent: school.scoresAbove40Percent,
+    cohortSize: school.cohortSize,
+    honourRollSchoolName: getHonourRollSchoolName(school.name, school.locality),
+  };
+});
+const schoolStatisticsHonourRollNames = new Set(
+  officialSchools
+    .map((school) => school.honourRollSchoolName)
     .filter((schoolName): schoolName is string => schoolName !== null),
 );
 const schools: readonly SchoolRecord[] = [
-  ...schoolStatistics.map((school) => ({
-    ...school,
-    honourRollSchoolName: getHonourRollSchoolName(school.name),
-  })),
+  ...officialSchools,
   ...HONOUR_ROLL_2025_SCHOOL_OPTIONS
     .filter((school) => !schoolStatisticsHonourRollNames.has(school.name))
     .map((school) => ({
       name: school.name,
+      selectionLabel: school.name,
       locality: school.locality || "VCAA 2025 Honour Roll",
-      medianStudyScore: 30,
-      scoresAbove40Percent: 8,
-      cohortSize: 0,
+      medianStudyScore: null,
+      reportedMedianStudyScore: null,
+      medianStudyScoreAnnualChange: null,
+      usesImprovementAdjustment: false,
+      scoresAbove40Percent: null,
+      cohortSize: null,
       honourRollSchoolName: school.name,
     })),
 ];
@@ -121,6 +163,15 @@ function parseInteger(value: string): number | null {
 
 function numberInputValue(value: string): string {
   return value.replace(/[^0-9.]/g, "");
+}
+
+function parseUniversityExtensionIncrement(
+  value: string | null,
+): UniversityExtensionIncrement {
+  const parsedValue = Number(value);
+  return UNIVERSITY_EXTENSION_INCREMENTS.find(
+    (increment) => increment === parsedValue,
+  ) ?? 0;
 }
 
 function createAtarRow(): AtarRow {
@@ -208,6 +259,8 @@ export function CalculatorApp() {
   const [atarRows, setAtarRows] = useState<readonly AtarRow[]>(
     DEFAULT_ATAR_ROWS,
   );
+  const [universityExtensionIncrement, setUniversityExtensionIncrement] =
+    useState<UniversityExtensionIncrement>(0);
 
   useEffect(() => {
     const restoreLocation = () => {
@@ -231,6 +284,11 @@ export function CalculatorApp() {
       if (storedRows) {
         setAtarRows(storedRows);
       }
+      setUniversityExtensionIncrement(
+        parseUniversityExtensionIncrement(
+          window.localStorage.getItem("vce-university-extension-increment"),
+        ),
+      );
       restoreLocation();
     }, 0);
     window.addEventListener("popstate", restoreLocation);
@@ -244,12 +302,19 @@ export function CalculatorApp() {
     window.localStorage.setItem("vce-atar-subjects", JSON.stringify(atarRows));
   }, [atarRows]);
 
+  useEffect(() => {
+    window.localStorage.setItem(
+      "vce-university-extension-increment",
+      String(universityExtensionIncrement),
+    );
+  }, [universityExtensionIncrement]);
+
   const selectedSubject =
     SUBJECT_BY_CODE.get(studyForm.subjectCode) ?? SUBJECTS[0];
   const selectedSchool =
     schools.find(
       (school) =>
-        school.name.toLocaleLowerCase() ===
+        school.selectionLabel.toLocaleLowerCase() ===
         studyForm.schoolName.trim().toLocaleLowerCase(),
     ) ?? null;
   const honourRollStudyScores =
@@ -391,8 +456,11 @@ export function CalculatorApp() {
       };
     }
 
-    return { result: calculateAtar(validInputs), error: null };
-  }, [atarRows]);
+    return {
+      result: calculateAtar(validInputs, universityExtensionIncrement),
+      error: null,
+    };
+  }, [atarRows, universityExtensionIncrement]);
 
   const atarRowGroups = useMemo<
     readonly { title: string; rows: readonly AtarRow[] }[]
@@ -542,6 +610,7 @@ export function CalculatorApp() {
 
   function resetAtarRows(): void {
     setAtarRows(DEFAULT_ATAR_ROWS);
+    setUniversityExtensionIncrement(0);
   }
 
   function renderAtarRow(row: AtarRow, displayNumber: number) {
@@ -656,7 +725,7 @@ export function CalculatorApp() {
             ATAR
           </button>
         </nav>
-        <span className="data-year">2025 data</span>
+        <span className="data-year">2021–2025 data</span>
       </header>
 
       {isLandingChooserOpen ? (
@@ -734,11 +803,21 @@ export function CalculatorApp() {
                         }
                       />
                     </div>
+                    {selectedSchool?.reportedMedianStudyScore !== null &&
+                    selectedSchool?.reportedMedianStudyScore !== undefined ? (
+                      <span className="school-data-note">
+                        2025 median {selectedSchool.reportedMedianStudyScore.toFixed(1)}
+                        {selectedSchool.usesImprovementAdjustment &&
+                        selectedSchool.medianStudyScore !== null
+                          ? ` · improving trend ${selectedSchool.medianStudyScore.toFixed(2)}`
+                          : ""}
+                      </span>
+                    ) : null}
                     <datalist id="victorian-schools">
                       {schools.map((school) => (
                         <option
                           key={`${school.name}-${school.locality}`}
-                          value={school.name}
+                          value={school.selectionLabel}
                         >
                           {school.locality}
                         </option>
@@ -947,7 +1026,7 @@ export function CalculatorApp() {
                 <RotateCcw size={15} /> Reset
               </button>
               <div className="result-source">
-                <Check size={15} /> VCAA weights · 2025 Honour Roll · VTAC reports
+                <Check size={15} /> VCAA 2021–2025 school trends · Honour Roll · VTAC reports
               </div>
             </aside>
           </div>
@@ -988,6 +1067,30 @@ export function CalculatorApp() {
                   atarRows.map((row, index) => renderAtarRow(row, index + 1))
                 )}
               </div>
+              <div className="university-extension-row">
+                <div>
+                  <strong>University extension</strong>
+                  <span>Optional HES increment · counts within the best two increments</span>
+                </div>
+                <label className="select-wrap">
+                  <span className="sr-only">University extension points</span>
+                  <select
+                    value={universityExtensionIncrement}
+                    onChange={(event) =>
+                      setUniversityExtensionIncrement(
+                        parseUniversityExtensionIncrement(event.target.value),
+                      )
+                    }
+                  >
+                    {UNIVERSITY_EXTENSION_INCREMENTS.map((increment) => (
+                      <option key={increment} value={increment}>
+                        {increment === 0 ? "No extension" : `${increment.toFixed(1)} points`}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown size={16} aria-hidden="true" />
+                </label>
+              </div>
               <div className="atar-actions">
                 <button
                   className="add-subject-button"
@@ -1014,13 +1117,23 @@ export function CalculatorApp() {
                     <span>Scaled aggregate</span>
                     <strong>{atarCalculation.result.aggregate.toFixed(2)}</strong>
                   </div>
-                  <p>Your English subject, next best three and up to two 10% increments are included.</p>
+                  {universityExtensionIncrement > 0 ? (
+                    <div className="aggregate-row extension-result-row">
+                      <span>University extension</span>
+                      <strong>
+                        {atarCalculation.result.universityExtension.counted
+                          ? `+${universityExtensionIncrement.toFixed(1)}`
+                          : "Not counted"}
+                      </strong>
+                    </div>
+                  ) : null}
+                  <p>Your English subject, next best three and best two permissible increments are included.</p>
                 </>
               ) : (
                 <p>{atarCalculation.error}</p>
               )}
               <div className="result-source">
-                <Check size={15} /> 2025 VTAC scaling and aggregate table
+                <Check size={15} /> 2026 VTAC rules · 2025 scaling and aggregate table
               </div>
             </aside>
           </div>
@@ -1029,7 +1142,7 @@ export function CalculatorApp() {
 
       <footer>
         <span>Built for Victorian VCE students.</span>
-        <span>Estimates use published 2025 data.</span>
+        <span>Estimates use published VCAA and VTAC data.</span>
       </footer>
     </main>
   );

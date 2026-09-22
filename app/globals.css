@@ -456,6 +456,13 @@ select:focus-visible {
   padding-left: 40px;
 }
 
+.school-data-note {
+  color: #738078;
+  font-size: 10px;
+  font-weight: 620;
+  line-height: 1.35;
+}
+
 .select-wrap {
   position: relative;
 }
@@ -892,6 +899,43 @@ select:focus-visible {
   cursor: not-allowed;
 }
 
+.university-extension-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 14px;
+  padding: 14px 12px;
+  border: 1px solid #d9ded7;
+  border-radius: 13px;
+  background: #f8faf6;
+}
+
+.university-extension-row > div {
+  display: grid;
+  gap: 3px;
+}
+
+.university-extension-row strong {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.university-extension-row span {
+  color: #747d75;
+  font-size: 10px;
+}
+
+.university-extension-row .select-wrap {
+  width: 170px;
+  flex: 0 0 170px;
+}
+
+.university-extension-row select {
+  height: 41px;
+  font-size: 12px;
+}
+
 .atar-actions {
   display: flex;
   align-items: center;
@@ -955,6 +999,10 @@ select:focus-visible {
   color: #fff;
   font-family: var(--font-geist-mono), monospace;
   font-size: 14px;
+}
+
+.extension-result-row {
+  border-top: 0;
 }
 
 .atar-result-card .result-source {
@@ -1099,6 +1147,16 @@ footer {
   .atar-actions {
     flex-wrap: wrap;
     gap: 8px;
+  }
+
+  .university-extension-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .university-extension-row .select-wrap {
+    width: 100%;
+    flex-basis: auto;
   }
 
   .atar-row .select-wrap {

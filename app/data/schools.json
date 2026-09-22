@@ -1,702 +1,7893 @@
 [
-    {
-        "name":  "Ballarat Clarendon College",
-        "locality":  "BALLARAT",
-        "medianStudyScore":  37,
-        "scoresAbove40Percent":  35,
-        "cohortSize":  296
-    },
-    {
-        "name":  "MacRobertson Girls High School",
-        "locality":  "MELBOURNE",
-        "medianStudyScore":  37,
-        "scoresAbove40Percent":  34.7,
-        "cohortSize":  571
-    },
-    {
-        "name":  "Bacchus Marsh Grammar",
-        "locality":  "AINTREE",
-        "medianStudyScore":  36,
-        "scoresAbove40Percent":  33.3,
-        "cohortSize":  55
-    },
-    {
-        "name":  "Nossal High School",
-        "locality":  "BERWICK",
-        "medianStudyScore":  37,
-        "scoresAbove40Percent":  32.4,
-        "cohortSize":  410
-    },
-    {
-        "name":  "Haileybury College (Girls)",
-        "locality":  "KEYSBOROUGH",
-        "medianStudyScore":  36,
-        "scoresAbove40Percent":  31.2,
-        "cohortSize":  420
-    },
-    {
-        "name":  "Ruyton Girls\u0027 School",
-        "locality":  "KEW",
-        "medianStudyScore":  36,
-        "scoresAbove40Percent":  30.9,
-        "cohortSize":  163
-    },
-    {
-        "name":  "Melbourne Girls Grammar",
-        "locality":  "SOUTH YARRA",
-        "medianStudyScore":  36,
-        "scoresAbove40Percent":  30.4,
-        "cohortSize":  236
-    },
-    {
-        "name":  "Melbourne High School",
-        "locality":  "SOUTH YARRA",
-        "medianStudyScore":  36,
-        "scoresAbove40Percent":  29.9,
-        "cohortSize":  722
-    },
-    {
-        "name":  "Melbourne Grammar School",
-        "locality":  "MELBOURNE",
-        "medianStudyScore":  36,
-        "scoresAbove40Percent":  29.3,
-        "cohortSize":  377
-    },
-    {
-        "name":  "Huntingtower School",
-        "locality":  "MOUNT WAVERLEY",
-        "medianStudyScore":  36,
-        "scoresAbove40Percent":  27.7,
-        "cohortSize":  187
-    },
-    {
-        "name":  "Camberwell Girls Grammar School",
-        "locality":  "CANTERBURY",
-        "medianStudyScore":  36,
-        "scoresAbove40Percent":  27.5,
-        "cohortSize":  191
-    },
-    {
-        "name":  "Fintona Girls School",
-        "locality":  "BALWYN",
-        "medianStudyScore":  35,
-        "scoresAbove40Percent":  26.8,
-        "cohortSize":  109
-    },
-    {
-        "name":  "Haileybury College",
-        "locality":  "KEYSBOROUGH",
-        "medianStudyScore":  35,
-        "scoresAbove40Percent":  26.5,
-        "cohortSize":  577
-    },
-    {
-        "name":  "Mount Scopus Memorial College",
-        "locality":  "BURWOOD",
-        "medianStudyScore":  36,
-        "scoresAbove40Percent":  25.5,
-        "cohortSize":  237
-    },
-    {
-        "name":  "Suzanne Cory High School",
-        "locality":  "WERRIBEE",
-        "medianStudyScore":  35,
-        "scoresAbove40Percent":  25,
-        "cohortSize":  432
-    },
-    {
-        "name":  "Bialik College",
-        "locality":  "HAWTHORN",
-        "medianStudyScore":  36,
-        "scoresAbove40Percent":  24.8,
-        "cohortSize":  174
-    },
-    {
-        "name":  "Loreto Mandeville Hall",
-        "locality":  "TOORAK",
-        "medianStudyScore":  36,
-        "scoresAbove40Percent":  24.7,
-        "cohortSize":  264
-    },
-    {
-        "name":  "Korowa Anglican Girls\u0027 School",
-        "locality":  "GLEN IRIS",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  24.5,
-        "cohortSize":  183
-    },
-    {
-        "name":  "Leibler Yavneh College",
-        "locality":  "ELSTERNWICK",
-        "medianStudyScore":  36,
-        "scoresAbove40Percent":  24.1,
-        "cohortSize":  103
-    },
-    {
-        "name":  "Presbyterian Ladies\u0027 College",
-        "locality":  "BURWOOD",
-        "medianStudyScore":  35,
-        "scoresAbove40Percent":  24.1,
-        "cohortSize":  297
-    },
-    {
-        "name":  "Yarra Valley Grammar School",
-        "locality":  "RINGWOOD",
-        "medianStudyScore":  35,
-        "scoresAbove40Percent":  23.8,
-        "cohortSize":  364
-    },
-    {
-        "name":  "St Kevin\u0027s College",
-        "locality":  "TOORAK",
-        "medianStudyScore":  35,
-        "scoresAbove40Percent":  23.6,
-        "cohortSize":  392
-    },
-    {
-        "name":  "Methodist Ladies College",
-        "locality":  "KEW",
-        "medianStudyScore":  35,
-        "scoresAbove40Percent":  23.2,
-        "cohortSize":  438
-    },
-    {
-        "name":  "Firbank Grammar School",
-        "locality":  "BRIGHTON",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  23,
-        "cohortSize":  232
-    },
-    {
-        "name":  "Lauriston Girls\u0027 School",
-        "locality":  "ARMADALE",
-        "medianStudyScore":  35,
-        "scoresAbove40Percent":  22.9,
-        "cohortSize":  150
-    },
-    {
-        "name":  "Caulfield Grammar School,ST KILDA EAST",
-        "locality":  "ST KILDA EAST",
-        "medianStudyScore":  35,
-        "scoresAbove40Percent":  22.6,
-        "cohortSize":  466
-    },
-    {
-        "name":  "The King David School",
-        "locality":  "ARMADALE",
-        "medianStudyScore":  36,
-        "scoresAbove40Percent":  22.2,
-        "cohortSize":  116
-    },
-    {
-        "name":  "John Monash Science School",
-        "locality":  "Monash University Clayton",
-        "medianStudyScore":  35,
-        "scoresAbove40Percent":  22,
-        "cohortSize":  438
-    },
-    {
-        "name":  "St Catherine\u0027s School",
-        "locality":  "TOORAK",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  22,
-        "cohortSize":  158
-    },
-    {
-        "name":  "Trinity Grammar School",
-        "locality":  "KEW",
-        "medianStudyScore":  35,
-        "scoresAbove40Percent":  21.6,
-        "cohortSize":  300
-    },
-    {
-        "name":  "Mentone Grammar School",
-        "locality":  "MENTONE",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  21.6,
-        "cohortSize":  345
-    },
-    {
-        "name":  "Beth Rivkah Ladies College",
-        "locality":  "ST KILDA EAST",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  21.5,
-        "cohortSize":  66
-    },
-    {
-        "name":  "Ivanhoe Grammar School,Ivanhoe",
-        "locality":  "IVANHOE",
-        "medianStudyScore":  35,
-        "scoresAbove40Percent":  21.4,
-        "cohortSize":  303
-    },
-    {
-        "name":  "Ivanhoe Grammar School,Doreen",
-        "locality":  "MERNDA",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  21,
-        "cohortSize":  116
-    },
-    {
-        "name":  "Ivanhoe Girls\u0027 Grammar School",
-        "locality":  "IVANHOE",
-        "medianStudyScore":  35,
-        "scoresAbove40Percent":  20.9,
-        "cohortSize":  200
-    },
-    {
-        "name":  "Caulfield Grammar School,WHEELERS HILL",
-        "locality":  "WHEELERS HILL",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  20.9,
-        "cohortSize":  330
-    },
-    {
-        "name":  "Mentone Girls\u0027 Grammar School",
-        "locality":  "MENTONE",
-        "medianStudyScore":  35,
-        "scoresAbove40Percent":  20.6,
-        "cohortSize":  127
-    },
-    {
-        "name":  "Genazzano FCJ College",
-        "locality":  "KEW",
-        "medianStudyScore":  35,
-        "scoresAbove40Percent":  20.4,
-        "cohortSize":  197
-    },
-    {
-        "name":  "Strathcona Baptist Girls\u0027 Grammar School",
-        "locality":  "CANTERBURY",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  20.4,
-        "cohortSize":  189
-    },
-    {
-        "name":  "Camberwell Grammar School",
-        "locality":  "CANTERBURY",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  20.3,
-        "cohortSize":  322
-    },
-    {
-        "name":  "Waverley Christian College",
-        "locality":  "WANTIRNA SOUTH",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  20.1,
-        "cohortSize":  221
-    },
-    {
-        "name":  "Yeshivah College",
-        "locality":  "ST KILDA EAST",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  19.2,
-        "cohortSize":  58
-    },
-    {
-        "name":  "Balwyn High School",
-        "locality":  "BALWYN NORTH",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  19.2,
-        "cohortSize":  622
-    },
-    {
-        "name":  "Scotch College",
-        "locality":  "HAWTHORN",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  19,
-        "cohortSize":  450
-    },
-    {
-        "name":  "Brighton Grammar School",
-        "locality":  "BRIGHTON",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  18.6,
-        "cohortSize":  294
-    },
-    {
-        "name":  "Tintern Grammar",
-        "locality":  "RINGWOOD EAST",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  18.6,
-        "cohortSize":  170
-    },
-    {
-        "name":  "Lowther Hall Anglican Grammar School",
-        "locality":  "ESSENDON",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  18.5,
-        "cohortSize":  126
-    },
-    {
-        "name":  "Sacre Coeur",
-        "locality":  "GLEN IRIS",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  18.5,
-        "cohortSize":  139
-    },
-    {
-        "name":  "Kilvington Grammar School",
-        "locality":  "ORMOND",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  17.7,
-        "cohortSize":  176
-    },
-    {
-        "name":  "St Andrews Christian College",
-        "locality":  "WANTIRNA SOUTH",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  17.6,
-        "cohortSize":  90
-    },
-    {
-        "name":  "St Margaret\u0027s School",
-        "locality":  "BERWICK",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  17.1,
-        "cohortSize":  108
-    },
-    {
-        "name":  "Yesodei HaTorah College",
-        "locality":  "ORMOND",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  17.1,
-        "cohortSize":  31
-    },
-    {
-        "name":  "Penleigh and Essendon Grammar School",
-        "locality":  "KEILOR EAST",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  16.9,
-        "cohortSize":  404
-    },
-    {
-        "name":  "The Knox School",
-        "locality":  "WANTIRNA SOUTH",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  16.9,
-        "cohortSize":  112
-    },
-    {
-        "name":  "Haileybury Rendall School",
-        "locality":  "BERRIMAH",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  16.8,
-        "cohortSize":  97
-    },
-    {
-        "name":  "Goulburn Valley Grammar School",
-        "locality":  "SHEPPARTON",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  16.3,
-        "cohortSize":  163
-    },
-    {
-        "name":  "Siena College",
-        "locality":  "CAMBERWELL",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  16.2,
-        "cohortSize":  167
-    },
-    {
-        "name":  "Girton Grammar School",
-        "locality":  "BENDIGO",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  16.1,
-        "cohortSize":  199
-    },
-    {
-        "name":  "Islamic College of Melbourne",
-        "locality":  "TARNEIT",
-        "medianStudyScore":  32,
-        "scoresAbove40Percent":  15.8,
-        "cohortSize":  165
-    },
-    {
-        "name":  "Alphington Grammar School",
-        "locality":  "ALPHINGTON",
-        "medianStudyScore":  31,
-        "scoresAbove40Percent":  15.7,
-        "cohortSize":  106
-    },
-    {
-        "name":  "Mazenod College",
-        "locality":  "MULGRAVE",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  15.3,
-        "cohortSize":  421
-    },
-    {
-        "name":  "Xavier College",
-        "locality":  "KEW",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  15.2,
-        "cohortSize":  391
-    },
-    {
-        "name":  "Glen Waverley Secondary College",
-        "locality":  "GLEN WAVERLEY",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  14.7,
-        "cohortSize":  675
-    },
-    {
-        "name":  "Oxley Christian College",
-        "locality":  "CHIRNSIDE PARK",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  14.7,
-        "cohortSize":  97
-    },
-    {
-        "name":  "Wesley College,Melbourne",
-        "locality":  "MELBOURNE",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  14.5,
-        "cohortSize":  211
-    },
-    {
-        "name":  "Toorak College",
-        "locality":  "MOUNT ELIZA",
-        "medianStudyScore":  34,
-        "scoresAbove40Percent":  14.4,
-        "cohortSize":  180
-    },
-    {
-        "name":  "The Geelong College",
-        "locality":  "NEWTOWN",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  14,
-        "cohortSize":  255
-    },
-    {
-        "name":  "Carey Baptist Grammar School",
-        "locality":  "KEW",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  13.8,
-        "cohortSize":  310
-    },
-    {
-        "name":  "Star of the Sea College",
-        "locality":  "BRIGHTON",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  13.7,
-        "cohortSize":  308
-    },
-    {
-        "name":  "Our Lady of Sion College",
-        "locality":  "BOX HILL",
-        "medianStudyScore":  32,
-        "scoresAbove40Percent":  13.6,
-        "cohortSize":  196
-    },
-    {
-        "name":  "Kilbreda College",
-        "locality":  "MENTONE",
-        "medianStudyScore":  32,
-        "scoresAbove40Percent":  13.2,
-        "cohortSize":  211
-    },
-    {
-        "name":  "Charlton College",
-        "locality":  "CHARLTON",
-        "medianStudyScore":  32,
-        "scoresAbove40Percent":  13,
-        "cohortSize":  21
-    },
-    {
-        "name":  "St Leonard\u0027s College",
-        "locality":  "BRIGHTON EAST",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  12.8,
-        "cohortSize":  228
-    },
-    {
-        "name":  "Sirius College,Meadow Fair Campus",
-        "locality":  "BROADMEADOWS",
-        "medianStudyScore":  31,
-        "scoresAbove40Percent":  12.7,
-        "cohortSize":  137
-    },
-    {
-        "name":  "McKinnon Secondary College",
-        "locality":  "MCKINNON",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  12.5,
-        "cohortSize":  679
-    },
-    {
-        "name":  "Victorian College of the Arts",
-        "locality":  "SOUTHBANK",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  12.4,
-        "cohortSize":  179
-    },
-    {
-        "name":  "Peninsula Grammar",
-        "locality":  "MOUNT ELIZA",
-        "medianStudyScore":  32,
-        "scoresAbove40Percent":  12.4,
-        "cohortSize":  288
-    },
-    {
-        "name":  "Kingswood College",
-        "locality":  "BOX HILL",
-        "medianStudyScore":  31,
-        "scoresAbove40Percent":  12.4,
-        "cohortSize":  95
-    },
-    {
-        "name":  "Avila College",
-        "locality":  "MOUNT WAVERLEY",
-        "medianStudyScore":  32,
-        "scoresAbove40Percent":  12.1,
-        "cohortSize":  276
-    },
-    {
-        "name":  "Melbourne Girls\u0027 College",
-        "locality":  "RICHMOND",
-        "medianStudyScore":  32,
-        "scoresAbove40Percent":  12.1,
-        "cohortSize":  388
-    },
-    {
-        "name":  "Westbourne Grammar School",
-        "locality":  "TRUGANINA",
-        "medianStudyScore":  32,
-        "scoresAbove40Percent":  12,
-        "cohortSize":  251
-    },
-    {
-        "name":  "Al-Taqwa College",
-        "locality":  "TRUGANINA",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  11.9,
-        "cohortSize":  135
-    },
-    {
-        "name":  "Edenbrook Secondary College",
-        "locality":  "PAKENHAM",
-        "medianStudyScore":  27,
-        "scoresAbove40Percent":  11.8,
-        "cohortSize":  29
-    },
-    {
-        "name":  "Box Hill High School",
-        "locality":  "BOX HILL",
-        "medianStudyScore":  32,
-        "scoresAbove40Percent":  11.7,
-        "cohortSize":  442
-    },
-    {
-        "name":  "East Doncaster Secondary College",
-        "locality":  "DONCASTER EAST",
-        "medianStudyScore":  32,
-        "scoresAbove40Percent":  11.6,
-        "cohortSize":  435
-    },
-    {
-        "name":  "Catholic Ladies College",
-        "locality":  "ELTHAM",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  11.5,
-        "cohortSize":  193
-    },
-    {
-        "name":  "Kardinia International College",
-        "locality":  "BELL POST HILL",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  11.2,
-        "cohortSize":  320
-    },
-    {
-        "name":  "Darul Ulum College of Victoria",
-        "locality":  "FAWKNER",
-        "medianStudyScore":  31,
-        "scoresAbove40Percent":  11.1,
-        "cohortSize":  141
-    },
-    {
-        "name":  "Bacchus Marsh Grammar",
-        "locality":  "BACCHUS MARSH",
-        "medianStudyScore":  32,
-        "scoresAbove40Percent":  10.9,
-        "cohortSize":  476
-    },
-    {
-        "name":  "Williamstown High School",
-        "locality":  "WILLIAMSTOWN",
-        "medianStudyScore":  32,
-        "scoresAbove40Percent":  10.9,
-        "cohortSize":  385
-    },
-    {
-        "name":  "Alice Miller School",
-        "locality":  "MACEDON",
-        "medianStudyScore":  32,
-        "scoresAbove40Percent":  10.7,
-        "cohortSize":  56
-    },
-    {
-        "name":  "Geelong Grammar School",
-        "locality":  "CORIO",
-        "medianStudyScore":  32,
-        "scoresAbove40Percent":  10.6,
-        "cohortSize":  278
-    },
-    {
-        "name":  "Wesley College,Glen Waverley",
-        "locality":  "GLEN WAVERLEY",
-        "medianStudyScore":  32,
-        "scoresAbove40Percent":  10.6,
-        "cohortSize":  139
-    },
-    {
-        "name":  "Auburn High School",
-        "locality":  "HAWTHORN EAST",
-        "medianStudyScore":  31,
-        "scoresAbove40Percent":  10.6,
-        "cohortSize":  201
-    },
-    {
-        "name":  "Sirius College,Ibrahim Dellal Campus",
-        "locality":  "SUNSHINE WEST",
-        "medianStudyScore":  28,
-        "scoresAbove40Percent":  10.6,
-        "cohortSize":  97
-    },
-    {
-        "name":  "Haileybury - Pangea Campus",
-        "locality":  "KEYSBOROUGH",
-        "medianStudyScore":  30,
-        "scoresAbove40Percent":  10.5,
-        "cohortSize":  52
-    },
-    {
-        "name":  "Our Lady of Mercy College",
-        "locality":  "HEIDELBERG",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  10.3,
-        "cohortSize":  272
-    },
-    {
-        "name":  "St Michael\u0027s Grammar School",
-        "locality":  "ST KILDA",
-        "medianStudyScore":  33,
-        "scoresAbove40Percent":  10.3,
-        "cohortSize":  216
-    },
-    {
-        "name":  "Kew High School",
-        "locality":  "KEW EAST",
-        "medianStudyScore":  31,
-        "scoresAbove40Percent":  10.3,
-        "cohortSize":  297
-    },
-    {
-        "name":  "Ballarat Grammar",
-        "locality":  "WENDOUREE",
-        "medianStudyScore":  32,
-        "scoresAbove40Percent":  10.2,
-        "cohortSize":  410
-    }
+  {
+    "name": "Academy of Mary Immaculate",
+    "locality": "FITZROY",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 32.0,
+      "2023": 31.0,
+      "2024": 32.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 9.8,
+    "cohortSize": 172
+  },
+  {
+    "name": "Adass Israel School",
+    "locality": "EAST ST KILDA",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 29
+  },
+  {
+    "name": "Adass Israel School",
+    "locality": "ELSTERNWICK",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 30
+  },
+  {
+    "name": "Advance College of Education",
+    "locality": "ROSEBUD WEST",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 16
+  },
+  {
+    "name": "Aitken College",
+    "locality": "GREENVALE",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 3.5,
+    "cohortSize": 177
+  },
+  {
+    "name": "Al Iman College",
+    "locality": "MELTON SOUTH",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 25.0,
+      "2023": 29.0,
+      "2024": 26.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 0.8,
+    "cohortSize": 30
+  },
+  {
+    "name": "Al Siraat College",
+    "locality": "EPPING",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 32.0,
+      "2023": 32.0,
+      "2024": 31.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 6.9,
+    "cohortSize": 134
+  },
+  {
+    "name": "Al-Taqwa College",
+    "locality": "TRUGANINA",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 30.0,
+      "2023": 31.0,
+      "2024": 34.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 11.9,
+    "cohortSize": 135
+  },
+  {
+    "name": "Albert Park College",
+    "locality": "ALBERT PARK",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 32.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 7.0,
+    "cohortSize": 467
+  },
+  {
+    "name": "Alexandra Secondary College",
+    "locality": "ALEXANDRA",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 26.0,
+      "2023": 23.0,
+      "2024": 24.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 3.1,
+    "cohortSize": 76
+  },
+  {
+    "name": "Alia College",
+    "locality": "HAWTHORN EAST",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 25.0,
+      "2023": 24.0,
+      "2024": 24.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 5.1,
+    "cohortSize": 15
+  },
+  {
+    "name": "Alice Miller School",
+    "locality": "MACEDON",
+    "medianStudyScores": {
+      "2021": 35.0,
+      "2022": 31.0,
+      "2023": 34.0,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 10.7,
+    "cohortSize": 56
+  },
+  {
+    "name": "Alkira Secondary College",
+    "locality": "CRANBOURNE NORTH",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 4.4,
+    "cohortSize": 440
+  },
+  {
+    "name": "Alphington Grammar School",
+    "locality": "ALPHINGTON",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 32.0,
+      "2023": 33.0,
+      "2024": 30.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 15.7,
+    "cohortSize": 106
+  },
+  {
+    "name": "Altona College",
+    "locality": "ALTONA",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 24.0,
+      "2023": 28.0,
+      "2024": 26.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 5.2,
+    "cohortSize": 84
+  },
+  {
+    "name": "Antonine College",
+    "locality": "PASCOE VALE SOUTH",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 25.0,
+      "2023": 26.0,
+      "2024": 26.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 1.3,
+    "cohortSize": 115
+  },
+  {
+    "name": "Apollo Bay P-12 College",
+    "locality": "APOLLO BAY",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 30.0,
+      "2023": 31.0,
+      "2024": 30.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 3.9,
+    "cohortSize": 46
+  },
+  {
+    "name": "Aquinas College",
+    "locality": "RINGWOOD",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 30.0,
+      "2023": 31.0,
+      "2024": 29.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 4.8,
+    "cohortSize": 359
+  },
+  {
+    "name": "Ararat Secondary College",
+    "locality": "ARARAT",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 25.0,
+      "2023": 27.0,
+      "2024": 26.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 48
+  },
+  {
+    "name": "Armstrong Creek School",
+    "locality": "ARMSTRONG CREEK",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": null
+  },
+  {
+    "name": "Ashwood High School",
+    "locality": "ASHWOOD",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 30.0,
+      "2023": 32.0,
+      "2024": 31.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 10.1,
+    "cohortSize": 173
+  },
+  {
+    "name": "Assumption College",
+    "locality": "KILMORE",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 27.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 2.8,
+    "cohortSize": 302
+  },
+  {
+    "name": "Auburn High School",
+    "locality": "HAWTHORN EAST",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 10.6,
+    "cohortSize": 201
+  },
+  {
+    "name": "Australian Internatl Academy",
+    "locality": "CAROLINE SPRINGS",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 24.0,
+      "2023": 27.0,
+      "2024": 22.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 0.9,
+    "cohortSize": 37
+  },
+  {
+    "name": "Australian Internatl Academy",
+    "locality": "COBURG",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 23.0,
+      "2023": 24.0,
+      "2024": 20.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 48
+  },
+  {
+    "name": "Ave Maria College",
+    "locality": "ABERFELDIE",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 30.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 8.3,
+    "cohortSize": 150
+  },
+  {
+    "name": "Avila College",
+    "locality": "MOUNT WAVERLEY",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 12.1,
+    "cohortSize": 276
+  },
+  {
+    "name": "Bacchus Marsh College",
+    "locality": "BACCHUS MARSH",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 24.0,
+      "2023": 25.0,
+      "2024": 24.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 0.8,
+    "cohortSize": 183
+  },
+  {
+    "name": "Bacchus Marsh Grammar",
+    "locality": "AINTREE",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": 36.0
+    },
+    "scoresAbove40Percent": 33.3,
+    "cohortSize": 55
+  },
+  {
+    "name": "Bacchus Marsh Grammar",
+    "locality": "BACCHUS MARSH",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 32.0,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 10.9,
+    "cohortSize": 476
+  },
+  {
+    "name": "Baimbridge College",
+    "locality": "HAMILTON",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 25.0,
+      "2023": 24.0,
+      "2024": 26.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 68
+  },
+  {
+    "name": "Bairnsdale Secondary College",
+    "locality": "BAIRNSDALE",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 26.0,
+      "2023": 26.0,
+      "2024": 26.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 1.8,
+    "cohortSize": 170
+  },
+  {
+    "name": "Balcombe Grammar School",
+    "locality": "MOUNT MARTHA",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 32.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 9.6,
+    "cohortSize": 160
+  },
+  {
+    "name": "Ballarat Christian College",
+    "locality": "SEBASTOPOL",
+    "medianStudyScores": {
+      "2021": 22.0,
+      "2022": 25.0,
+      "2023": 29.0,
+      "2024": 25.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 29
+  },
+  {
+    "name": "Ballarat Clarendon College",
+    "locality": "BALLARAT",
+    "medianStudyScores": {
+      "2021": 37.0,
+      "2022": 38.0,
+      "2023": 39.0,
+      "2024": 37.0,
+      "2025": 37.0
+    },
+    "scoresAbove40Percent": 35.0,
+    "cohortSize": 296
+  },
+  {
+    "name": "Ballarat Grammar",
+    "locality": "WENDOUREE",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 31.0,
+      "2023": 32.0,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 10.2,
+    "cohortSize": 410
+  },
+  {
+    "name": "Ballarat High School",
+    "locality": "BALLARAT",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 3.6,
+    "cohortSize": 276
+  },
+  {
+    "name": "Balmoral K-12 Comm College",
+    "locality": "BALMORAL",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 7
+  },
+  {
+    "name": "Balwyn High School",
+    "locality": "BALWYN NORTH",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 32.0,
+      "2023": 32.0,
+      "2024": 32.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 19.2,
+    "cohortSize": 622
+  },
+  {
+    "name": "Bannockburn P-12 College",
+    "locality": "BANNOCKBURN",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 25.0,
+      "2023": 24.0,
+      "2024": 23.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 4.7,
+    "cohortSize": 93
+  },
+  {
+    "name": "Bass Coast College",
+    "locality": "WONTHAGGI",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": 27.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 3.6,
+    "cohortSize": 299
+  },
+  {
+    "name": "Bayside Christian College",
+    "locality": "LANGWARRIN SOUTH",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 28.0,
+      "2024": 30.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 2.2,
+    "cohortSize": 67
+  },
+  {
+    "name": "Bayside P-12 College",
+    "locality": "NEWPORT",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 1.9,
+    "cohortSize": 156
+  },
+  {
+    "name": "Bayswater Secondary College",
+    "locality": "BAYSWATER",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 25.0,
+      "2023": 28.0,
+      "2024": 26.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 50
+  },
+  {
+    "name": "Bayview College",
+    "locality": "PORTLAND",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 26.0,
+      "2023": 28.0,
+      "2024": 27.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 3.3,
+    "cohortSize": 61
+  },
+  {
+    "name": "Beaconhills College",
+    "locality": "BERWICK",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 31.0,
+      "2023": 29.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 7.1,
+    "cohortSize": 232
+  },
+  {
+    "name": "Beaconhills College",
+    "locality": "PAKENHAM",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 3.7,
+    "cohortSize": 185
+  },
+  {
+    "name": "Beaufort Secondary College",
+    "locality": "BEAUFORT",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 26.0,
+      "2024": 27.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 39
+  },
+  {
+    "name": "Beaumaris Secondary College",
+    "locality": "BEAUMARIS",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": 31.0,
+      "2023": 29.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 7.5,
+    "cohortSize": 266
+  },
+  {
+    "name": "Beechworth Secondary College",
+    "locality": "BEECHWORTH",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 25.0,
+      "2023": 26.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 3.9,
+    "cohortSize": 46
+  },
+  {
+    "name": "Belgrave Heights Christian Schl",
+    "locality": "BELGRAVE HEIGHTS",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 31.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 2.5,
+    "cohortSize": 125
+  },
+  {
+    "name": "Bellarine Secondary College",
+    "locality": "DRYSDALE",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 2.0,
+    "cohortSize": 169
+  },
+  {
+    "name": "Belmont High School",
+    "locality": "BELMONT",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 4.4,
+    "cohortSize": 283
+  },
+  {
+    "name": "Bemin Secondary College",
+    "locality": "TRUGANINA",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 20
+  },
+  {
+    "name": "Benalla P-12 College",
+    "locality": "BENALLA",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 23.0,
+      "2023": 23.0,
+      "2024": 24.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 60
+  },
+  {
+    "name": "Bendigo Senior Sec College",
+    "locality": "BENDIGO",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 26.0,
+      "2023": 27.0,
+      "2024": 27.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 2.7,
+    "cohortSize": 1251
+  },
+  {
+    "name": "Bendigo TAFE",
+    "locality": "BENDIGO",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 46
+  },
+  {
+    "name": "Bentleigh Secondary College",
+    "locality": "BENTLEIGH EAST",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 6.4,
+    "cohortSize": 259
+  },
+  {
+    "name": "Berwick Grammar School",
+    "locality": "OFFICER",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 31.0,
+      "2023": 33.0,
+      "2024": 31.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 9.0,
+    "cohortSize": 48
+  },
+  {
+    "name": "Berwick Secondary College",
+    "locality": "BERWICK",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 29.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 3.7,
+    "cohortSize": 336
+  },
+  {
+    "name": "Beth Rivkah Ladies College",
+    "locality": "ST KILDA EAST",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 34.0,
+      "2023": 35.0,
+      "2024": 35.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 21.5,
+    "cohortSize": 66
+  },
+  {
+    "name": "Bialik College",
+    "locality": "HAWTHORN",
+    "medianStudyScores": {
+      "2021": 37.0,
+      "2022": 37.0,
+      "2023": 37.0,
+      "2024": 36.0,
+      "2025": 36.0
+    },
+    "scoresAbove40Percent": 24.8,
+    "cohortSize": 174
+  },
+  {
+    "name": "Billanook College",
+    "locality": "MOOROOLBARK",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 33.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 9.7,
+    "cohortSize": 164
+  },
+  {
+    "name": "Bindjiroo Yaluk Community School",
+    "locality": "RICHMOND",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 23
+  },
+  {
+    "name": "Birchip P-12 School",
+    "locality": "BIRCHIP",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 27.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 6.8,
+    "cohortSize": 26
+  },
+  {
+    "name": "Blackburn High School",
+    "locality": "BLACKBURN",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 30.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 9.8,
+    "cohortSize": 304
+  },
+  {
+    "name": "Boort District P-12 School",
+    "locality": "BOORT",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 30.0,
+      "2023": 28.0,
+      "2024": 30.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 1.4,
+    "cohortSize": 35
+  },
+  {
+    "name": "Boronia K-12 College",
+    "locality": "BORONIA",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 21.0,
+      "2023": 23.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 2.9,
+    "cohortSize": 68
+  },
+  {
+    "name": "Box Hill High School",
+    "locality": "BOX HILL",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 32.0,
+      "2023": 30.0,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 11.7,
+    "cohortSize": 442
+  },
+  {
+    "name": "Box Hill Institute",
+    "locality": "BOX HILL",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 84
+  },
+  {
+    "name": "Box Hill Institute - CAE campus",
+    "locality": "MELBOURNE",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 24.0,
+      "2023": 26.0,
+      "2024": 27.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 1.8,
+    "cohortSize": 123
+  },
+  {
+    "name": "Box Hill Senior Sec College",
+    "locality": "MONT ALBERT NORTH",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 25.0,
+      "2023": 26.0,
+      "2024": 28.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 1.1,
+    "cohortSize": 126
+  },
+  {
+    "name": "Braemar College",
+    "locality": "WOODEND",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": 32.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 6.1,
+    "cohortSize": 219
+  },
+  {
+    "name": "Brauer College",
+    "locality": "WARRNAMBOOL",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 28.0,
+      "2023": 29.0,
+      "2024": 28.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 5.5,
+    "cohortSize": 171
+  },
+  {
+    "name": "Braybrook College",
+    "locality": "BRAYBROOK",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 33.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 8.7,
+    "cohortSize": 326
+  },
+  {
+    "name": "Brentwood Secondary College",
+    "locality": "GLEN WAVERLEY",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 7.4,
+    "cohortSize": 395
+  },
+  {
+    "name": "Bright P-12 College",
+    "locality": "BRIGHT",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 2.7,
+    "cohortSize": 74
+  },
+  {
+    "name": "Brighton Grammar School",
+    "locality": "BRIGHTON",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 35.0,
+      "2023": 36.0,
+      "2024": 35.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 18.6,
+    "cohortSize": 294
+  },
+  {
+    "name": "Brighton Secondary College",
+    "locality": "BRIGHTON EAST",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": 30.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 6.0,
+    "cohortSize": 242
+  },
+  {
+    "name": "Broadford Secondary College",
+    "locality": "BROADFORD",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 23.0,
+      "2023": 23.0,
+      "2024": 22.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 1.5,
+    "cohortSize": 133
+  },
+  {
+    "name": "Brunswick Secondary College",
+    "locality": "BRUNSWICK",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 31.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 8.5,
+    "cohortSize": 259
+  },
+  {
+    "name": "Buckley Park College",
+    "locality": "ESSENDON",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 31.0,
+      "2024": 29.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 7.3,
+    "cohortSize": 207
+  },
+  {
+    "name": "Bundoora Secondary College",
+    "locality": "BUNDOORA",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 23.0,
+      "2024": 26.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 1.3,
+    "cohortSize": 114
+  },
+  {
+    "name": "Camberwell Anglican Girls GS",
+    "locality": "CANTERBURY",
+    "medianStudyScores": {
+      "2021": 35.0,
+      "2022": 35.0,
+      "2023": 35.0,
+      "2024": 36.0,
+      "2025": 36.0
+    },
+    "scoresAbove40Percent": 27.5,
+    "cohortSize": 191
+  },
+  {
+    "name": "Camberwell Grammar School",
+    "locality": "CANTERBURY",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 34.0,
+      "2023": 35.0,
+      "2024": 34.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 20.3,
+    "cohortSize": 322
+  },
+  {
+    "name": "Camberwell High School",
+    "locality": "CANTERBURY",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 29.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 7.9,
+    "cohortSize": 249
+  },
+  {
+    "name": "Camperdown College",
+    "locality": "CAMPERDOWN",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 27.0,
+      "2023": 27.0,
+      "2024": 28.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 1.1,
+    "cohortSize": 46
+  },
+  {
+    "name": "Cann River P-12 College",
+    "locality": "CANN RIVER",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 30.0,
+      "2023": 24.0,
+      "2024": 24.0,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 6
+  },
+  {
+    "name": "Canterbury Girls Sec College",
+    "locality": "CANTERBURY",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 32.0,
+      "2023": 32.0,
+      "2024": 32.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 7.9,
+    "cohortSize": 233
+  },
+  {
+    "name": "Carey Baptist Grammar School",
+    "locality": "KEW",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 33.0,
+      "2023": 33.0,
+      "2024": 33.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 13.8,
+    "cohortSize": 310
+  },
+  {
+    "name": "Caroline Chisholm Catholic Coll",
+    "locality": "BRAYBROOK",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 30.0,
+      "2024": 31.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 6.4,
+    "cohortSize": 370
+  },
+  {
+    "name": "Carrum Downs Sec College",
+    "locality": "CARRUM DOWNS",
+    "medianStudyScores": {
+      "2021": 23.0,
+      "2022": 24.0,
+      "2023": 24.0,
+      "2024": 25.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 1.1,
+    "cohortSize": 169
+  },
+  {
+    "name": "Carwatha College P-12",
+    "locality": "NOBLE PARK NORTH",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 27.0,
+      "2023": 26.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 4.9,
+    "cohortSize": 131
+  },
+  {
+    "name": "Casey Grammar School",
+    "locality": "CRANBOURNE",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 4.8,
+    "cohortSize": 183
+  },
+  {
+    "name": "Casterton Secondary College",
+    "locality": "CASTERTON",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 32.0,
+      "2023": 29.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 4.8,
+    "cohortSize": 11
+  },
+  {
+    "name": "Castlemaine Secondary College",
+    "locality": "CASTLEMAINE",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 26.0,
+      "2023": 27.0,
+      "2024": 26.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 2.3,
+    "cohortSize": 170
+  },
+  {
+    "name": "Cathedral College",
+    "locality": "WANGARATTA",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 4.8,
+    "cohortSize": 140
+  },
+  {
+    "name": "Catherine McAuley College",
+    "locality": "BENDIGO",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 28.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 5.0,
+    "cohortSize": 328
+  },
+  {
+    "name": "Catholic College Sale",
+    "locality": "SALE",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 4.0,
+    "cohortSize": 197
+  },
+  {
+    "name": "Catholic College Wodonga",
+    "locality": "WODONGA",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 2.2,
+    "cohortSize": 257
+  },
+  {
+    "name": "Catholic Ladies College",
+    "locality": "ELTHAM",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 32.0,
+      "2024": 32.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 11.5,
+    "cohortSize": 193
+  },
+  {
+    "name": "Catholic Regional College",
+    "locality": "CAROLINE SPRINGS",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 14
+  },
+  {
+    "name": "Catholic Regional College",
+    "locality": "KEILOR NORTH",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 4
+  },
+  {
+    "name": "Catholic Regional College",
+    "locality": "SYDENHAM",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 27.0,
+      "2024": 28.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 3.6,
+    "cohortSize": 729
+  },
+  {
+    "name": "Caulfield Grammar School",
+    "locality": "ST KILDA EAST",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 34.0,
+      "2023": 33.0,
+      "2024": 34.0,
+      "2025": 35.0
+    },
+    "scoresAbove40Percent": 22.6,
+    "cohortSize": 466
+  },
+  {
+    "name": "Caulfield Grammar School",
+    "locality": "WHEELERS HILL",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 34.0,
+      "2023": 33.0,
+      "2024": 33.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 20.9,
+    "cohortSize": 330
+  },
+  {
+    "name": "Chaffey Secondary College",
+    "locality": "MILDURA",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 9
+  },
+  {
+    "name": "Chairo Christian School",
+    "locality": "DROUIN",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 28.0,
+      "2023": 29.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 6.1,
+    "cohortSize": 88
+  },
+  {
+    "name": "Chairo Christian School",
+    "locality": "LEONGATHA",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 3.1,
+    "cohortSize": 16
+  },
+  {
+    "name": "Chairo Christian School",
+    "locality": "NAR NAR GOON",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 30.0,
+      "2024": 28.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 1.7,
+    "cohortSize": 92
+  },
+  {
+    "name": "Charles La Trobe P-12 College",
+    "locality": "MACLEOD WEST",
+    "medianStudyScores": {
+      "2021": 23.0,
+      "2022": 24.0,
+      "2023": 25.0,
+      "2024": 24.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 0.5,
+    "cohortSize": 61
+  },
+  {
+    "name": "Charles La Trobe P-12 College",
+    "locality": "PRESTON",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 50
+  },
+  {
+    "name": "Charlton College",
+    "locality": "CHARLTON",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": 30.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 13.0,
+    "cohortSize": 21
+  },
+  {
+    "name": "Cheltenham Secondary College",
+    "locality": "CHELTENHAM",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 29.0,
+      "2023": 30.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 4.8,
+    "cohortSize": 203
+  },
+  {
+    "name": "Chisholm Institute",
+    "locality": "FRANKSTON",
+    "medianStudyScores": {
+      "2021": 23.0,
+      "2022": 23.0,
+      "2023": 22.0,
+      "2024": 24.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 1.6,
+    "cohortSize": 90
+  },
+  {
+    "name": "Chisholm Institute of TAFE",
+    "locality": "DANDENONG",
+    "medianStudyScores": {
+      "2021": 23.0,
+      "2022": 24.0,
+      "2023": 20.0,
+      "2024": 21.0,
+      "2025": 20.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 147
+  },
+  {
+    "name": "Christian College Institute",
+    "locality": "WAURN PONDS",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 30.0,
+      "2024": 29.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 7.2,
+    "cohortSize": 231
+  },
+  {
+    "name": "Cire Community School",
+    "locality": "LILYDALE",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 119
+  },
+  {
+    "name": "Clonard College",
+    "locality": "HERNE HILL",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 30.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 6.9,
+    "cohortSize": 214
+  },
+  {
+    "name": "Clyde Secondary College",
+    "locality": "CLYDE",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": 39.0
+    },
+    "scoresAbove40Percent": 44.4,
+    "cohortSize": 21
+  },
+  {
+    "name": "Cobden Technical School",
+    "locality": "COBDEN",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 22.0,
+      "2023": 27.0,
+      "2024": 24.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 20
+  },
+  {
+    "name": "Cobram Anglican Grammar School",
+    "locality": "COBRAM",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 26.0,
+      "2023": 28.0,
+      "2024": 26.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 4.0,
+    "cohortSize": 32
+  },
+  {
+    "name": "Cobram Secondary College",
+    "locality": "COBRAM",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 24.0,
+      "2023": 27.0,
+      "2024": 24.0,
+      "2025": 22.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 56
+  },
+  {
+    "name": "Coburg High School",
+    "locality": "COBURG",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 28.0,
+      "2023": 29.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 5.4,
+    "cohortSize": 270
+  },
+  {
+    "name": "Cohuna Secondary College",
+    "locality": "COHUNA",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 52
+  },
+  {
+    "name": "Colac Secondary College",
+    "locality": "COLAC",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 23.0,
+      "2023": 25.0,
+      "2024": 23.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 2.1,
+    "cohortSize": 97
+  },
+  {
+    "name": "Collingwood College",
+    "locality": "FITZROY NORTH",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": 26.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 2.6,
+    "cohortSize": 103
+  },
+  {
+    "name": "Community College Gippsland",
+    "locality": "WARRAGUL",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 62
+  },
+  {
+    "name": "Copperfield College",
+    "locality": "DELAHEY",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 27.0,
+      "2024": 27.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 1.5,
+    "cohortSize": 368
+  },
+  {
+    "name": "Cornish College",
+    "locality": "BANGHOLME",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 31.0,
+      "2023": 28.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 5.0,
+    "cohortSize": 139
+  },
+  {
+    "name": "Corryong College",
+    "locality": "CORRYONG",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 34.0,
+      "2023": 34.0,
+      "2024": 31.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 5.7,
+    "cohortSize": 34
+  },
+  {
+    "name": "Covenant College",
+    "locality": "BELL POST HILL",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 1.9,
+    "cohortSize": 96
+  },
+  {
+    "name": "Craigieburn Secondary College",
+    "locality": "CRAIGIEBURN",
+    "medianStudyScores": {
+      "2021": 22.0,
+      "2022": 22.0,
+      "2023": 21.0,
+      "2024": 21.0,
+      "2025": 22.0
+    },
+    "scoresAbove40Percent": 0.8,
+    "cohortSize": 274
+  },
+  {
+    "name": "Cranbourne East Sec College",
+    "locality": "CRANBOURNE EAST",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 33.0,
+      "2023": 33.0,
+      "2024": 30.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 2.7,
+    "cohortSize": 436
+  },
+  {
+    "name": "Cranbourne Secondary College",
+    "locality": "CRANBOURNE",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 26.0,
+      "2023": 25.0,
+      "2024": 24.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 0.9,
+    "cohortSize": 274
+  },
+  {
+    "name": "Cranbourne West Sec College",
+    "locality": "CRANBOURNE WEST",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": 39.0
+    },
+    "scoresAbove40Percent": 40.5,
+    "cohortSize": 134
+  },
+  {
+    "name": "Croydon Community School",
+    "locality": "CROYDON",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 20
+  },
+  {
+    "name": "Damascus College",
+    "locality": "MOUNT CLEAR",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 29.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 5.4,
+    "cohortSize": 254
+  },
+  {
+    "name": "Dandenong High School",
+    "locality": "DANDENONG",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 25.0,
+      "2023": 25.0,
+      "2024": 25.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 0.5,
+    "cohortSize": 287
+  },
+  {
+    "name": "Darul Ulum College of Victoria",
+    "locality": "FAWKNER",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 32.0,
+      "2023": 32.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 11.1,
+    "cohortSize": 141
+  },
+  {
+    "name": "Daylesford Secondary College",
+    "locality": "DAYLESFORD",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 26.0,
+      "2023": 27.0,
+      "2024": 29.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 5.4,
+    "cohortSize": 89
+  },
+  {
+    "name": "De La Salle College",
+    "locality": "MALVERN",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 29.0,
+      "2023": 31.0,
+      "2024": 30.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 9.6,
+    "cohortSize": 178
+  },
+  {
+    "name": "Derrinallum P12 College",
+    "locality": "DERRINALLUM",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": null,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 7.7,
+    "cohortSize": 7
+  },
+  {
+    "name": "Diamond Valley College",
+    "locality": "DIAMOND CREEK",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 25.0,
+      "2023": 26.0,
+      "2024": 25.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 0.5,
+    "cohortSize": 158
+  },
+  {
+    "name": "Dimboola Memorial Sec College",
+    "locality": "DIMBOOLA",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 29.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 25
+  },
+  {
+    "name": "Divrei Emineh",
+    "locality": "ORMOND",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 16
+  },
+  {
+    "name": "Djerriwarrh Community College",
+    "locality": "MELTON",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 12
+  },
+  {
+    "name": "Donald High School",
+    "locality": "DONALD",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 31.0,
+      "2024": 29.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 24
+  },
+  {
+    "name": "Doncaster Secondary College",
+    "locality": "DONCASTER",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 30.0,
+      "2023": 30.0,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 8.7,
+    "cohortSize": 308
+  },
+  {
+    "name": "Donvale Christian College",
+    "locality": "DONVALE",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 32.0,
+      "2023": 31.0,
+      "2024": 33.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 7.9,
+    "cohortSize": 231
+  },
+  {
+    "name": "Dromana Secondary College",
+    "locality": "DROMANA",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 32.0,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 8.8,
+    "cohortSize": 401
+  },
+  {
+    "name": "Drouin Secondary College",
+    "locality": "DROUIN",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 27.0,
+      "2023": 25.0,
+      "2024": 25.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 3.6,
+    "cohortSize": 200
+  },
+  {
+    "name": "East Doncaster Sec College",
+    "locality": "DONCASTER EAST",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 34.0,
+      "2023": 33.0,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 11.6,
+    "cohortSize": 435
+  },
+  {
+    "name": "East Loddon P-12 College",
+    "locality": "DINGEE",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 33.0,
+      "2023": 30.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 4.5,
+    "cohortSize": 33
+  },
+  {
+    "name": "East Preston Islamic College",
+    "locality": "PRESTON",
+    "medianStudyScores": {
+      "2021": 21.0,
+      "2022": 21.0,
+      "2023": 22.0,
+      "2024": 21.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 4.6,
+    "cohortSize": 32
+  },
+  {
+    "name": "Echuca College",
+    "locality": "ECHUCA",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 26.0,
+      "2023": 24.0,
+      "2024": 24.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 0.7,
+    "cohortSize": 155
+  },
+  {
+    "name": "Edenbrook Secondary College",
+    "locality": "PAKENHAM",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 11.8,
+    "cohortSize": 29
+  },
+  {
+    "name": "Edenhope College",
+    "locality": "EDENHOPE",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 30.0,
+      "2024": 25.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 18
+  },
+  {
+    "name": "Edgars Creek Secondary College",
+    "locality": "WOLLERT",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": 25.0,
+      "2024": 26.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 1.4,
+    "cohortSize": 242
+  },
+  {
+    "name": "Edinburgh College",
+    "locality": "LILYDALE",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 27.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 2.6,
+    "cohortSize": 71
+  },
+  {
+    "name": "Elevation Secondary College",
+    "locality": "CRAIGIEBURN",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": 30.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 0.6,
+    "cohortSize": 173
+  },
+  {
+    "name": "Elisabeth Murdoch College",
+    "locality": "LANGWARRIN",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 29.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 6.6,
+    "cohortSize": 374
+  },
+  {
+    "name": "Eltham College",
+    "locality": "RESEARCH",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 33.0,
+      "2023": 32.0,
+      "2024": 31.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 10.2,
+    "cohortSize": 143
+  },
+  {
+    "name": "Eltham High School",
+    "locality": "ELTHAM",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 30.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 5.8,
+    "cohortSize": 334
+  },
+  {
+    "name": "Elwood College",
+    "locality": "ELWOOD",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 31.0,
+      "2023": 30.0,
+      "2024": 31.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 3.5,
+    "cohortSize": 185
+  },
+  {
+    "name": "Emerald Secondary College",
+    "locality": "EMERALD",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 1.4,
+    "cohortSize": 123
+  },
+  {
+    "name": "Emmanuel College",
+    "locality": "ALTONA NORTH",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 2.8,
+    "cohortSize": 471
+  },
+  {
+    "name": "Emmanuel College",
+    "locality": "WARRNAMBOOL",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 30.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 6.3,
+    "cohortSize": 266
+  },
+  {
+    "name": "Emmaus College",
+    "locality": "VERMONT SOUTH",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 30.0,
+      "2024": 31.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 9.1,
+    "cohortSize": 330
+  },
+  {
+    "name": "Epping Secondary College",
+    "locality": "EPPING",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 3.4,
+    "cohortSize": 253
+  },
+  {
+    "name": "Essendon Keilor College",
+    "locality": "ESSENDON",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 26.0,
+      "2023": 25.0,
+      "2024": 26.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 2.5,
+    "cohortSize": 149
+  },
+  {
+    "name": "Euroa Secondary College",
+    "locality": "EUROA",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 26.0,
+      "2023": 24.0,
+      "2024": 26.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 83
+  },
+  {
+    "name": "Fairhills High School",
+    "locality": "KNOXFIELD",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 24.0,
+      "2023": 26.0,
+      "2024": 26.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 4.5,
+    "cohortSize": 58
+  },
+  {
+    "name": "FCJ College",
+    "locality": "BENALLA",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 1.0,
+    "cohortSize": 72
+  },
+  {
+    "name": "Federation University Australia",
+    "locality": "BALLARAT",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 27
+  },
+  {
+    "name": "Fintona Girls School",
+    "locality": "BALWYN",
+    "medianStudyScores": {
+      "2021": 36.0,
+      "2022": 36.0,
+      "2023": 35.0,
+      "2024": 36.0,
+      "2025": 35.0
+    },
+    "scoresAbove40Percent": 26.8,
+    "cohortSize": 109
+  },
+  {
+    "name": "Firbank Grammar School",
+    "locality": "BRIGHTON",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 34.0,
+      "2023": 34.0,
+      "2024": 34.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 23.0,
+    "cohortSize": 232
+  },
+  {
+    "name": "Fitzroy High School",
+    "locality": "FITZROY NORTH",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 30.0,
+      "2023": 27.0,
+      "2024": 28.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 5.4,
+    "cohortSize": 140
+  },
+  {
+    "name": "Flinders Christian Comm College",
+    "locality": "CARRUM DOWNS",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 31.0,
+      "2023": 30.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 4.9,
+    "cohortSize": 119
+  },
+  {
+    "name": "Flinders Christian Comm College",
+    "locality": "TYABB",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 3.6,
+    "cohortSize": 95
+  },
+  {
+    "name": "Footscray High School",
+    "locality": "FOOTSCRAY",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 7.1,
+    "cohortSize": 327
+  },
+  {
+    "name": "Forest Hill College",
+    "locality": "BURWOOD EAST",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 27.0,
+      "2024": 29.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 6.7,
+    "cohortSize": 113
+  },
+  {
+    "name": "Foster Secondary College",
+    "locality": "FOSTER",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 30.0,
+      "2023": 29.0,
+      "2024": 30.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 3.3,
+    "cohortSize": 71
+  },
+  {
+    "name": "Foundation College",
+    "locality": "FRANKSTON",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 29
+  },
+  {
+    "name": "Foundation College",
+    "locality": "NARRE WARREN",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 36
+  },
+  {
+    "name": "Fountain Gate Sec College",
+    "locality": "FOUNTAIN GATE",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 25.0,
+      "2023": 27.0,
+      "2024": 28.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 4.3,
+    "cohortSize": 269
+  },
+  {
+    "name": "Frankston High School",
+    "locality": "FRANKSTON",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 32.0,
+      "2024": 31.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 5.7,
+    "cohortSize": 446
+  },
+  {
+    "name": "Galen College",
+    "locality": "WANGARATTA",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 1.8,
+    "cohortSize": 241
+  },
+  {
+    "name": "Geelong Baptist College",
+    "locality": "LOVELY BANKS",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 26.0,
+      "2023": 25.0,
+      "2024": 24.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 2.2,
+    "cohortSize": 40
+  },
+  {
+    "name": "Geelong Grammar School",
+    "locality": "CORIO",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 32.0,
+      "2023": 32.0,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 10.6,
+    "cohortSize": 278
+  },
+  {
+    "name": "Geelong High School",
+    "locality": "EAST GEELONG",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 27.0,
+      "2023": 26.0,
+      "2024": 27.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 6.5,
+    "cohortSize": 166
+  },
+  {
+    "name": "Geelong Lutheran College",
+    "locality": "ARMSTRONG CREEK",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 28.0,
+      "2024": 30.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 4.6,
+    "cohortSize": 122
+  },
+  {
+    "name": "Genazzano FCJ College",
+    "locality": "KEW",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 33.0,
+      "2023": 34.0,
+      "2024": 34.0,
+      "2025": 35.0
+    },
+    "scoresAbove40Percent": 20.4,
+    "cohortSize": 197
+  },
+  {
+    "name": "Gilson College",
+    "locality": "MERNDA",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 28.0,
+      "2023": 26.0,
+      "2024": 26.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 1.1,
+    "cohortSize": 28
+  },
+  {
+    "name": "Gilson College",
+    "locality": "TAYLORS HILL",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 28.0,
+      "2023": 27.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 1.9,
+    "cohortSize": 104
+  },
+  {
+    "name": "Gippsland Grammar",
+    "locality": "SALE",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 30.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 5.9,
+    "cohortSize": 144
+  },
+  {
+    "name": "Girton Grammar School",
+    "locality": "BENDIGO",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 32.0,
+      "2023": 33.0,
+      "2024": 31.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 16.1,
+    "cohortSize": 199
+  },
+  {
+    "name": "Gisborne Secondary College",
+    "locality": "GISBORNE",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 26.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 0.9,
+    "cohortSize": 180
+  },
+  {
+    "name": "Gladstone Park Sec College",
+    "locality": "GLADSTONE PARK",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 27.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 4.8,
+    "cohortSize": 298
+  },
+  {
+    "name": "Glen Eira College",
+    "locality": "CAULFIELD EAST",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 32.0,
+      "2024": 31.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 4.8,
+    "cohortSize": 207
+  },
+  {
+    "name": "Glen Waverley Sec College",
+    "locality": "GLEN WAVERLEY",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 33.0,
+      "2023": 33.0,
+      "2024": 33.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 14.7,
+    "cohortSize": 675
+  },
+  {
+    "name": "Gleneagles Secondary College",
+    "locality": "ENDEAVOUR HILLS",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 2.9,
+    "cohortSize": 371
+  },
+  {
+    "name": "Glenroy Private",
+    "locality": "GLENROY",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": 20.0,
+      "2023": 22.0,
+      "2024": 23.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 13
+  },
+  {
+    "name": "Glenroy Secondary College",
+    "locality": "GLENROY",
+    "medianStudyScores": {
+      "2021": 23.0,
+      "2022": 21.0,
+      "2023": 22.0,
+      "2024": 19.0,
+      "2025": 22.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 81
+  },
+  {
+    "name": "Good News Lutheran College",
+    "locality": "TARNEIT",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 31.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 5.9,
+    "cohortSize": 168
+  },
+  {
+    "name": "Good Shepherd College",
+    "locality": "HAMILTON",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 27.0,
+      "2023": 25.0,
+      "2024": 24.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 25
+  },
+  {
+    "name": "Gordon Institute of TAFE",
+    "locality": "GEELONG",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 28.0,
+      "2023": 22.0,
+      "2024": 24.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 1.1,
+    "cohortSize": 71
+  },
+  {
+    "name": "Goroke P-12 College",
+    "locality": "GOROKE",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": 32.0,
+      "2023": null,
+      "2024": null,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 6
+  },
+  {
+    "name": "Goulburn Ovens Inst of TAFE",
+    "locality": "SHEPPARTON",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 9
+  },
+  {
+    "name": "Goulburn Valley Grammar Schl",
+    "locality": "SHEPPARTON",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 34.0,
+      "2023": 35.0,
+      "2024": 34.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 16.3,
+    "cohortSize": 163
+  },
+  {
+    "name": "Grace Christian College Wodonga",
+    "locality": "LENEVA",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 12
+  },
+  {
+    "name": "Greater Shepparton Sec College",
+    "locality": "SHEPPARTON",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": 25.0,
+      "2023": 22.0,
+      "2024": 23.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 0.8,
+    "cohortSize": 297
+  },
+  {
+    "name": "Greensborough Sec College",
+    "locality": "GREENSBOROUGH",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 28.0,
+      "2023": 22.0,
+      "2024": 27.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 2.9,
+    "cohortSize": 111
+  },
+  {
+    "name": "Grovedale College",
+    "locality": "GROVEDALE",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 26.0,
+      "2023": 25.0,
+      "2024": 25.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 1.2,
+    "cohortSize": 111
+  },
+  {
+    "name": "Haileybury - Pangea Campus",
+    "locality": "KEYSBOROUGH",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": 32.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 10.5,
+    "cohortSize": 52
+  },
+  {
+    "name": "Haileybury College",
+    "locality": "KEYSBOROUGH",
+    "medianStudyScores": {
+      "2021": 35.0,
+      "2022": 36.0,
+      "2023": 35.0,
+      "2024": 36.0,
+      "2025": 35.0
+    },
+    "scoresAbove40Percent": 26.5,
+    "cohortSize": 577
+  },
+  {
+    "name": "Haileybury Girls College",
+    "locality": "KEYSBOROUGH",
+    "medianStudyScores": {
+      "2021": 37.0,
+      "2022": 36.0,
+      "2023": 36.0,
+      "2024": 36.0,
+      "2025": 36.0
+    },
+    "scoresAbove40Percent": 31.2,
+    "cohortSize": 420
+  },
+  {
+    "name": "Haileybury Rendall School",
+    "locality": "BERRIMAH",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 29.0,
+      "2023": 32.0,
+      "2024": 31.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 16.8,
+    "cohortSize": 97
+  },
+  {
+    "name": "Hallam Senior Sec College",
+    "locality": "HALLAM",
+    "medianStudyScores": {
+      "2021": 23.0,
+      "2022": 25.0,
+      "2023": 23.0,
+      "2024": 25.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 0.7,
+    "cohortSize": 186
+  },
+  {
+    "name": "Hampton Park Sec College",
+    "locality": "HAMPTON PARK",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 27.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 2.5,
+    "cohortSize": 200
+  },
+  {
+    "name": "Hawkesdale College",
+    "locality": "HAWKESDALE",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 21.0,
+      "2023": 20.0,
+      "2024": 28.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 16
+  },
+  {
+    "name": "Hazel Glen College",
+    "locality": "DOREEN",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 27.0,
+      "2023": 26.0,
+      "2024": 26.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 2.7,
+    "cohortSize": 280
+  },
+  {
+    "name": "Healesville High School",
+    "locality": "HEALESVILLE",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 25.0,
+      "2023": 25.0,
+      "2024": 27.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 55
+  },
+  {
+    "name": "Heathdale Christian College",
+    "locality": "MELTON",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 17
+  },
+  {
+    "name": "Heathdale Christian College",
+    "locality": "WERRIBEE",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 30.0,
+      "2023": 31.0,
+      "2024": 30.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 7.4,
+    "cohortSize": 134
+  },
+  {
+    "name": "Heatherton Christian College",
+    "locality": "CLARINDA",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 28.0,
+      "2023": 30.0,
+      "2024": 28.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 9.6,
+    "cohortSize": 44
+  },
+  {
+    "name": "Heathmont College",
+    "locality": "HEATHMONT",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 26.0,
+      "2023": 24.0,
+      "2024": 25.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 1.9,
+    "cohortSize": 154
+  },
+  {
+    "name": "Heritage College",
+    "locality": "FERNTREE GULLY",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": 38.0
+    },
+    "scoresAbove40Percent": 25.0,
+    "cohortSize": 10
+  },
+  {
+    "name": "Heritage College",
+    "locality": "OFFICER",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 26.0,
+      "2023": 25.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 48
+  },
+  {
+    "name": "Hester Hornbrook Academy",
+    "locality": "MELBOURNE",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 84
+  },
+  {
+    "name": "Heywood & District Sec College",
+    "locality": "HEYWOOD",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": null,
+      "2023": 27.0,
+      "2024": 26.0,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 17
+  },
+  {
+    "name": "Highvale Secondary College",
+    "locality": "GLEN WAVERLEY",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 31.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 9.7,
+    "cohortSize": 274
+  },
+  {
+    "name": "Highview Christian Comm College",
+    "locality": "MARYBOROUGH",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 27.0,
+      "2024": 26.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 1.8,
+    "cohortSize": 96
+  },
+  {
+    "name": "Hillcrest Christian College",
+    "locality": "CLYDE NORTH",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 30.0,
+      "2023": 30.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 6.1,
+    "cohortSize": 178
+  },
+  {
+    "name": "Holmes Grammar School",
+    "locality": "MELBOURNE",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 26.0,
+      "2023": 29.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 5.2,
+    "cohortSize": 40
+  },
+  {
+    "name": "Holmesglen Institute",
+    "locality": "MOORABBIN",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 73
+  },
+  {
+    "name": "Holy Trinity Lutheran College",
+    "locality": "HORSHAM",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 31.0,
+      "2023": 29.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 6.6,
+    "cohortSize": 60
+  },
+  {
+    "name": "Homestead Senior Sec College",
+    "locality": "POINT COOK",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 28.0,
+      "2023": 29.0,
+      "2024": 27.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 3.6,
+    "cohortSize": 187
+  },
+  {
+    "name": "Hopetoun P-12 College",
+    "locality": "HOPETOUN",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 28.0,
+      "2023": 24.0,
+      "2024": 27.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 12
+  },
+  {
+    "name": "Hoppers Crossing Sec College",
+    "locality": "HOPPERS CROSSING",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 27.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 1.4,
+    "cohortSize": 239
+  },
+  {
+    "name": "Horsham College",
+    "locality": "HORSHAM",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 32.0,
+      "2023": 31.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 4.3,
+    "cohortSize": 233
+  },
+  {
+    "name": "Hume Anglican Grammar",
+    "locality": "MICKLEHAM",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 31.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 10.0,
+    "cohortSize": 170
+  },
+  {
+    "name": "Hume Central Sec College",
+    "locality": "BROADMEADOWS",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 27.0,
+      "2023": 26.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 1.8,
+    "cohortSize": 194
+  },
+  {
+    "name": "Huntingtower School",
+    "locality": "MOUNT WAVERLEY",
+    "medianStudyScores": {
+      "2021": 37.0,
+      "2022": 36.0,
+      "2023": 37.0,
+      "2024": 37.0,
+      "2025": 36.0
+    },
+    "scoresAbove40Percent": 27.7,
+    "cohortSize": 187
+  },
+  {
+    "name": "Ilim College",
+    "locality": "BROADMEADOWS",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 29.0,
+      "2024": 27.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 9.6,
+    "cohortSize": 138
+  },
+  {
+    "name": "Ilim College",
+    "locality": "DOVETON",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 8.1,
+    "cohortSize": 16
+  },
+  {
+    "name": "Ilim College Kiewa Campus",
+    "locality": "DALLAS",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 25.0,
+      "2023": 24.0,
+      "2024": 27.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 5.1,
+    "cohortSize": 107
+  },
+  {
+    "name": "Indie School Wodonga",
+    "locality": "WODONGA",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 322
+  },
+  {
+    "name": "Iona College Geelong",
+    "locality": "CHARLEMONT",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": 33.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 3.6,
+    "cohortSize": 204
+  },
+  {
+    "name": "Irymple Secondary College",
+    "locality": "IRYMPLE",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 9
+  },
+  {
+    "name": "Islamic College of Melbourne",
+    "locality": "TARNEIT",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 30.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 15.8,
+    "cohortSize": 165
+  },
+  {
+    "name": "Islamic College of Sport",
+    "locality": "COBURG",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 27
+  },
+  {
+    "name": "Ivanhoe Girls' Grammar School",
+    "locality": "IVANHOE",
+    "medianStudyScores": {
+      "2021": 35.0,
+      "2022": 34.0,
+      "2023": 34.0,
+      "2024": 35.0,
+      "2025": 35.0
+    },
+    "scoresAbove40Percent": 20.9,
+    "cohortSize": 200
+  },
+  {
+    "name": "Ivanhoe Grammar School",
+    "locality": "IVANHOE",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 32.0,
+      "2023": 33.0,
+      "2024": 34.0,
+      "2025": 35.0
+    },
+    "scoresAbove40Percent": 21.4,
+    "cohortSize": 303
+  },
+  {
+    "name": "Ivanhoe Grammar School",
+    "locality": "MERNDA",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 34.0,
+      "2023": 33.0,
+      "2024": 33.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 21.0,
+    "cohortSize": 116
+  },
+  {
+    "name": "John Fawkner College",
+    "locality": "FAWKNER",
+    "medianStudyScores": {
+      "2021": 20.0,
+      "2022": 18.0,
+      "2023": 21.0,
+      "2024": 20.0,
+      "2025": 22.0
+    },
+    "scoresAbove40Percent": 1.7,
+    "cohortSize": 75
+  },
+  {
+    "name": "John Monash Science School",
+    "locality": "CLAYTON",
+    "medianStudyScores": {
+      "2021": 35.0,
+      "2022": 35.0,
+      "2023": 35.0,
+      "2024": 36.0,
+      "2025": 35.0
+    },
+    "scoresAbove40Percent": 22.0,
+    "cohortSize": 438
+  },
+  {
+    "name": "John Paul College",
+    "locality": "FRANKSTON",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 28.0,
+      "2023": 29.0,
+      "2024": 28.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 5.5,
+    "cohortSize": 260
+  },
+  {
+    "name": "Julia Gillard Community College",
+    "locality": "WERRIBEE",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 11
+  },
+  {
+    "name": "Kambrya College",
+    "locality": "BERWICK",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 30.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 6.2,
+    "cohortSize": 388
+  },
+  {
+    "name": "Kaniva P-12 College",
+    "locality": "KANIVA",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 28.0,
+      "2023": 25.0,
+      "2024": 24.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 9.1,
+    "cohortSize": 15
+  },
+  {
+    "name": "Kardinia Internatl College",
+    "locality": "BELL POST HILL",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 32.0,
+      "2023": 32.0,
+      "2024": 32.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 11.2,
+    "cohortSize": 320
+  },
+  {
+    "name": "Keilor Downs College",
+    "locality": "KEILOR DOWNS",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 5.0,
+    "cohortSize": 254
+  },
+  {
+    "name": "Kensington Comm High School",
+    "locality": "KENSINGTON",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 14
+  },
+  {
+    "name": "Kerang Christian College",
+    "locality": "KERANG",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 33.0,
+      "2023": 28.0,
+      "2024": 29.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 2.6,
+    "cohortSize": 17
+  },
+  {
+    "name": "Kerang Technical High School",
+    "locality": "KERANG",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 28.0,
+      "2023": 23.0,
+      "2024": 26.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 41
+  },
+  {
+    "name": "Kew High School",
+    "locality": "KEW EAST",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 31.0,
+      "2024": 30.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 10.3,
+    "cohortSize": 297
+  },
+  {
+    "name": "Keysborough SC - Acacia",
+    "locality": "KEYSBOROUGH",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 27.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 2.9,
+    "cohortSize": 235
+  },
+  {
+    "name": "Keysborough SC - Banksia",
+    "locality": "SPRINGVALE SOUTH",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 26.0,
+      "2023": 26.0,
+      "2024": 26.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 2.1,
+    "cohortSize": 215
+  },
+  {
+    "name": "Kilbreda College",
+    "locality": "MENTONE",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 13.2,
+    "cohortSize": 211
+  },
+  {
+    "name": "Killester College",
+    "locality": "SPRINGVALE",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 29.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 2.6,
+    "cohortSize": 215
+  },
+  {
+    "name": "Kilvington Grammar School",
+    "locality": "ORMOND",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 34.0,
+      "2023": 33.0,
+      "2024": 33.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 17.7,
+    "cohortSize": 176
+  },
+  {
+    "name": "Kings College",
+    "locality": "WARRNAMBOOL",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 29.0,
+      "2023": 30.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 3.9,
+    "cohortSize": 34
+  },
+  {
+    "name": "Kingswood College",
+    "locality": "BOX HILL",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 32.0,
+      "2023": 31.0,
+      "2024": 32.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 12.4,
+    "cohortSize": 95
+  },
+  {
+    "name": "Kolbe Catholic College",
+    "locality": "GREENVALE",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 25.0,
+      "2023": 25.0,
+      "2024": 27.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 1.4,
+    "cohortSize": 266
+  },
+  {
+    "name": "Koo Wee Rup Sec College",
+    "locality": "KOO WEE RUP",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 27.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 2.4,
+    "cohortSize": 161
+  },
+  {
+    "name": "Koonung Secondary College",
+    "locality": "MONT ALBERT NORTH",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 31.0,
+      "2023": 32.0,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 8.8,
+    "cohortSize": 280
+  },
+  {
+    "name": "Korowa Anglican Girls' School",
+    "locality": "GLEN IRIS",
+    "medianStudyScores": {
+      "2021": 36.0,
+      "2022": 36.0,
+      "2023": 36.0,
+      "2024": 35.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 24.5,
+    "cohortSize": 183
+  },
+  {
+    "name": "Korumburra Sec College",
+    "locality": "KORUMBURRA",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 25.0,
+      "2023": 25.0,
+      "2024": 25.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 1.5,
+    "cohortSize": 73
+  },
+  {
+    "name": "Kurnai College",
+    "locality": "CHURCHILL",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 26.0,
+      "2024": 24.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 3.0,
+    "cohortSize": 191
+  },
+  {
+    "name": "Kurunjang Secondary College",
+    "locality": "MELTON",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 24.0,
+      "2023": 25.0,
+      "2024": 24.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 0.9,
+    "cohortSize": 131
+  },
+  {
+    "name": "Kyabram P-12 College",
+    "locality": "KYABRAM",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 28.0,
+      "2023": 24.0,
+      "2024": 23.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 0.7,
+    "cohortSize": 89
+  },
+  {
+    "name": "Kyneton High School",
+    "locality": "KYNETON",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 2.0,
+    "cohortSize": 101
+  },
+  {
+    "name": "Lakes Entrance Sec College",
+    "locality": "LAKES ENTRANCE",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 28.0,
+      "2023": 24.0,
+      "2024": 27.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 21
+  },
+  {
+    "name": "Lakeside Lutheran College",
+    "locality": "PAKENHAM",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 25.0,
+      "2023": 25.0,
+      "2024": 25.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 2.2,
+    "cohortSize": 54
+  },
+  {
+    "name": "Lakeview Senior College",
+    "locality": "CAROLINE SPRINGS",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 26.0,
+      "2023": 28.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 2.2,
+    "cohortSize": 381
+  },
+  {
+    "name": "Lalor North Sec College",
+    "locality": "EPPING",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 23.0,
+      "2023": 21.0,
+      "2024": 23.0,
+      "2025": 21.0
+    },
+    "scoresAbove40Percent": 1.2,
+    "cohortSize": 75
+  },
+  {
+    "name": "Lalor Secondary College",
+    "locality": "LALOR",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 25.0,
+      "2024": 26.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 1.4,
+    "cohortSize": 204
+  },
+  {
+    "name": "Lara Secondary College",
+    "locality": "LARA",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 25.0,
+      "2023": 25.0,
+      "2024": 25.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 1.6,
+    "cohortSize": 118
+  },
+  {
+    "name": "Lauriston Girls School",
+    "locality": "ARMADALE",
+    "medianStudyScores": {
+      "2021": 36.0,
+      "2022": 36.0,
+      "2023": 34.0,
+      "2024": 35.0,
+      "2025": 35.0
+    },
+    "scoresAbove40Percent": 22.9,
+    "cohortSize": 150
+  },
+  {
+    "name": "Lavalla Catholic College",
+    "locality": "TRARALGON",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 2.7,
+    "cohortSize": 223
+  },
+  {
+    "name": "Lavers Hill K-12 College",
+    "locality": "LAVERS HILL",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": 23.0,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 6
+  },
+  {
+    "name": "Laverton P-12 College",
+    "locality": "LAVERTON",
+    "medianStudyScores": {
+      "2021": 22.0,
+      "2022": 22.0,
+      "2023": 22.0,
+      "2024": 24.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 0.7,
+    "cohortSize": 70
+  },
+  {
+    "name": "Leibler Yavneh College",
+    "locality": "ELSTERNWICK",
+    "medianStudyScores": {
+      "2021": 37.0,
+      "2022": 34.0,
+      "2023": 36.0,
+      "2024": 35.0,
+      "2025": 36.0
+    },
+    "scoresAbove40Percent": 24.1,
+    "cohortSize": 103
+  },
+  {
+    "name": "Leongatha Secondary College",
+    "locality": "LEONGATHA",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 27.0,
+      "2023": 28.0,
+      "2024": 29.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 6.6,
+    "cohortSize": 133
+  },
+  {
+    "name": "Lighthouse Christian College",
+    "locality": "CRANBOURNE",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 30.0,
+      "2023": 31.0,
+      "2024": 30.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 6.4,
+    "cohortSize": 149
+  },
+  {
+    "name": "Lighthouse Christian College",
+    "locality": "KEYSBOROUGH",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 32.0,
+      "2023": 29.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 5.1,
+    "cohortSize": 86
+  },
+  {
+    "name": "Lilydale Heights College",
+    "locality": "LILYDALE",
+    "medianStudyScores": {
+      "2021": 23.0,
+      "2022": 25.0,
+      "2023": 26.0,
+      "2024": 26.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 1.5,
+    "cohortSize": 125
+  },
+  {
+    "name": "Lilydale High School",
+    "locality": "LILYDALE",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 27.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 0.9,
+    "cohortSize": 227
+  },
+  {
+    "name": "Little Yarra Steiner School",
+    "locality": "YARRA JUNCTION",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": null,
+      "2023": 31.0,
+      "2024": 29.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 4.8,
+    "cohortSize": 21
+  },
+  {
+    "name": "Loreto College",
+    "locality": "BALLARAT",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 4.7,
+    "cohortSize": 204
+  },
+  {
+    "name": "Loreto Mandeville Hall",
+    "locality": "TOORAK",
+    "medianStudyScores": {
+      "2021": 35.0,
+      "2022": 35.0,
+      "2023": 36.0,
+      "2024": 35.0,
+      "2025": 36.0
+    },
+    "scoresAbove40Percent": 24.7,
+    "cohortSize": 264
+  },
+  {
+    "name": "Lorne P-12 College",
+    "locality": "LORNE",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": null,
+      "2023": 26.0,
+      "2024": 23.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 6.1,
+    "cohortSize": 16
+  },
+  {
+    "name": "Lowanna College",
+    "locality": "NEWBOROUGH",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 26.0,
+      "2023": 24.0,
+      "2024": 26.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 1.0,
+    "cohortSize": 146
+  },
+  {
+    "name": "Lowther Hall Anglican GS",
+    "locality": "ESSENDON",
+    "medianStudyScores": {
+      "2021": 35.0,
+      "2022": 35.0,
+      "2023": 34.0,
+      "2024": 34.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 18.5,
+    "cohortSize": 126
+  },
+  {
+    "name": "Loyola College",
+    "locality": "WATSONIA",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 5.6,
+    "cohortSize": 299
+  },
+  {
+    "name": "Luther College",
+    "locality": "CROYDON HILLS",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 32.0,
+      "2023": 32.0,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 8.6,
+    "cohortSize": 295
+  },
+  {
+    "name": "Lyndale Secondary College",
+    "locality": "DANDENONG NORTH",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 29.0,
+      "2024": 26.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 3.0,
+    "cohortSize": 121
+  },
+  {
+    "name": "Lyndhurst Secondary College",
+    "locality": "CRANBOURNE",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 30.0,
+      "2024": 27.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 2.5,
+    "cohortSize": 163
+  },
+  {
+    "name": "Mac.Robertson Girls' High Schl",
+    "locality": "MELBOURNE",
+    "medianStudyScores": {
+      "2021": 37.0,
+      "2022": 36.0,
+      "2023": 36.0,
+      "2024": 37.0,
+      "2025": 37.0
+    },
+    "scoresAbove40Percent": 34.7,
+    "cohortSize": 571
+  },
+  {
+    "name": "MacKillop Catholic Reg College",
+    "locality": "WERRIBEE",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 4.7,
+    "cohortSize": 349
+  },
+  {
+    "name": "Macleod College",
+    "locality": "MACLEOD",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 27.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 1.9,
+    "cohortSize": 102
+  },
+  {
+    "name": "Maffra Secondary College",
+    "locality": "MAFFRA",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 25.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 5.1,
+    "cohortSize": 108
+  },
+  {
+    "name": "Mallacoota P-12 College",
+    "locality": "MALLACOOTA",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 34.0,
+      "2024": 33.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 15.4,
+    "cohortSize": 14
+  },
+  {
+    "name": "Manangatang P-12 College",
+    "locality": "MANANGATANG",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": 27.0,
+      "2023": null,
+      "2024": null,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 4
+  },
+  {
+    "name": "Manor Lakes P-12 College",
+    "locality": "WYNDHAM VALE",
+    "medianStudyScores": {
+      "2021": 23.0,
+      "2022": 24.0,
+      "2023": 23.0,
+      "2024": 24.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 2.8,
+    "cohortSize": 262
+  },
+  {
+    "name": "Mansfield Secondary College",
+    "locality": "MANSFIELD",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 31.0,
+      "2023": 30.0,
+      "2024": 29.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 4.3,
+    "cohortSize": 96
+  },
+  {
+    "name": "Maranatha Christian School",
+    "locality": "ENDEAVOUR HILLS",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 2.2,
+    "cohortSize": 118
+  },
+  {
+    "name": "Marcellin College",
+    "locality": "BULLEEN",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 4.7,
+    "cohortSize": 277
+  },
+  {
+    "name": "Marian College Ararat",
+    "locality": "ARARAT",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 2.2,
+    "cohortSize": 82
+  },
+  {
+    "name": "Marian College Myrtleford",
+    "locality": "MYRTLEFORD",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 30.0,
+      "2024": 28.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 1.8,
+    "cohortSize": 25
+  },
+  {
+    "name": "Marian College Sunshine",
+    "locality": "SUNSHINE WEST",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 28.0,
+      "2023": 29.0,
+      "2024": 30.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 5.6,
+    "cohortSize": 176
+  },
+  {
+    "name": "Maribyrnong Sec College",
+    "locality": "MARIBYRNONG",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 28.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 6.2,
+    "cohortSize": 279
+  },
+  {
+    "name": "Marist - Sion College",
+    "locality": "WARRAGUL",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 27.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 2.3,
+    "cohortSize": 212
+  },
+  {
+    "name": "Marist College Bendigo",
+    "locality": "MAIDEN GULLY",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 29.0,
+      "2023": 27.0,
+      "2024": 27.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 2.1,
+    "cohortSize": 189
+  },
+  {
+    "name": "Mary Mackillop Catholic Regional Coll",
+    "locality": "LEONGATHA",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 4.4,
+    "cohortSize": 134
+  },
+  {
+    "name": "Maryborough Education Centre",
+    "locality": "MARYBOROUGH",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 26.0,
+      "2023": 26.0,
+      "2024": 26.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 88
+  },
+  {
+    "name": "Marymede Catholic College",
+    "locality": "SOUTH MORANG",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 29.0,
+      "2024": 28.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 4.7,
+    "cohortSize": 239
+  },
+  {
+    "name": "Mater Christi College",
+    "locality": "BELGRAVE",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 6.9,
+    "cohortSize": 170
+  },
+  {
+    "name": "Matthew Flinders Girls' SC",
+    "locality": "GEELONG",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 27.0,
+      "2024": 28.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 4.8,
+    "cohortSize": 109
+  },
+  {
+    "name": "Mazenod College",
+    "locality": "MULGRAVE",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 32.0,
+      "2023": 32.0,
+      "2024": 33.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 15.3,
+    "cohortSize": 421
+  },
+  {
+    "name": "McClelland Secondary College",
+    "locality": "FRANKSTON",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 30.0,
+      "2023": 29.0,
+      "2024": 30.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 3.0,
+    "cohortSize": 208
+  },
+  {
+    "name": "McKinnon Secondary College",
+    "locality": "MCKINNON",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 33.0,
+      "2023": 33.0,
+      "2024": 33.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 12.5,
+    "cohortSize": 679
+  },
+  {
+    "name": "Melba College",
+    "locality": "CROYDON",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 27.0,
+      "2023": 29.0,
+      "2024": 31.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 2.1,
+    "cohortSize": 113
+  },
+  {
+    "name": "Melbourne Girls Grammar",
+    "locality": "SOUTH YARRA",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 34.0,
+      "2023": 34.0,
+      "2024": 36.0,
+      "2025": 36.0
+    },
+    "scoresAbove40Percent": 30.4,
+    "cohortSize": 236
+  },
+  {
+    "name": "Melbourne Girls' College",
+    "locality": "RICHMOND",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 32.0,
+      "2023": 33.0,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 12.1,
+    "cohortSize": 388
+  },
+  {
+    "name": "Melbourne Grammar School",
+    "locality": "MELBOURNE",
+    "medianStudyScores": {
+      "2021": 35.0,
+      "2022": 35.0,
+      "2023": 35.0,
+      "2024": 36.0,
+      "2025": 36.0
+    },
+    "scoresAbove40Percent": 29.3,
+    "cohortSize": 377
+  },
+  {
+    "name": "Melbourne High School",
+    "locality": "SOUTH YARRA",
+    "medianStudyScores": {
+      "2021": 36.0,
+      "2022": 36.0,
+      "2023": 36.0,
+      "2024": 36.0,
+      "2025": 36.0
+    },
+    "scoresAbove40Percent": 29.9,
+    "cohortSize": 722
+  },
+  {
+    "name": "Melbourne Polytechnic",
+    "locality": "EPPING",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 18
+  },
+  {
+    "name": "Melbourne Rudolf Steiner Schl",
+    "locality": "WARRANWOOD",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 31.0,
+      "2023": 30.0,
+      "2024": 29.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 5.7,
+    "cohortSize": 50
+  },
+  {
+    "name": "Melton Christian College",
+    "locality": "BROOKFIELD",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 26.0,
+      "2023": 27.0,
+      "2024": 26.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 0.4,
+    "cohortSize": 103
+  },
+  {
+    "name": "Melton Secondary College",
+    "locality": "MELTON",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 27.0,
+      "2023": 24.0,
+      "2024": 24.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 0.3,
+    "cohortSize": 177
+  },
+  {
+    "name": "Mentone Girls' Grammar School",
+    "locality": "MENTONE",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 35.0,
+      "2023": 36.0,
+      "2024": 36.0,
+      "2025": 35.0
+    },
+    "scoresAbove40Percent": 20.6,
+    "cohortSize": 127
+  },
+  {
+    "name": "Mentone Girls' Sec College",
+    "locality": "MENTONE",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 32.0,
+      "2024": 32.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 9.5,
+    "cohortSize": 299
+  },
+  {
+    "name": "Mentone Grammar School",
+    "locality": "MENTONE",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 34.0,
+      "2023": 35.0,
+      "2024": 35.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 21.6,
+    "cohortSize": 345
+  },
+  {
+    "name": "Merbein P-10 College",
+    "locality": "MERBEIN",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 4
+  },
+  {
+    "name": "Mercy College",
+    "locality": "COBURG",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 3.9,
+    "cohortSize": 110
+  },
+  {
+    "name": "Mercy Regional College",
+    "locality": "CAMPERDOWN",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 25.0,
+      "2023": 29.0,
+      "2024": 27.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 4.5,
+    "cohortSize": 93
+  },
+  {
+    "name": "Mernda Central P-12 College",
+    "locality": "MERNDA",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 25.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 1.6,
+    "cohortSize": 195
+  },
+  {
+    "name": "Methodist Ladies College",
+    "locality": "KEW",
+    "medianStudyScores": {
+      "2021": 36.0,
+      "2022": 34.0,
+      "2023": 33.0,
+      "2024": 34.0,
+      "2025": 35.0
+    },
+    "scoresAbove40Percent": 23.2,
+    "cohortSize": 438
+  },
+  {
+    "name": "Mildura Senior College",
+    "locality": "MILDURA",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 27.0,
+      "2023": 26.0,
+      "2024": 26.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 1.7,
+    "cohortSize": 694
+  },
+  {
+    "name": "Mill Park Secondary College",
+    "locality": "EPPING",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 25.0,
+      "2023": 26.0,
+      "2024": 26.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 3.7,
+    "cohortSize": 249
+  },
+  {
+    "name": "Minaret College",
+    "locality": "OFFICER",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 27.0,
+      "2023": 26.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 3.7,
+    "cohortSize": 142
+  },
+  {
+    "name": "Minaret College",
+    "locality": "SPRINGVALE",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 25.0,
+      "2024": 26.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 3.5,
+    "cohortSize": 207
+  },
+  {
+    "name": "Mirboo North Sec College",
+    "locality": "MIRBOO NORTH",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 24.0,
+      "2023": 27.0,
+      "2024": 27.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 3.3,
+    "cohortSize": 67
+  },
+  {
+    "name": "Monbulk College",
+    "locality": "MONBULK",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 25.0,
+      "2023": 25.0,
+      "2024": 25.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 2.9,
+    "cohortSize": 88
+  },
+  {
+    "name": "Monivae College",
+    "locality": "HAMILTON",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 27.0,
+      "2024": 27.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 3.7,
+    "cohortSize": 120
+  },
+  {
+    "name": "Monterey Secondary College",
+    "locality": "FRANKSTON NORTH",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 24.0,
+      "2023": 25.0,
+      "2024": 21.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 65
+  },
+  {
+    "name": "Montmorency Sec College",
+    "locality": "MONTMORENCY",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 28.0,
+      "2023": 30.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 5.3,
+    "cohortSize": 270
+  },
+  {
+    "name": "Mooroolbark College",
+    "locality": "MOOROOLBARK",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 3.0,
+    "cohortSize": 207
+  },
+  {
+    "name": "Mordialloc College",
+    "locality": "MORDIALLOC",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 30.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 9.0,
+    "cohortSize": 266
+  },
+  {
+    "name": "Mornington Secondary College",
+    "locality": "MORNINGTON",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 27.0,
+      "2024": 27.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 3.0,
+    "cohortSize": 216
+  },
+  {
+    "name": "Mortlake College",
+    "locality": "MORTLAKE",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": 30.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 2.8,
+    "cohortSize": 22
+  },
+  {
+    "name": "Mount Alexander 7-12 Coll",
+    "locality": "FLEMINGTON",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 30.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 8.4,
+    "cohortSize": 149
+  },
+  {
+    "name": "Mount Beauty Sec College",
+    "locality": "MOUNT BEAUTY",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 27.0,
+      "2023": 28.0,
+      "2024": 26.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 1.4,
+    "cohortSize": 34
+  },
+  {
+    "name": "Mount Clear College",
+    "locality": "MOUNT CLEAR",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 28.0,
+      "2023": 26.0,
+      "2024": 26.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 1.8,
+    "cohortSize": 171
+  },
+  {
+    "name": "Mount Eliza Sec College",
+    "locality": "MOUNT ELIZA",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 3.3,
+    "cohortSize": 138
+  },
+  {
+    "name": "Mount Erin College",
+    "locality": "FRANKSTON SOUTH",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": 26.0,
+      "2023": 26.0,
+      "2024": 24.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 0.5,
+    "cohortSize": 105
+  },
+  {
+    "name": "Mount Evelyn Christian School",
+    "locality": "MOUNT EVELYN",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 31.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 5.1,
+    "cohortSize": 91
+  },
+  {
+    "name": "Mount Lilydale Mercy College",
+    "locality": "LILYDALE",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 1.9,
+    "cohortSize": 353
+  },
+  {
+    "name": "Mount Ridley P-12 College",
+    "locality": "CRAIGIEBURN",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 23.0,
+      "2023": 25.0,
+      "2024": 24.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 1.5,
+    "cohortSize": 351
+  },
+  {
+    "name": "Mount Rowan Secondary College",
+    "locality": "WENDOUREE",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 26.0,
+      "2023": 27.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 2.7,
+    "cohortSize": 72
+  },
+  {
+    "name": "Mount Scopus Memorial College",
+    "locality": "BURWOOD",
+    "medianStudyScores": {
+      "2021": 36.0,
+      "2022": 37.0,
+      "2023": 37.0,
+      "2024": 37.0,
+      "2025": 36.0
+    },
+    "scoresAbove40Percent": 25.5,
+    "cohortSize": 237
+  },
+  {
+    "name": "Mount St Joseph Girls' College",
+    "locality": "ALTONA",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 30.0,
+      "2023": 30.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 3.9,
+    "cohortSize": 225
+  },
+  {
+    "name": "Mount Waverley Sec College",
+    "locality": "MOUNT WAVERLEY",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 7.7,
+    "cohortSize": 456
+  },
+  {
+    "name": "Mt Hira College",
+    "locality": "KEYSBOROUGH",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 29.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 6.3,
+    "cohortSize": 78
+  },
+  {
+    "name": "Mullauna College",
+    "locality": "MITCHAM",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 30.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 9.3,
+    "cohortSize": 166
+  },
+  {
+    "name": "Murrayville Community College",
+    "locality": "MURRAYVILLE",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 21.0,
+      "2023": 22.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 15
+  },
+  {
+    "name": "Murtoa P-12 College",
+    "locality": "MURTOA",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 24.0,
+      "2023": 26.0,
+      "2024": 26.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 47
+  },
+  {
+    "name": "Myrtleford P-12 College",
+    "locality": "MYRTLEFORD",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 30.0,
+      "2024": 24.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 37
+  },
+  {
+    "name": "Nagle College",
+    "locality": "BAIRNSDALE",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 4.7,
+    "cohortSize": 147
+  },
+  {
+    "name": "Narre Warren Sth P-12 College",
+    "locality": "NARRE WARREN SOUTH",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 30.0,
+      "2023": 27.0,
+      "2024": 27.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 1.4,
+    "cohortSize": 449
+  },
+  {
+    "name": "Nathalia Secondary College",
+    "locality": "NATHALIA",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 31.0,
+      "2023": 20.0,
+      "2024": 20.0,
+      "2025": 18.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 24
+  },
+  {
+    "name": "Nazareth College",
+    "locality": "NOBLE PARK NORTH",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 2.3,
+    "cohortSize": 202
+  },
+  {
+    "name": "Neerim District Sec College",
+    "locality": "NEERIM SOUTH",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 23.0,
+      "2023": 23.0,
+      "2024": 19.0,
+      "2025": 18.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 54
+  },
+  {
+    "name": "Newcomb Secondary College",
+    "locality": "NEWCOMB",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 25.0,
+      "2023": 26.0,
+      "2024": 25.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 0.9,
+    "cohortSize": 76
+  },
+  {
+    "name": "Newhaven College",
+    "locality": "RHYLL",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 27.0,
+      "2023": 29.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 8.1,
+    "cohortSize": 147
+  },
+  {
+    "name": "Nhill College",
+    "locality": "NHILL",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 29.0,
+      "2023": 25.0,
+      "2024": 23.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 2.3,
+    "cohortSize": 20
+  },
+  {
+    "name": "Noble Park Secondary College",
+    "locality": "NOBLE PARK",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 26.0,
+      "2023": 25.0,
+      "2024": 25.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 0.4,
+    "cohortSize": 135
+  },
+  {
+    "name": "North Geelong Sec College",
+    "locality": "NORTH GEELONG",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": 28.0,
+      "2024": 27.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 2.2,
+    "cohortSize": 205
+  },
+  {
+    "name": "Northcote High School",
+    "locality": "NORTHCOTE",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": 30.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 9.0,
+    "cohortSize": 450
+  },
+  {
+    "name": "Northern Bay P-12 College",
+    "locality": "CORIO",
+    "medianStudyScores": {
+      "2021": 23.0,
+      "2022": 26.0,
+      "2023": 23.0,
+      "2024": 24.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 1.4,
+    "cohortSize": 82
+  },
+  {
+    "name": "Northern College of Arts & Tech",
+    "locality": "PRESTON EAST",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 27.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 3.1,
+    "cohortSize": 250
+  },
+  {
+    "name": "Northside Christian College",
+    "locality": "BUNDOORA",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 31.0,
+      "2023": 28.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 10.1,
+    "cohortSize": 72
+  },
+  {
+    "name": "Norwood Secondary College",
+    "locality": "RINGWOOD",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 3.4,
+    "cohortSize": 227
+  },
+  {
+    "name": "Nossal High School",
+    "locality": "BERWICK",
+    "medianStudyScores": {
+      "2021": 36.0,
+      "2022": 36.0,
+      "2023": 36.0,
+      "2024": 36.0,
+      "2025": 37.0
+    },
+    "scoresAbove40Percent": 32.4,
+    "cohortSize": 410
+  },
+  {
+    "name": "Notre Dame College",
+    "locality": "SHEPPARTON",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 28.0,
+      "2023": 27.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 4.6,
+    "cohortSize": 380
+  },
+  {
+    "name": "Numurkah Secondary College",
+    "locality": "NUMURKAH",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 26.0,
+      "2023": 22.0,
+      "2024": 24.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 42
+  },
+  {
+    "name": "Nunawading Christian College",
+    "locality": "NUNAWADING",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 32.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 9.4,
+    "cohortSize": 71
+  },
+  {
+    "name": "Oakleigh Grammar",
+    "locality": "OAKLEIGH",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 31.0,
+      "2023": 30.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 7.6,
+    "cohortSize": 107
+  },
+  {
+    "name": "Oakwood School",
+    "locality": "CAULFIELD NORTH",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 23
+  },
+  {
+    "name": "Oberon High School",
+    "locality": "ARMSTRONG CREEK",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 29.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 4.0,
+    "cohortSize": 194
+  },
+  {
+    "name": "Officer Secondary College",
+    "locality": "OFFICER",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 24.0,
+      "2023": 25.0,
+      "2024": 28.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 2.2,
+    "cohortSize": 244
+  },
+  {
+    "name": "OneSchool Global Vic",
+    "locality": "MELTON WEST",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 31.0,
+      "2023": 32.0,
+      "2024": 31.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 8.3,
+    "cohortSize": 105
+  },
+  {
+    "name": "Orbost Secondary College",
+    "locality": "ORBOST",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 26.0,
+      "2023": 27.0,
+      "2024": 25.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 4.3,
+    "cohortSize": 72
+  },
+  {
+    "name": "Our Lady of Mercy College",
+    "locality": "HEIDELBERG",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 32.0,
+      "2023": 32.0,
+      "2024": 32.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 10.3,
+    "cohortSize": 272
+  },
+  {
+    "name": "Our Lady of Sacred Heart Coll",
+    "locality": "BENTLEIGH",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": 32.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 6.9,
+    "cohortSize": 196
+  },
+  {
+    "name": "Our Lady of Sion College",
+    "locality": "BOX HILL",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 33.0,
+      "2023": 33.0,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 13.6,
+    "cohortSize": 196
+  },
+  {
+    "name": "Ouyen P-12 College",
+    "locality": "OUYEN",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 31.0,
+      "2023": 33.0,
+      "2024": 29.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 4.0,
+    "cohortSize": 21
+  },
+  {
+    "name": "Overnewton Anglican Comm Coll",
+    "locality": "KEILOR",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 32.0,
+      "2024": 31.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 6.7,
+    "cohortSize": 231
+  },
+  {
+    "name": "Oxley Christian College",
+    "locality": "CHIRNSIDE PARK",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 31.0,
+      "2023": 33.0,
+      "2024": 34.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 14.7,
+    "cohortSize": 97
+  },
+  {
+    "name": "Ozford College",
+    "locality": "MELBOURNE",
+    "medianStudyScores": {
+      "2021": 19.0,
+      "2022": 22.0,
+      "2023": null,
+      "2024": 20.0,
+      "2025": 19.0
+    },
+    "scoresAbove40Percent": 0.8,
+    "cohortSize": 53
+  },
+  {
+    "name": "Padua College",
+    "locality": "MORNINGTON",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 4.5,
+    "cohortSize": 488
+  },
+  {
+    "name": "Pakenham Secondary College",
+    "locality": "PAKENHAM",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 28.0,
+      "2023": 29.0,
+      "2024": 27.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 2.7,
+    "cohortSize": 200
+  },
+  {
+    "name": "Parade College",
+    "locality": "BUNDOORA",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 5.1,
+    "cohortSize": 444
+  },
+  {
+    "name": "Parkdale Secondary College",
+    "locality": "MORDIALLOC",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 29.0,
+      "2024": 30.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 3.7,
+    "cohortSize": 382
+  },
+  {
+    "name": "Parkville College",
+    "locality": "PARKVILLE",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 28
+  },
+  {
+    "name": "Pascoe Vale Girls Sec College",
+    "locality": "PASCOE VALE",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 28.0,
+      "2023": 26.0,
+      "2024": 27.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 0.9,
+    "cohortSize": 192
+  },
+  {
+    "name": "Patterson River Sec College",
+    "locality": "SEAFORD",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 2.3,
+    "cohortSize": 205
+  },
+  {
+    "name": "Peninsula Grammar",
+    "locality": "MOUNT ELIZA",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 32.0,
+      "2023": 31.0,
+      "2024": 33.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 12.4,
+    "cohortSize": 288
+  },
+  {
+    "name": "Penleigh & Essendon Grammar",
+    "locality": "KEILOR EAST",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 34.0,
+      "2023": 34.0,
+      "2024": 34.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 16.9,
+    "cohortSize": 404
+  },
+  {
+    "name": "Penola Catholic College",
+    "locality": "BROADMEADOWS",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 27.0,
+      "2023": 27.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 1.5,
+    "cohortSize": 282
+  },
+  {
+    "name": "Peter Lalor Secondary College",
+    "locality": "LALOR",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 40
+  },
+  {
+    "name": "Phoenix P-12 Comm Coll",
+    "locality": "SEBASTOPOL",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 27.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 3.0,
+    "cohortSize": 154
+  },
+  {
+    "name": "Plenty River College",
+    "locality": "SOUTH MORANG",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": null
+  },
+  {
+    "name": "Plenty Valley Christian College",
+    "locality": "DOREEN",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 31.0,
+      "2023": 30.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 6.2,
+    "cohortSize": 112
+  },
+  {
+    "name": "Point Cook Senior Sec College",
+    "locality": "POINT COOK",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 27.0,
+      "2023": 27.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 2.7,
+    "cohortSize": 323
+  },
+  {
+    "name": "Portland Secondary College",
+    "locality": "PORTLAND",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 26.0,
+      "2023": 27.0,
+      "2024": 24.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 1.3,
+    "cohortSize": 104
+  },
+  {
+    "name": "Prace College",
+    "locality": "RESERVOIR",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": null
+  },
+  {
+    "name": "Prahran High School",
+    "locality": "WINDSOR",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": 32.0,
+      "2024": 30.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 5.4,
+    "cohortSize": 171
+  },
+  {
+    "name": "Presbyterian Ladies' College",
+    "locality": "BURWOOD",
+    "medianStudyScores": {
+      "2021": 36.0,
+      "2022": 35.0,
+      "2023": 35.0,
+      "2024": 36.0,
+      "2025": 35.0
+    },
+    "scoresAbove40Percent": 24.1,
+    "cohortSize": 297
+  },
+  {
+    "name": "Preshil The Margaret Lyttle MS",
+    "locality": "KEW",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 9
+  },
+  {
+    "name": "Preston High School",
+    "locality": "PRESTON",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": 32.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 7.0,
+    "cohortSize": 233
+  },
+  {
+    "name": "Princes Hill Sec College",
+    "locality": "PRINCES HILL",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 32.0,
+      "2023": 31.0,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 8.1,
+    "cohortSize": 190
+  },
+  {
+    "name": "Rainbow P-12 College",
+    "locality": "RAINBOW",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 23.0,
+      "2023": 23.0,
+      "2024": 24.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 3.7,
+    "cohortSize": 19
+  },
+  {
+    "name": "Red Cliffs Secondary College",
+    "locality": "RED CLIFFS",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 20.0,
+      "2023": 22.0,
+      "2024": 23.0,
+      "2025": 21.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 42
+  },
+  {
+    "name": "Red Rock Christian College",
+    "locality": "SUNBURY",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 23.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 2.2,
+    "cohortSize": 26
+  },
+  {
+    "name": "Reservoir High School",
+    "locality": "RESERVOIR",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 26.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 3.5,
+    "cohortSize": 144
+  },
+  {
+    "name": "Richmond High School",
+    "locality": "RICHMOND",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 4.9,
+    "cohortSize": 180
+  },
+  {
+    "name": "Ringwood Secondary College",
+    "locality": "RINGWOOD",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 9.1,
+    "cohortSize": 335
+  },
+  {
+    "name": "River Nile School",
+    "locality": "NORTH MELBOURNE",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 31
+  },
+  {
+    "name": "Robinvale College",
+    "locality": "ROBINVALE",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 25.0,
+      "2023": 22.0,
+      "2024": 23.0,
+      "2025": 21.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 21
+  },
+  {
+    "name": "Rochester Secondary College",
+    "locality": "ROCHESTER",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 27.0,
+      "2024": 27.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 67
+  },
+  {
+    "name": "Rosebud Secondary College",
+    "locality": "ROSEBUD",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 27.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 3.0,
+    "cohortSize": 153
+  },
+  {
+    "name": "Rosehill Secondary College",
+    "locality": "NIDDRIE",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 29.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 3.5,
+    "cohortSize": 224
+  },
+  {
+    "name": "Rowville Secondary College",
+    "locality": "ROWVILLE",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 26.0,
+      "2023": 26.0,
+      "2024": 25.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 0.5,
+    "cohortSize": 371
+  },
+  {
+    "name": "Roxburgh College",
+    "locality": "ROXBURGH PARK",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 24.0,
+      "2023": 24.0,
+      "2024": 23.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 0.3,
+    "cohortSize": 229
+  },
+  {
+    "name": "Rushworth P-12 College",
+    "locality": "RUSHWORTH",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 27.0,
+      "2023": 24.0,
+      "2024": null,
+      "2025": 22.0
+    },
+    "scoresAbove40Percent": 2.1,
+    "cohortSize": 26
+  },
+  {
+    "name": "Rutherglen High School",
+    "locality": "RUTHERGLEN",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 23.0,
+      "2023": 24.0,
+      "2024": 21.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 1.0,
+    "cohortSize": 58
+  },
+  {
+    "name": "Ruyton Girls' School",
+    "locality": "KEW",
+    "medianStudyScores": {
+      "2021": 36.0,
+      "2022": 36.0,
+      "2023": 37.0,
+      "2024": 37.0,
+      "2025": 36.0
+    },
+    "scoresAbove40Percent": 30.9,
+    "cohortSize": 163
+  },
+  {
+    "name": "Sacre Coeur",
+    "locality": "GLEN IRIS",
+    "medianStudyScores": {
+      "2021": 35.0,
+      "2022": 36.0,
+      "2023": 36.0,
+      "2024": 35.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 18.5,
+    "cohortSize": 139
+  },
+  {
+    "name": "Sacred Heart College",
+    "locality": "YARRAWONGA",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 30.0,
+      "2023": 27.0,
+      "2024": 27.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 3.0,
+    "cohortSize": 54
+  },
+  {
+    "name": "Sacred Heart College Geelong",
+    "locality": "NEWTOWN",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 31.0,
+      "2023": 32.0,
+      "2024": 30.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 6.3,
+    "cohortSize": 443
+  },
+  {
+    "name": "Sacred Heart College Kyneton",
+    "locality": "KYNETON",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 29.0,
+      "2024": 30.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 2.9,
+    "cohortSize": 210
+  },
+  {
+    "name": "Sacred Heart Girls' College",
+    "locality": "HUGHESDALE",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 32.0,
+      "2023": 32.0,
+      "2024": 32.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 8.8,
+    "cohortSize": 188
+  },
+  {
+    "name": "Saint Ignatius College",
+    "locality": "DRYSDALE",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 30.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 3.4,
+    "cohortSize": 254
+  },
+  {
+    "name": "Sale College",
+    "locality": "SALE",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 24.0,
+      "2023": 26.0,
+      "2024": 24.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 0.5,
+    "cohortSize": 109
+  },
+  {
+    "name": "Salesian College",
+    "locality": "CHADSTONE",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 32.0,
+      "2024": 32.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 9.9,
+    "cohortSize": 233
+  },
+  {
+    "name": "Salesian College Sunbury",
+    "locality": "SUNBURY",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 27.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 2.0,
+    "cohortSize": 333
+  },
+  {
+    "name": "Sandringham College",
+    "locality": "SANDRINGHAM",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 30.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 7.2,
+    "cohortSize": 228
+  },
+  {
+    "name": "Santa Maria College",
+    "locality": "NORTHCOTE",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 30.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 8.6,
+    "cohortSize": 207
+  },
+  {
+    "name": "Scoresby Secondary College",
+    "locality": "SCORESBY",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 27.0,
+      "2023": 27.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 3.3,
+    "cohortSize": 60
+  },
+  {
+    "name": "Scotch College",
+    "locality": "HAWTHORN",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 35.0,
+      "2023": 34.0,
+      "2024": 34.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 19.0,
+    "cohortSize": 450
+  },
+  {
+    "name": "SEDA College",
+    "locality": "CAMBERWELL",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 727
+  },
+  {
+    "name": "Seymour College",
+    "locality": "SEYMOUR",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 25.0,
+      "2023": 25.0,
+      "2024": 25.0,
+      "2025": 22.0
+    },
+    "scoresAbove40Percent": 1.3,
+    "cohortSize": 67
+  },
+  {
+    "name": "Shepparton ACE Sec College",
+    "locality": "SHEPPARTON",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 8
+  },
+  {
+    "name": "Shepparton Christian College",
+    "locality": "SHEPPARTON",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 26.0,
+      "2024": 28.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 1.8,
+    "cohortSize": 29
+  },
+  {
+    "name": "Sherbrooke Community School",
+    "locality": "SASSAFRAS",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 30.0,
+      "2023": 26.0,
+      "2024": 26.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 17
+  },
+  {
+    "name": "Siena College",
+    "locality": "CAMBERWELL",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 34.0,
+      "2023": 34.0,
+      "2024": 35.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 16.2,
+    "cohortSize": 167
+  },
+  {
+    "name": "Simonds Catholic College",
+    "locality": "WEST MELBOURNE",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": 28.0,
+      "2024": 30.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 3.4,
+    "cohortSize": 100
+  },
+  {
+    "name": "Sirius College - Eastmeadows",
+    "locality": "BROADMEADOWS",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 29.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 7.9,
+    "cohortSize": 180
+  },
+  {
+    "name": "Sirius College - Ibrahim Dellal",
+    "locality": "SUNSHINE WEST",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": 32.0,
+      "2023": 31.0,
+      "2024": 30.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 10.6,
+    "cohortSize": 97
+  },
+  {
+    "name": "Sirius College - Keysborough",
+    "locality": "KEYSBOROUGH",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 30.0,
+      "2023": 30.0,
+      "2024": 28.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 6.8,
+    "cohortSize": 87
+  },
+  {
+    "name": "Sirius College - Meadow Fair",
+    "locality": "BROADMEADOWS",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 29.0,
+      "2023": 30.0,
+      "2024": 29.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 12.7,
+    "cohortSize": 137
+  },
+  {
+    "name": "Somerville Secondary College",
+    "locality": "SOMERVILLE",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 1.0,
+    "cohortSize": 52
+  },
+  {
+    "name": "South Oakleigh Sec College",
+    "locality": "OAKLEIGH SOUTH",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 30.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 5.8,
+    "cohortSize": 170
+  },
+  {
+    "name": "South West Institute of TAFE",
+    "locality": "WARRNAMBOOL",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 17
+  },
+  {
+    "name": "Southern Cross Grammar",
+    "locality": "CAROLINE SPRINGS",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": 29.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 5.1,
+    "cohortSize": 137
+  },
+  {
+    "name": "Springside West Sec College",
+    "locality": "FRASER RISE",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 30.0,
+      "2023": 27.0,
+      "2024": 26.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 2.6,
+    "cohortSize": 303
+  },
+  {
+    "name": "St Albans Secondary College",
+    "locality": "ST ALBANS",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 5.5,
+    "cohortSize": 291
+  },
+  {
+    "name": "St Aloysius College",
+    "locality": "NORTH MELBOURNE",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 31.0,
+      "2023": 30.0,
+      "2024": 31.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 9.4,
+    "cohortSize": 101
+  },
+  {
+    "name": "St Andrews Christian College",
+    "locality": "WANTIRNA SOUTH",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 33.0,
+      "2023": 32.0,
+      "2024": 34.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 17.6,
+    "cohortSize": 90
+  },
+  {
+    "name": "St Anne's College",
+    "locality": "KIALLA",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": 26.0,
+      "2024": 25.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 2.3,
+    "cohortSize": 56
+  },
+  {
+    "name": "St Arnaud Secondary College",
+    "locality": "ST ARNAUD",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 25.0,
+      "2023": 28.0,
+      "2024": 26.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 1.6,
+    "cohortSize": 35
+  },
+  {
+    "name": "St Augustine's College",
+    "locality": "KYABRAM",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 30.0,
+      "2023": 29.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 5.9,
+    "cohortSize": 81
+  },
+  {
+    "name": "St Bede's College",
+    "locality": "MENTONE",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 29.0,
+      "2023": 31.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 7.0,
+    "cohortSize": 397
+  },
+  {
+    "name": "St Bernard's College",
+    "locality": "ESSENDON",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 31.0,
+      "2023": 30.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 8.4,
+    "cohortSize": 312
+  },
+  {
+    "name": "St Brigid's College",
+    "locality": "HORSHAM",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 26.0,
+      "2023": 27.0,
+      "2024": 27.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 47
+  },
+  {
+    "name": "St Catherine's School",
+    "locality": "TOORAK",
+    "medianStudyScores": {
+      "2021": 37.0,
+      "2022": 37.0,
+      "2023": 36.0,
+      "2024": 36.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 22.0,
+    "cohortSize": 158
+  },
+  {
+    "name": "St Columba's College",
+    "locality": "ESSENDON",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 32.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 8.4,
+    "cohortSize": 256
+  },
+  {
+    "name": "St Francis Catholic College",
+    "locality": "MELTON",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": 29.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 4.0,
+    "cohortSize": 242
+  },
+  {
+    "name": "St Francis Xavier College",
+    "locality": "BEACONSFIELD",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 2.5,
+    "cohortSize": 565
+  },
+  {
+    "name": "St Helena Secondary College",
+    "locality": "ELTHAM",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 4.9,
+    "cohortSize": 351
+  },
+  {
+    "name": "St John's Greek Orth College",
+    "locality": "PRESTON",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 30.0,
+      "2023": 28.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 5.1,
+    "cohortSize": 26
+  },
+  {
+    "name": "St John's Regional College",
+    "locality": "DANDENONG",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 25.0,
+      "2023": 26.0,
+      "2024": 27.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 3.0,
+    "cohortSize": 122
+  },
+  {
+    "name": "St Joseph's College",
+    "locality": "ECHUCA",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 28.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 2.6,
+    "cohortSize": 227
+  },
+  {
+    "name": "St Joseph's College",
+    "locality": "FERNTREE GULLY",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 30.0,
+      "2023": 32.0,
+      "2024": 32.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 6.2,
+    "cohortSize": 184
+  },
+  {
+    "name": "St Joseph's College",
+    "locality": "MILDURA",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 29.0,
+      "2024": 26.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 2.4,
+    "cohortSize": 142
+  },
+  {
+    "name": "St Joseph's College",
+    "locality": "NEWTOWN",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 30.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 6.9,
+    "cohortSize": 438
+  },
+  {
+    "name": "St Kevin's College",
+    "locality": "TOORAK",
+    "medianStudyScores": {
+      "2021": 35.0,
+      "2022": 35.0,
+      "2023": 35.0,
+      "2024": 35.0,
+      "2025": 35.0
+    },
+    "scoresAbove40Percent": 23.6,
+    "cohortSize": 392
+  },
+  {
+    "name": "St Leonard's College",
+    "locality": "BRIGHTON EAST",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 34.0,
+      "2023": 35.0,
+      "2024": 34.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 12.8,
+    "cohortSize": 228
+  },
+  {
+    "name": "St Margaret's School",
+    "locality": "BERWICK",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 34.0,
+      "2023": 33.0,
+      "2024": 33.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 17.1,
+    "cohortSize": 108
+  },
+  {
+    "name": "St Mary MacKillop College",
+    "locality": "SWAN HILL",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 30.0,
+      "2024": 29.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 4.8,
+    "cohortSize": 94
+  },
+  {
+    "name": "St Mary of the Angels School",
+    "locality": "NATHALIA",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 29.0,
+      "2023": 27.0,
+      "2024": 26.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 1.7,
+    "cohortSize": 117
+  },
+  {
+    "name": "St Mary's College",
+    "locality": "SEYMOUR",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": 36.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 1.9,
+    "cohortSize": 55
+  },
+  {
+    "name": "St Mary's College Melbourne",
+    "locality": "ST KILDA EAST",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 30.0,
+      "2023": 31.0,
+      "2024": 28.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 4.1,
+    "cohortSize": 106
+  },
+  {
+    "name": "St Mary's Coptic Orth College",
+    "locality": "COOLAROO",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 30.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 10.0,
+    "cohortSize": 96
+  },
+  {
+    "name": "St Michael's Grammar School",
+    "locality": "ST KILDA",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 33.0,
+      "2023": 34.0,
+      "2024": 33.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 10.3,
+    "cohortSize": 216
+  },
+  {
+    "name": "St Monica's College",
+    "locality": "EPPING",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 29.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 4.3,
+    "cohortSize": 480
+  },
+  {
+    "name": "St Patrick's College",
+    "locality": "BALLARAT",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 2.6,
+    "cohortSize": 254
+  },
+  {
+    "name": "St Paul's Anglican Grammar Schl",
+    "locality": "WARRAGUL",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 32.0,
+      "2023": 31.0,
+      "2024": 30.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 7.7,
+    "cohortSize": 152
+  },
+  {
+    "name": "St Peter's College",
+    "locality": "CRANBOURNE",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 27.0,
+      "2023": 26.0,
+      "2024": 26.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 1.2,
+    "cohortSize": 466
+  },
+  {
+    "name": "St Thomas Aquinas College",
+    "locality": "TYNONG",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 26.0,
+      "2023": 27.0,
+      "2024": 26.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 2.5,
+    "cohortSize": 20
+  },
+  {
+    "name": "Star of the Sea College",
+    "locality": "BRIGHTON",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 34.0,
+      "2023": 34.0,
+      "2024": 34.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 13.7,
+    "cohortSize": 308
+  },
+  {
+    "name": "Staughton College",
+    "locality": "MELTON SOUTH",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 25.0,
+      "2023": 23.0,
+      "2024": 25.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 0.2,
+    "cohortSize": 224
+  },
+  {
+    "name": "Stawell Secondary College",
+    "locality": "STAWELL",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 25.0,
+      "2023": 23.0,
+      "2024": 23.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 1.7,
+    "cohortSize": 57
+  },
+  {
+    "name": "Stott's Colleges",
+    "locality": "MELBOURNE",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": 19.0
+    },
+    "scoresAbove40Percent": 0.4,
+    "cohortSize": 62
+  },
+  {
+    "name": "Strathcona Baptist Girls GS",
+    "locality": "CANTERBURY",
+    "medianStudyScores": {
+      "2021": 35.0,
+      "2022": 36.0,
+      "2023": 35.0,
+      "2024": 34.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 20.4,
+    "cohortSize": 189
+  },
+  {
+    "name": "Strathmore Secondary College",
+    "locality": "STRATHMORE",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 31.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 6.5,
+    "cohortSize": 464
+  },
+  {
+    "name": "Sunbury College",
+    "locality": "SUNBURY",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 28.0,
+      "2023": 27.0,
+      "2024": 27.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 1.8,
+    "cohortSize": 214
+  },
+  {
+    "name": "Sunbury Downs Sec College",
+    "locality": "SUNBURY",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 1.9,
+    "cohortSize": 115
+  },
+  {
+    "name": "Sunraysia Institute of TAFE",
+    "locality": "MILDURA",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 9
+  },
+  {
+    "name": "Sunshine College",
+    "locality": "SUNSHINE WEST",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 26.0,
+      "2023": 25.0,
+      "2024": 26.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 1.5,
+    "cohortSize": 274
+  },
+  {
+    "name": "Surf Coast Sec College",
+    "locality": "TORQUAY",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 28.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 5.4,
+    "cohortSize": 195
+  },
+  {
+    "name": "Suzanne Cory High School",
+    "locality": "WERRIBEE",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 34.0,
+      "2023": 35.0,
+      "2024": 34.0,
+      "2025": 35.0
+    },
+    "scoresAbove40Percent": 25.0,
+    "cohortSize": 432
+  },
+  {
+    "name": "Swan Hill College",
+    "locality": "SWAN HILL",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 26.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 3.2,
+    "cohortSize": 156
+  },
+  {
+    "name": "Swifts Creek P-12 School",
+    "locality": "SWIFTS CREEK",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 29.0,
+      "2023": 31.0,
+      "2024": 29.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 17
+  },
+  {
+    "name": "Swinburne Senior Sec College",
+    "locality": "HAWTHORN",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 27.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 3.9,
+    "cohortSize": 241
+  },
+  {
+    "name": "Swinburne Uni of Tech - TAFE",
+    "locality": "CROYDON",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 20.0,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 19
+  },
+  {
+    "name": "Sydney Road Community School",
+    "locality": "BRUNSWICK",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 23.0,
+      "2023": null,
+      "2024": 22.0,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 12
+  },
+  {
+    "name": "TAFE Gippsland",
+    "locality": "SALE",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": 28.0,
+      "2023": 26.0,
+      "2024": 21.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 56
+  },
+  {
+    "name": "Tallangatta Secondary College",
+    "locality": "TALLANGATTA",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 25.0,
+      "2023": 26.0,
+      "2024": 27.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 50
+  },
+  {
+    "name": "Tarneit Senior College",
+    "locality": "TARNEIT",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 24.0,
+      "2023": 23.0,
+      "2024": 23.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 0.5,
+    "cohortSize": 406
+  },
+  {
+    "name": "Taylors Lakes Sec College",
+    "locality": "TAYLORS LAKES",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 26.0,
+      "2023": 27.0,
+      "2024": 29.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 4.0,
+    "cohortSize": 245
+  },
+  {
+    "name": "Templestowe College",
+    "locality": "TEMPLESTOWE LOWER",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 6.0,
+    "cohortSize": 382
+  },
+  {
+    "name": "Terang College Sec Campus",
+    "locality": "TERANG",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 29.0,
+      "2023": 30.0,
+      "2024": 26.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 3.2,
+    "cohortSize": 22
+  },
+  {
+    "name": "The Bendigo Kangan Institute",
+    "locality": "BROADMEADOWS",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 54
+  },
+  {
+    "name": "The David Scott School",
+    "locality": "FRANKSTON",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 40
+  },
+  {
+    "name": "The Geelong College",
+    "locality": "NEWTOWN",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 32.0,
+      "2023": 33.0,
+      "2024": 33.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 14.0,
+    "cohortSize": 255
+  },
+  {
+    "name": "The Grange P-12 College",
+    "locality": "HOPPERS CROSSING",
+    "medianStudyScores": {
+      "2021": 22.0,
+      "2022": 22.0,
+      "2023": 25.0,
+      "2024": 25.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 3.2,
+    "cohortSize": 223
+  },
+  {
+    "name": "The Hamilton & Alexandra Coll",
+    "locality": "HAMILTON",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 30.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 6.4,
+    "cohortSize": 129
+  },
+  {
+    "name": "The King David School",
+    "locality": "ARMADALE",
+    "medianStudyScores": {
+      "2021": 36.0,
+      "2022": 36.0,
+      "2023": 36.0,
+      "2024": 34.0,
+      "2025": 36.0
+    },
+    "scoresAbove40Percent": 22.2,
+    "cohortSize": 116
+  },
+  {
+    "name": "The Knox School",
+    "locality": "WANTIRNA SOUTH",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 32.0,
+      "2023": 33.0,
+      "2024": 33.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 16.9,
+    "cohortSize": 112
+  },
+  {
+    "name": "The Lakes South Morang College",
+    "locality": "SOUTH MORANG",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": 23.0,
+      "2023": 24.0,
+      "2024": 30.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 2.3,
+    "cohortSize": 68
+  },
+  {
+    "name": "Thomas Carr College",
+    "locality": "TARNEIT",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 25.0,
+      "2023": 26.0,
+      "2024": 26.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 1.7,
+    "cohortSize": 223
+  },
+  {
+    "name": "Thomastown Secondary College",
+    "locality": "THOMASTOWN",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 24.0,
+      "2023": 25.0,
+      "2024": 24.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 1.3,
+    "cohortSize": 73
+  },
+  {
+    "name": "Thornbury High School",
+    "locality": "THORNBURY",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 31.0,
+      "2023": 31.0,
+      "2024": 30.0,
+      "2025": 30.0
+    },
+    "scoresAbove40Percent": 4.9,
+    "cohortSize": 231
+  },
+  {
+    "name": "Timboon P-12 School",
+    "locality": "TIMBOON",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 26.0,
+      "2023": 28.0,
+      "2024": 24.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 45
+  },
+  {
+    "name": "Tintern Grammar",
+    "locality": "RINGWOOD EAST",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 32.0,
+      "2023": 33.0,
+      "2024": 34.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 18.6,
+    "cohortSize": 170
+  },
+  {
+    "name": "Toorak College",
+    "locality": "MOUNT ELIZA",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 35.0,
+      "2023": 34.0,
+      "2024": 34.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 14.4,
+    "cohortSize": 180
+  },
+  {
+    "name": "Trafalgar High School",
+    "locality": "TRAFALGAR",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 27.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 3.6,
+    "cohortSize": 158
+  },
+  {
+    "name": "Traralgon College",
+    "locality": "TRARALGON",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 27.0,
+      "2023": 25.0,
+      "2024": 25.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 2.3,
+    "cohortSize": 133
+  },
+  {
+    "name": "Trinity College Colac",
+    "locality": "COLAC",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 4.0,
+    "cohortSize": 149
+  },
+  {
+    "name": "Trinity Grammar School",
+    "locality": "KEW",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 35.0,
+      "2023": 35.0,
+      "2024": 36.0,
+      "2025": 35.0
+    },
+    "scoresAbove40Percent": 21.6,
+    "cohortSize": 300
+  },
+  {
+    "name": "Tyrrell College",
+    "locality": "SEA LAKE",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 28.0,
+      "2023": 25.0,
+      "2024": 28.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 17
+  },
+  {
+    "name": "University High School",
+    "locality": "PARKVILLE",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 32.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 7.8,
+    "cohortSize": 565
+  },
+  {
+    "name": "Upper Yarra Secondary College",
+    "locality": "YARRA JUNCTION",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 26.0,
+      "2023": 25.0,
+      "2024": 27.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 4.3,
+    "cohortSize": 157
+  },
+  {
+    "name": "Upwey High School",
+    "locality": "UPWEY",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 26.0,
+      "2023": 27.0,
+      "2024": 27.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 2.4,
+    "cohortSize": 166
+  },
+  {
+    "name": "Urban College",
+    "locality": "BORONIA",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 28
+  },
+  {
+    "name": "Vermont Secondary College",
+    "locality": "VERMONT",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 32.0,
+      "2024": 32.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 7.6,
+    "cohortSize": 420
+  },
+  {
+    "name": "Victoria University SC",
+    "locality": "CAIRNLEA",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": 28.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 3.3,
+    "cohortSize": 220
+  },
+  {
+    "name": "Victorian College for the Deaf",
+    "locality": "MELBOURNE",
+    "medianStudyScores": {
+      "2021": 35.0,
+      "2022": null,
+      "2023": 24.0,
+      "2024": null,
+      "2025": 39.0
+    },
+    "scoresAbove40Percent": 40.0,
+    "cohortSize": 5
+  },
+  {
+    "name": "Victorian College of the Arts",
+    "locality": "SOUTHBANK",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 32.0,
+      "2023": 31.0,
+      "2024": 33.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 12.4,
+    "cohortSize": 179
+  },
+  {
+    "name": "Victory Christian College",
+    "locality": "STRATHDALE",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 6.0,
+    "cohortSize": 88
+  },
+  {
+    "name": "Victory Lutheran College",
+    "locality": "WEST WODONGA",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 29.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 5.9,
+    "cohortSize": 103
+  },
+  {
+    "name": "Viewbank College",
+    "locality": "VIEWBANK",
+    "medianStudyScores": {
+      "2021": 30.0,
+      "2022": 29.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 9.4,
+    "cohortSize": 310
+  },
+  {
+    "name": "Village High School",
+    "locality": "WONTHAGGI",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 15
+  },
+  {
+    "name": "Virtual School Victoria",
+    "locality": "THORNBURY",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 26.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 2.5,
+    "cohortSize": 693
+  },
+  {
+    "name": "Wallan Secondary College",
+    "locality": "WALLAN",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 22.0,
+      "2023": 21.0,
+      "2024": 22.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 0.7,
+    "cohortSize": 141
+  },
+  {
+    "name": "Wangaratta High School",
+    "locality": "WANGARATTA",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 25.0,
+      "2023": 28.0,
+      "2024": 26.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 2.9,
+    "cohortSize": 112
+  },
+  {
+    "name": "Wantirna College",
+    "locality": "WANTIRNA",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 27.0,
+      "2023": 29.0,
+      "2024": 29.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 3.1,
+    "cohortSize": 328
+  },
+  {
+    "name": "Warracknabeal Sec College",
+    "locality": "WARRACKNABEAL",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 30.0,
+      "2023": 26.0,
+      "2024": 29.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 36
+  },
+  {
+    "name": "Warragul Regional College",
+    "locality": "WARRAGUL",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 27.0,
+      "2023": 25.0,
+      "2024": 24.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 1.8,
+    "cohortSize": 140
+  },
+  {
+    "name": "Warrandyte High School",
+    "locality": "WARRANDYTE",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 23.0,
+      "2023": 24.0,
+      "2024": 26.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 1.8,
+    "cohortSize": 65
+  },
+  {
+    "name": "Warrnambool College",
+    "locality": "WARRNAMBOOL",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 27.0,
+      "2023": 28.0,
+      "2024": 26.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 2.4,
+    "cohortSize": 234
+  },
+  {
+    "name": "Waverley Christian College",
+    "locality": "NARRE WARREN SOUTH",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": 33.0,
+      "2023": 32.0,
+      "2024": 31.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 7.4,
+    "cohortSize": 161
+  },
+  {
+    "name": "Waverley Christian College",
+    "locality": "WANTIRNA SOUTH",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 35.0,
+      "2023": 33.0,
+      "2024": 34.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 20.1,
+    "cohortSize": 221
+  },
+  {
+    "name": "Wedderburn College",
+    "locality": "WEDDERBURN",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 26.0,
+      "2023": 28.0,
+      "2024": 20.0,
+      "2025": 22.0
+    },
+    "scoresAbove40Percent": 4.8,
+    "cohortSize": 25
+  },
+  {
+    "name": "Wellington Secondary College",
+    "locality": "MULGRAVE",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 29.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 5.2,
+    "cohortSize": 392
+  },
+  {
+    "name": "Werribee Secondary College",
+    "locality": "WERRIBEE",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 28.0,
+      "2023": 28.0,
+      "2024": 28.0,
+      "2025": 28.0
+    },
+    "scoresAbove40Percent": 6.4,
+    "cohortSize": 281
+  },
+  {
+    "name": "Werrimull P-12 College",
+    "locality": "WERRIMULL",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": null
+  },
+  {
+    "name": "Wesley College",
+    "locality": "GLEN WAVERLEY",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 33.0,
+      "2023": 31.0,
+      "2024": 31.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 10.6,
+    "cohortSize": 139
+  },
+  {
+    "name": "Wesley College",
+    "locality": "MELBOURNE",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 32.0,
+      "2023": 31.0,
+      "2024": 32.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 14.5,
+    "cohortSize": 211
+  },
+  {
+    "name": "Westall Secondary College",
+    "locality": "CLAYTON SOUTH",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 26.0,
+      "2023": 27.0,
+      "2024": 24.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 3.1,
+    "cohortSize": 173
+  },
+  {
+    "name": "Westbourne Grammar School",
+    "locality": "TRUGANINA",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 33.0,
+      "2023": 33.0,
+      "2024": 33.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 12.0,
+    "cohortSize": 251
+  },
+  {
+    "name": "Western Heights Sec College",
+    "locality": "HAMLYN HEIGHTS",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 21.0,
+      "2023": 22.0,
+      "2024": 22.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 1.2,
+    "cohortSize": 166
+  },
+  {
+    "name": "Western Port Sec College",
+    "locality": "HASTINGS",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 22.0,
+      "2023": 25.0,
+      "2024": 25.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 1.8,
+    "cohortSize": 125
+  },
+  {
+    "name": "Wheelers Hill Sec College",
+    "locality": "WHEELERS HILL",
+    "medianStudyScores": {
+      "2021": 28.0,
+      "2022": 28.0,
+      "2023": 26.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 2.3,
+    "cohortSize": 140
+  },
+  {
+    "name": "Whitefriars College",
+    "locality": "DONVALE",
+    "medianStudyScores": {
+      "2021": 31.0,
+      "2022": 31.0,
+      "2023": 32.0,
+      "2024": 30.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 6.5,
+    "cohortSize": 217
+  },
+  {
+    "name": "Whittlesea Secondary College",
+    "locality": "WHITTLESEA",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 23.0,
+      "2023": 22.0,
+      "2024": 24.0,
+      "2025": 23.0
+    },
+    "scoresAbove40Percent": 0.5,
+    "cohortSize": 88
+  },
+  {
+    "name": "William Ruthven Sec College",
+    "locality": "RESERVOIR",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 27.0,
+      "2023": 27.0,
+      "2024": 25.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 1.7,
+    "cohortSize": 79
+  },
+  {
+    "name": "Williamstown High School",
+    "locality": "WILLIAMSTOWN",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 32.0,
+      "2023": 32.0,
+      "2024": 31.0,
+      "2025": 32.0
+    },
+    "scoresAbove40Percent": 10.9,
+    "cohortSize": 385
+  },
+  {
+    "name": "Wodonga Senior Sec College",
+    "locality": "WODONGA",
+    "medianStudyScores": {
+      "2021": 24.0,
+      "2022": 22.0,
+      "2023": 23.0,
+      "2024": 22.0,
+      "2025": 21.0
+    },
+    "scoresAbove40Percent": 0.0,
+    "cohortSize": 574
+  },
+  {
+    "name": "Woodleigh School",
+    "locality": "LANGWARRIN SOUTH",
+    "medianStudyScores": {
+      "2021": 32.0,
+      "2022": 30.0,
+      "2023": 30.0,
+      "2024": 31.0,
+      "2025": 31.0
+    },
+    "scoresAbove40Percent": 7.7,
+    "cohortSize": 137
+  },
+  {
+    "name": "Woodmans Hill Secondary College",
+    "locality": "BALLARAT EAST",
+    "medianStudyScores": {
+      "2021": 29.0,
+      "2022": 29.0,
+      "2023": 29.0,
+      "2024": 27.0,
+      "2025": 27.0
+    },
+    "scoresAbove40Percent": 5.0,
+    "cohortSize": 81
+  },
+  {
+    "name": "Wycheproof P-12 College",
+    "locality": "WYCHEPROOF",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 34.0,
+      "2023": 29.0,
+      "2024": 30.0,
+      "2025": 29.0
+    },
+    "scoresAbove40Percent": 8.3,
+    "cohortSize": 25
+  },
+  {
+    "name": "Wyndham Central Sec Coll",
+    "locality": "WERRIBEE",
+    "medianStudyScores": {
+      "2021": 25.0,
+      "2022": 26.0,
+      "2023": 24.0,
+      "2024": 25.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 3.1,
+    "cohortSize": 201
+  },
+  {
+    "name": "Xavier College",
+    "locality": "KEW",
+    "medianStudyScores": {
+      "2021": 33.0,
+      "2022": 33.0,
+      "2023": 33.0,
+      "2024": 34.0,
+      "2025": 33.0
+    },
+    "scoresAbove40Percent": 15.2,
+    "cohortSize": 391
+  },
+  {
+    "name": "Yarra Hills Sec Coll Mooroolbark",
+    "locality": "MOOROOLBARK",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": 23.0,
+      "2024": 24.0,
+      "2025": 24.0
+    },
+    "scoresAbove40Percent": 0.5,
+    "cohortSize": 113
+  },
+  {
+    "name": "Yarra Hills Sec Coll Mt Evelyn",
+    "locality": "MOUNT EVELYN",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 17
+  },
+  {
+    "name": "Yarra Valley Grammar School",
+    "locality": "RINGWOOD",
+    "medianStudyScores": {
+      "2021": 34.0,
+      "2022": 35.0,
+      "2023": 35.0,
+      "2024": 35.0,
+      "2025": 35.0
+    },
+    "scoresAbove40Percent": 23.8,
+    "cohortSize": 364
+  },
+  {
+    "name": "Yarram Secondary College",
+    "locality": "YARRAM",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 25.0,
+      "2023": 26.0,
+      "2024": 25.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 2.4,
+    "cohortSize": 67
+  },
+  {
+    "name": "Yarrawonga College P-12",
+    "locality": "YARRAWONGA",
+    "medianStudyScores": {
+      "2021": 27.0,
+      "2022": 25.0,
+      "2023": 26.0,
+      "2024": 28.0,
+      "2025": 26.0
+    },
+    "scoresAbove40Percent": 0.6,
+    "cohortSize": 88
+  },
+  {
+    "name": "Yea High School",
+    "locality": "YEA",
+    "medianStudyScores": {
+      "2021": 26.0,
+      "2022": 25.0,
+      "2023": 25.0,
+      "2024": 25.0,
+      "2025": 25.0
+    },
+    "scoresAbove40Percent": 1.4,
+    "cohortSize": 79
+  },
+  {
+    "name": "Yeshivah College",
+    "locality": "ST KILDA EAST",
+    "medianStudyScores": {
+      "2021": 35.0,
+      "2022": 36.0,
+      "2023": 34.0,
+      "2024": 37.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 19.2,
+    "cohortSize": 58
+  },
+  {
+    "name": "Yesodei HaTorah College",
+    "locality": "ORMOND",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": 37.0,
+      "2024": 28.0,
+      "2025": 34.0
+    },
+    "scoresAbove40Percent": 17.1,
+    "cohortSize": 31
+  },
+  {
+    "name": "Youth2Industry College",
+    "locality": "SOUTH MELBOURNE",
+    "medianStudyScores": {
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": null,
+      "2025": null
+    },
+    "scoresAbove40Percent": null,
+    "cohortSize": 29
+  }
 ]

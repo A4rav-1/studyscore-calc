@@ -1,59 +1,9 @@
 $ErrorActionPreference = "Stop"
 
-$sourceUrl = "https://bettereducation.com.au/Results/vce.aspx"
-$response = Invoke-WebRequest -Uri $sourceUrl -UseBasicParsing -TimeoutSec 30
-$tableMatch = [regex]::Match(
-  $response.Content,
-  '<table[^>]+GridView1[\s\S]*?</table>',
-  [System.Text.RegularExpressions.RegexOptions]::IgnoreCase
-)
+$pythonCommand = Get-Command python -ErrorAction Stop
+$scriptPath = Join-Path $PSScriptRoot "build-school-data.py"
 
-if (-not $tableMatch.Success) {
-  throw "Better Education school table was not found."
+& $pythonCommand.Source $scriptPath
+if ($LASTEXITCODE -ne 0) {
+  throw "School data refresh failed with exit code $LASTEXITCODE."
 }
-
-$schools = @()
-$rows = [regex]::Matches(
-  $tableMatch.Value,
-  '<tr[^>]*>([\s\S]*?)</tr>',
-  [System.Text.RegularExpressions.RegexOptions]::IgnoreCase
-)
-
-foreach ($row in $rows) {
-  $cells = [regex]::Matches(
-    $row.Groups[1].Value,
-    '<td[^>]*>([\s\S]*?)</td>',
-    [System.Text.RegularExpressions.RegexOptions]::IgnoreCase
-  )
-
-  if ($cells.Count -lt 9) {
-    continue
-  }
-
-  $values = foreach ($cell in $cells) {
-    $withoutTags = [regex]::Replace($cell.Groups[1].Value, '<[^>]+>', ' ')
-    $decoded = [System.Net.WebUtility]::HtmlDecode($withoutTags)
-    ($decoded -replace '\s+', ' ').Trim()
-  }
-
-  $schools += [ordered]@{
-    name = $values[2]
-    locality = $values[6]
-    medianStudyScore = [int]$values[4]
-    scoresAbove40Percent = [double]$values[3]
-    cohortSize = [int]$values[8]
-  }
-}
-
-if ($schools.Count -lt 50) {
-  throw "Only $($schools.Count) school records were parsed."
-}
-
-$outputDirectory = Join-Path $PSScriptRoot "..\app\data"
-New-Item -ItemType Directory -Path $outputDirectory -Force | Out-Null
-$outputPath = Join-Path $outputDirectory "schools.json"
-$json = $schools | ConvertTo-Json -Depth 3
-$utf8WithoutBom = New-Object System.Text.UTF8Encoding($false)
-[System.IO.File]::WriteAllText($outputPath, $json, $utf8WithoutBom)
-
-Write-Output "Saved $($schools.Count) schools to $outputPath"

@@ -12,6 +12,7 @@ import {
   HONOUR_ROLL_2025_SCHOOL_OPTIONS,
   HONOUR_ROLL_2025_SCORES,
 } from "../app/data/honourRoll2025.ts";
+import schoolsJson from "../app/data/schools.json" with { type: "json" };
 import {
   calculateAtar,
   calculateRelativeStudyScore,
@@ -19,6 +20,7 @@ import {
   calculateStudyScore,
   groupAtarContributions,
 } from "../app/lib/calculator.ts";
+import { calculateSchoolMedianTrend } from "../app/lib/schoolTrend.ts";
 import { formatRelativeStudyScore } from "../app/lib/studyScoreDisplay.ts";
 
 function getSubject(code: string) {
@@ -201,6 +203,74 @@ test("Mazenod calibration excludes Specialist Mathematics", () => {
   });
 
   assert.notEqual(bottomRankScore, 30);
+});
+
+test("official VCAA school data covers every 2025 provider and five-year trend", () => {
+  assert.equal(schoolsJson.length, 607);
+  assert.equal(
+    schoolsJson.filter((school) => school.medianStudyScores["2025"] !== null).length,
+    555,
+  );
+
+  const mazenod = schoolsJson.find(
+    (school) => school.name === "Mazenod College" && school.locality === "MULGRAVE",
+  );
+  assert.ok(mazenod);
+  assert.deepEqual(mazenod.medianStudyScores, {
+    "2021": 32,
+    "2022": 32,
+    "2023": 32,
+    "2024": 33,
+    "2025": 33,
+  });
+  assert.deepEqual(calculateSchoolMedianTrend(mazenod.medianStudyScores), {
+    annualChange: 0.3,
+    effectiveMedianStudyScore: 33.15,
+    usesImprovementAdjustment: true,
+  });
+  assert.equal(
+    getHonourRollSchoolName("Academy of Mary Immaculate", "FITZROY"),
+    "Academy of Mary Immaculate, Fitzroy",
+  );
+  assert.equal(
+    getHonourRollSchoolName("Mac.Robertson Girls' High Schl", "MELBOURNE"),
+    "MacRobertson Girls High School, Melbourne",
+  );
+  assert.equal(
+    getHonourRollSchoolName("Hume Central Sec College", "BROADMEADOWS"),
+    "Hume Central Secondary College - Town Park Campus, Broadmeadows",
+  );
+});
+
+test("school median trend never extrapolates a decline", () => {
+  assert.deepEqual(
+    calculateSchoolMedianTrend({
+      "2021": 35,
+      "2022": 34,
+      "2023": 33,
+      "2024": 32,
+      "2025": 31,
+    }),
+    {
+      annualChange: -1,
+      effectiveMedianStudyScore: 31,
+      usesImprovementAdjustment: false,
+    },
+  );
+  assert.deepEqual(
+    calculateSchoolMedianTrend({
+      "2021": null,
+      "2022": null,
+      "2023": null,
+      "2024": 30,
+      "2025": 31,
+    }),
+    {
+      annualChange: null,
+      effectiveMedianStudyScore: 31,
+      usesImprovementAdjustment: false,
+    },
+  );
 });
 
 test("full honour-roll data covers every published school, subject and score", () => {
@@ -405,6 +475,37 @@ test("ATAR calculation applies primary four and two increments", () => {
   assert.equal(
     result.contributions.filter((item) => item.role === "increment").length,
     2,
+  );
+});
+
+test("university extension uses one of the best two increment positions", () => {
+  const primaryFour = [
+    { id: "en", subject: getSubject("EN"), rawStudyScore: 40 },
+    { id: "methods", subject: getSubject("NJ"), rawStudyScore: 40 },
+    { id: "chem", subject: getSubject("CH"), rawStudyScore: 40 },
+    { id: "bio", subject: getSubject("BI"), rawStudyScore: 40 },
+  ] as const;
+  const withoutExtension = calculateAtar(primaryFour);
+  const withExtension = calculateAtar(primaryFour, 4.5);
+
+  assert.equal(withExtension.aggregate, withoutExtension.aggregate + 4.5);
+  assert.deepEqual(withExtension.universityExtension, {
+    increment: 4.5,
+    counted: true,
+  });
+
+  const sixHighScores = [
+    ...primaryFour,
+    { id: "physics", subject: getSubject("PH"), rawStudyScore: 50 },
+    { id: "business", subject: getSubject("BM"), rawStudyScore: 50 },
+  ] as const;
+  assert.deepEqual(calculateAtar(sixHighScores, 3).universityExtension, {
+    increment: 3,
+    counted: false,
+  });
+  assert.throws(
+    () => calculateAtar(primaryFour, 2.5 as never),
+    /University extension increments/,
   );
 });
 

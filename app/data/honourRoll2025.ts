@@ -2155,8 +2155,10 @@ export const HONOUR_ROLL_2025_SCHOOL_ALIASES: Readonly<Record<string, string>> =
   "Ballarat Clarendon College": "Ballarat Clarendon College",
   "Ballarat Grammar": "Ballarat Grammar, Wendouree",
   "Balwyn High School": "Balwyn High School, Balwyn North",
+  "Bayside P-12 College,NEWPORT": "Bayside P-12 College - Paisley Campus, Newport",
   "Beth Rivkah Ladies College": "Beth Rivkah Ladies College, St Kilda East",
   "Bialik College": "Bialik College, Hawthorn East",
+  "Billanook College": "Billanook College Ltd, Mooroolbark",
   "Box Hill High School": "Box Hill High School",
   "Brighton Grammar School": "Brighton Grammar School",
   "Camberwell Girls Grammar School": "Camberwell Anglican Girls Grammar School, Canterbury",
@@ -2166,6 +2168,9 @@ export const HONOUR_ROLL_2025_SCHOOL_ALIASES: Readonly<Record<string, string>> =
   "Caulfield Grammar School,ST KILDA EAST": "Caulfield Grammar School - Caulfield Campus, St Kilda East",
   "Caulfield Grammar School,WHEELERS HILL": "Caulfield Grammar School, Wheelers Hill",
   "Charlton College": "Charlton College",
+  "Chairo Christian School,LEONGATHA": "Chairo Christian School - Leongatha Campus",
+  "Chairo Christian School,NAR NAR GOON": "Chairo Christian School - Pakenham, Nar Nar Goon",
+  "Christian College Institute": "Christian College Geelong, Waurn Ponds",
   "Darul Ulum College of Victoria": "Darul Ulum College of Victoria, Fawkner",
   "East Doncaster Secondary College": "East Doncaster Secondary College, Doncaster East",
   "Edenbrook Secondary College": "Edenbrook Secondary College, Pakenham",
@@ -2176,27 +2181,36 @@ export const HONOUR_ROLL_2025_SCHOOL_ALIASES: Readonly<Record<string, string>> =
   "Girton Grammar School": "Girton Grammar School, Bendigo",
   "Glen Waverley Secondary College": "Glen Waverley Secondary College",
   "Goulburn Valley Grammar School": "Goulburn Valley Grammar School, Shepparton",
+  "Gippsland Grammar": "Gippsland Grammar - Senior, Sale",
   "Haileybury - Pangea Campus": "Haileybury - Pangea campus, Keysborough",
   "Haileybury College": "Haileybury College, Keysborough",
   "Haileybury College (Girls)": "Haileybury Girls College, Keysborough",
   "Haileybury Rendall School": "Haileybury Rendall School, Berrimah",
   "Huntingtower School": "Huntingtower School, Mount Waverley",
+  "Heathdale Christian College,WERRIBEE": "Heathdale Christian College Werribee Campus",
+  "Heritage College,FERNTREE GULLY": "Heritage College Knox, Ferntree Gully",
+  "Hillcrest Christian College": "Hillcrest Christian College - Ayr Hill Campus, Clyde North",
+  "Hume Central Sec College": "Hume Central Secondary College - Town Park Campus, Broadmeadows",
   "Islamic College of Melbourne": "Islamic College of Melbourne, Tarneit",
   "Ivanhoe Girls' Grammar School": "Ivanhoe Girls' Grammar School",
   "Ivanhoe Grammar School,Doreen": "Ivanhoe Grammar School - Plenty Campus, Mernda",
   "Ivanhoe Grammar School,Ivanhoe": "Ivanhoe Grammar School",
   "John Monash Science School": "John Monash Science School, Clayton",
   "Kardinia International College": "Kardinia International College, Bell Post Hill",
+  "Keysborough SC - Acacia": "Keysborough Secondary College - Acacia Campus",
+  "Keysborough SC - Banksia": "Keysborough Secondary College - Banksia Campus, Springvale South",
   "Kew High School": "Kew High School, Kew East",
   "Kilbreda College": "Kilbreda College, Mentone",
   "Kilvington Grammar School": "Kilvington Grammar School, Ormond",
   "Kingswood College": "Kingswood College, Box Hill",
   "Korowa Anglican Girls' School": "Korowa Anglican Girls' School, Glen Iris",
+  "Kurnai College": "Kurnai College - University Campus, Churchill",
   "Lauriston Girls' School": "Lauriston Girls' School, Armadale",
   "Leibler Yavneh College": "Leibler Yavneh College, Elsternwick",
   "Loreto Mandeville Hall": "Loreto Mandeville Hall, Toorak",
   "Lowther Hall Anglican Grammar School": "Lowther Hall Anglican Grammar School, Essendon",
   "MacRobertson Girls High School": "MacRobertson Girls High School, Melbourne",
+  "Matthew Flinders Girls' SC": "Matthew Flinders Girls Secondary College, Geelong",
   "Mazenod College": "Mazenod College, Mulgrave",
   "McKinnon Secondary College": "McKinnon Secondary College",
   "Melbourne Girls Grammar": "Melbourne Girls Grammar, South Yarra",
@@ -2208,23 +2222,37 @@ export const HONOUR_ROLL_2025_SCHOOL_ALIASES: Readonly<Record<string, string>> =
   "Methodist Ladies College": "Methodist Ladies' College, Kew",
   "Mount Scopus Memorial College": "Mount Scopus Memorial College, Burwood",
   "Nossal High School": "Nossal High School, Berwick",
+  "Northern College of Arts & Tech": "Northern College of the Arts and Technology, Preston East",
   "Our Lady of Mercy College": "Our Lady of Mercy College, Heidelberg",
   "Our Lady of Sion College": "Our Lady of Sion College, Box Hill",
+  "Overnewton Anglican Comm Coll": "Overnewton Anglican Community College - Yirramboi Campus, Keilor",
   "Oxley Christian College": "Oxley Christian College, Chirnside Park",
   "Peninsula Grammar": "Peninsula Grammar, Mount Eliza",
+  "Penleigh & Essendon Grammar": "Penleigh and Essendon Grammar School, Keilor East",
   "Penleigh and Essendon Grammar School": "Penleigh and Essendon Grammar School, Keilor East",
   "Presbyterian Ladies' College": "Presbyterian Ladies' College, Burwood",
   "Ruyton Girls' School": "Ruyton Girls' School, Kew",
   "Sacre Coeur": "Sacre Coeur, Glen Iris",
+  "Sacred Heart Girls' College": "Sacred Heart Girls' College Oakleigh, Hughesdale",
+  "Saint Ignatius College": "Saint Ignatius College Geelong, Drysdale",
   "Scotch College": "Scotch College, Hawthorn",
   "Siena College": "Siena College, Camberwell",
+  "Sirius College - Eastmeadows": "Sirius College - Eastmeadows Campus, Broadmeadows",
+  "Sirius College - Ibrahim Dellal": "Sirius College - Ibrahim Dellal Campus, Sunshine West",
+  "Sirius College - Keysborough": "Sirius College - Keysborough Campus",
+  "Sirius College - Meadow Fair": "Sirius College - Meadow Fair Campus, Broadmeadows",
+  "South Oakleigh Sec College": "South Oakleigh College, Oakleigh South",
   "St Andrews Christian College": "St Andrews Christian College, Wantirna South",
   "St Catherine's School": "St Catherine's School, Toorak",
   "St Kevin's College": "St Kevin's College Toorak",
   "St Leonard's College": "St Leonard's College, Brighton East",
   "St Margaret's School": "St Margarets School, Berwick",
+  "St John's Greek Orth College": "St John's Greek Orthodox College, Preston",
+  "St Mary's College Melbourne": "St Mary's College Melbourne - St Kilda, St Kilda East",
+  "St Mary's Coptic Orth College": "St Mary's Coptic Orthodox College, Coolaroo",
   "St Michael's Grammar School": "St Michael's Grammar School, St Kilda",
   "Star of the Sea College": "Star of the Sea College, Brighton",
+  "Stott's Colleges": "Stott's College, Melbourne",
   "Strathcona Baptist Girls' Grammar School": "Strathcona Baptist Girls Grammar School, Canterbury",
   "Suzanne Cory High School": "Suzanne Cory High School, Werribee",
   "The Geelong College": "The Geelong College, Newtown",
@@ -2235,6 +2263,7 @@ export const HONOUR_ROLL_2025_SCHOOL_ALIASES: Readonly<Record<string, string>> =
   "Trinity Grammar School": "Trinity Grammar School, Kew",
   "Victorian College of the Arts": "Victorian College of the Arts Secondary School, Southbank",
   "Waverley Christian College": "Waverley Christian College, Wantirna South",
+  "Westbourne Grammar School": "Westbourne Grammar School - Hoppers Crossing Campus, Truganina",
   "Wesley College,Glen Waverley": "Wesley College, Melbourne",
   "Wesley College,Melbourne": "Wesley College, Melbourne",
   "Williamstown High School": "Williamstown High School",
@@ -34458,11 +34487,82 @@ export const HONOUR_ROLL_2025_SCORES: Readonly<
   }
 };
 
-export function getHonourRollSchoolName(schoolName: string): string | null {
+function canonicalizeSchoolName(value: string): string {
+  return value
+    .toLocaleLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/\bmac[.\s]+robertson\b/g, "macrobertson")
+    .replace(/\binternatl\b/g, "international")
+    .replace(/\bintntl\b/g, "international")
+    .replace(/\bmelb\b/g, "melbourne")
+    .replace(/\bsec\b/g, "secondary")
+    .replace(/\bcoll\b/g, "college")
+    .replace(/\bschl\b/g, "school")
+    .replace(/\bgs\b/g, "grammar school")
+    .replace(/\bcomm\b/g, "community")
+    .replace(/\breg\b/g, "regional")
+    .replace(/\bsth\b/g, "south")
+    .replace(/\bnth\b/g, "north")
+    .replace(/[^a-z0-9]/g, "");
+}
+
+function getSchoolBaseName(school: HonourRollSchoolOption): string {
+  const localitySuffix = `, ${school.locality}`;
+  return school.locality !== "" &&
+    school.name.toLocaleLowerCase().endsWith(localitySuffix.toLocaleLowerCase())
+    ? school.name.slice(0, -localitySuffix.length)
+    : school.name;
+}
+
+function createUniqueSchoolIndex(
+  getKey: (school: HonourRollSchoolOption) => string,
+): ReadonlyMap<string, string> {
+  const matchesByKey = new Map<string, string[]>();
+  for (const school of HONOUR_ROLL_2025_SCHOOL_OPTIONS) {
+    const key = getKey(school);
+    const matches = matchesByKey.get(key) ?? [];
+    matches.push(school.name);
+    matchesByKey.set(key, matches);
+  }
+
+  return new Map(
+    [...matchesByKey.entries()]
+      .filter(([, matches]) => matches.length === 1)
+      .map(([key, matches]) => [key, matches[0]]),
+  );
+}
+
+const HONOUR_ROLL_SCHOOL_BY_NAME_AND_LOCALITY = createUniqueSchoolIndex(
+  (school) => canonicalizeSchoolName(`${getSchoolBaseName(school)} ${school.locality}`),
+);
+const HONOUR_ROLL_SCHOOL_BY_NAME = createUniqueSchoolIndex((school) =>
+  canonicalizeSchoolName(getSchoolBaseName(school)),
+);
+
+export function getHonourRollSchoolName(
+  schoolName: string,
+  locality = "",
+): string | null {
   if (HONOUR_ROLL_2025_SCORES[schoolName]) {
     return schoolName;
   }
-  return HONOUR_ROLL_2025_SCHOOL_ALIASES[schoolName] ?? null;
+  const aliasedSchoolName =
+    HONOUR_ROLL_2025_SCHOOL_ALIASES[`${schoolName},${locality}`] ??
+    HONOUR_ROLL_2025_SCHOOL_ALIASES[schoolName];
+  if (aliasedSchoolName !== undefined) {
+    return aliasedSchoolName;
+  }
+
+  if (locality !== "") {
+    const nameAndLocalityMatch = HONOUR_ROLL_SCHOOL_BY_NAME_AND_LOCALITY.get(
+      canonicalizeSchoolName(`${schoolName} ${locality}`),
+    );
+    if (nameAndLocalityMatch !== undefined) {
+      return nameAndLocalityMatch;
+    }
+  }
+
+  return HONOUR_ROLL_SCHOOL_BY_NAME.get(canonicalizeSchoolName(schoolName)) ?? null;
 }
 
 export function getHonourRollStudyScores(
