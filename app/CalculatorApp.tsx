@@ -12,7 +12,7 @@ import {
   School,
   Trash2,
 } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   getHonourRollSchoolName,
   getHonourRollStudyScores,
@@ -20,6 +20,13 @@ import {
 } from "./data/honourRoll2025";
 import schoolsJson from "./data/schools.json";
 import { SUBJECT_BY_CODE, SUBJECTS } from "./data/subjects";
+import {
+  formatUniversityExtensionOption,
+  parseUniversityExtensionOptionId,
+  UNIVERSITY_EXTENSION_OPTION_BY_ID,
+  UNIVERSITY_EXTENSION_PROVIDERS,
+  UNIVERSITY_EXTENSION_SOURCE,
+} from "./data/universityExtensions";
 import {
   calculateAtar,
   calculateRelativeStudyScore,
@@ -84,6 +91,11 @@ type AtarRowGroupView = {
 type AtarRowGroupSnapshot = {
   title: AtarContributionGroup["title"];
   rowIds: readonly string[];
+};
+
+type StableAtarDisplay = {
+  rowGroups: readonly AtarRowGroupSnapshot[];
+  calculation: AtarCalculationState;
 };
 
 type StudyFormState = {
@@ -289,10 +301,16 @@ export function CalculatorApp() {
   );
   const [universityExtensionIncrement, setUniversityExtensionIncrement] =
     useState<UniversityExtensionIncrement>(0);
-  const lastStableAtarRowGroupsRef = useRef<readonly AtarRowGroupSnapshot[]>([]);
-  const lastStableAtarCalculationRef = useRef<AtarCalculationState>({
-    result: null,
-    error: "Enter at least four study scores",
+  const [universityExtensionOptionId, setUniversityExtensionOptionId] =
+    useState("");
+  const [hasRestoredAtarPreferences, setHasRestoredAtarPreferences] =
+    useState(false);
+  const [stableAtarDisplay, setStableAtarDisplay] = useState<StableAtarDisplay>({
+    rowGroups: [],
+    calculation: {
+      result: null,
+      error: "Enter at least four study scores",
+    },
   });
 
   useEffect(() => {
@@ -322,6 +340,12 @@ export function CalculatorApp() {
           window.localStorage.getItem("vce-university-extension-increment"),
         ),
       );
+      setUniversityExtensionOptionId(
+        parseUniversityExtensionOptionId(
+          window.localStorage.getItem("vce-university-extension-study"),
+        ),
+      );
+      setHasRestoredAtarPreferences(true);
       restoreLocation();
     }, 0);
     window.addEventListener("popstate", restoreLocation);
@@ -332,18 +356,39 @@ export function CalculatorApp() {
   }, []);
 
   useEffect(() => {
+    if (!hasRestoredAtarPreferences) {
+      return;
+    }
     window.localStorage.setItem("vce-atar-subjects", JSON.stringify(atarRows));
-  }, [atarRows]);
+  }, [atarRows, hasRestoredAtarPreferences]);
 
   useEffect(() => {
+    if (!hasRestoredAtarPreferences) {
+      return;
+    }
     window.localStorage.setItem(
       "vce-university-extension-increment",
       String(universityExtensionIncrement),
     );
-  }, [universityExtensionIncrement]);
+  }, [hasRestoredAtarPreferences, universityExtensionIncrement]);
+
+  useEffect(() => {
+    if (!hasRestoredAtarPreferences) {
+      return;
+    }
+    window.localStorage.setItem(
+      "vce-university-extension-study",
+      universityExtensionOptionId,
+    );
+  }, [hasRestoredAtarPreferences, universityExtensionOptionId]);
 
   const selectedSubject =
     SUBJECT_BY_CODE.get(studyForm.subjectCode) ?? SUBJECTS[0];
+  const selectedUniversityExtension =
+    UNIVERSITY_EXTENSION_OPTION_BY_ID.get(universityExtensionOptionId) ?? null;
+  const selectedUniversityExtensionLabel = selectedUniversityExtension
+    ? formatUniversityExtensionOption(selectedUniversityExtension)
+    : null;
   const selectedSchool =
     schools.find(
       (school) =>
@@ -532,20 +577,8 @@ export function CalculatorApp() {
     return [...groups, { title: "Other subjects", rows: blankRows }];
   }, [atarCalculation.result, atarRows]);
 
-  useEffect(() => {
-    if (shouldDeferAtarUpdates) {
-      return;
-    }
-
-    lastStableAtarRowGroupsRef.current = atarRowGroups.map((group) => ({
-      title: group.title,
-      rowIds: group.rows.map((row) => row.id),
-    }));
-    lastStableAtarCalculationRef.current = atarCalculation;
-  }, [atarCalculation, atarRowGroups, shouldDeferAtarUpdates]);
-
   const displayedAtarRowGroups = useMemo<readonly AtarRowGroupView[]>(() => {
-    const stableGroups = lastStableAtarRowGroupsRef.current;
+    const stableGroups = stableAtarDisplay.rowGroups;
     if (!shouldDeferAtarUpdates || stableGroups.length === 0) {
       return atarRowGroups;
     }
@@ -559,10 +592,10 @@ export function CalculatorApp() {
           .filter((row): row is AtarRow => row !== undefined),
       }))
       .filter((group) => group.rows.length > 0);
-  }, [atarRowGroups, atarRows, shouldDeferAtarUpdates]);
+  }, [atarRowGroups, atarRows, shouldDeferAtarUpdates, stableAtarDisplay.rowGroups]);
 
   const displayedAtarCalculation = shouldDeferAtarUpdates
-    ? lastStableAtarCalculationRef.current
+    ? stableAtarDisplay.calculation
     : atarCalculation;
 
   function navigateTo(view: CalculatorView, rowId: string | null = null): void {
@@ -602,11 +635,13 @@ export function CalculatorApp() {
   }
 
   function beginAtarScoreEntry(rowId: string): void {
-    lastStableAtarRowGroupsRef.current = atarRowGroups.map((group) => ({
-      title: group.title,
-      rowIds: group.rows.map((row) => row.id),
-    }));
-    lastStableAtarCalculationRef.current = atarCalculation;
+    setStableAtarDisplay({
+      rowGroups: atarRowGroups.map((group) => ({
+        title: group.title,
+        rowIds: group.rows.map((row) => row.id),
+      })),
+      calculation: atarCalculation,
+    });
     setActiveAtarScoreRowId(rowId);
   }
 
@@ -693,6 +728,7 @@ export function CalculatorApp() {
     setAtarRows(DEFAULT_ATAR_ROWS);
     setActiveAtarScoreRowId(null);
     setUniversityExtensionIncrement(0);
+    setUniversityExtensionOptionId("");
   }
 
   function renderAtarRow(row: AtarRow, displayNumber: number) {
@@ -1168,9 +1204,37 @@ export function CalculatorApp() {
                 <span className="subject-number extension-number" aria-hidden="true">H</span>
                 <div className="extension-copy">
                   <strong>University extension</strong>
-                  <span>Competes for one of the two increment positions</span>
+                  <span>
+                    {UNIVERSITY_EXTENSION_SOURCE.year} VCAA-approved studies · competes for an increment position
+                  </span>
                 </div>
-                <label className="select-wrap">
+                <label className="select-wrap extension-subject-select">
+                  <span className="sr-only">University extension subject and provider</span>
+                  <select
+                    value={universityExtensionOptionId}
+                    onChange={(event) =>
+                      setUniversityExtensionOptionId(
+                        parseUniversityExtensionOptionId(event.target.value),
+                      )
+                    }
+                  >
+                    <option value="">Choose extension subject</option>
+                    {UNIVERSITY_EXTENSION_PROVIDERS.map((provider) => (
+                      <optgroup
+                        key={provider.universityName}
+                        label={provider.universityName}
+                      >
+                        {provider.studies.map((study) => (
+                          <option key={study.id} value={study.id}>
+                            {study.subjectName} - {provider.universityName}
+                          </option>
+                        ))}
+                      </optgroup>
+                    ))}
+                  </select>
+                  <ChevronDown size={16} aria-hidden="true" />
+                </label>
+                <label className="select-wrap extension-points-select">
                   <span className="sr-only">University extension points</span>
                   <select
                     value={universityExtensionIncrement}
@@ -1198,7 +1262,9 @@ export function CalculatorApp() {
                   }`}
                 >
                   {universityExtensionIncrement === 0
-                    ? "Optional"
+                    ? selectedUniversityExtensionLabel
+                      ? "Add points"
+                      : "Optional"
                     : displayedAtarCalculation.result?.universityExtension.counted
                       ? "Included"
                       : "Not counted"}
@@ -1232,7 +1298,9 @@ export function CalculatorApp() {
                   </div>
                   {universityExtensionIncrement > 0 ? (
                     <div className="aggregate-row extension-result-row">
-                      <span>University extension</span>
+                      <span>
+                        {selectedUniversityExtensionLabel ?? "University extension"}
+                      </span>
                       <strong>
                         {displayedAtarCalculation.result.universityExtension.counted
                           ? `+${universityExtensionIncrement.toFixed(1)}`

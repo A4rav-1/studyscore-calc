@@ -900,7 +900,7 @@ select:focus-visible {
 
 .university-extension-row {
   display: grid;
-  grid-template-columns: 24px minmax(190px, 1fr) 170px 90px;
+  grid-template-columns: 24px minmax(135px, 0.75fr) minmax(240px, 1.4fr) 140px 90px;
   align-items: center;
   gap: 10px;
   margin-top: 12px;
@@ -924,6 +924,7 @@ select:focus-visible {
 }
 
 .university-extension-row .select-wrap {
+  min-width: 0;
   width: 100%;
 }
 
@@ -1185,14 +1186,19 @@ footer {
     padding: 11px 2px 3px;
   }
 
-  .university-extension-row .select-wrap {
-    grid-column: 2;
+  .university-extension-row .extension-subject-select {
+    grid-column: 2 / -1;
     grid-row: 2;
+  }
+
+  .university-extension-row .extension-points-select {
+    grid-column: 2;
+    grid-row: 3;
   }
 
   .university-extension-row .contribution-tag {
     grid-column: 3;
-    grid-row: 2;
+    grid-row: 3;
   }
 
   .extension-copy {

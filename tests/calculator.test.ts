@@ -11,6 +11,13 @@ import {
   SUBJECTS,
 } from "../app/data/subjects.ts";
 import {
+  formatUniversityExtensionOption,
+  parseUniversityExtensionOptionId,
+  UNIVERSITY_EXTENSION_OPTION_BY_ID,
+  UNIVERSITY_EXTENSION_OPTIONS,
+  UNIVERSITY_EXTENSION_PROVIDERS,
+} from "../app/data/universityExtensions.ts";
+import {
   getHonourRollSchoolName,
   getHonourRollStudyScores,
   HONOUR_ROLL_2025_SCHOOL_OPTIONS,
@@ -518,6 +525,29 @@ test("university extension uses one of the best two increment positions", () => 
     () => calculateAtar(primaryFour, 2.5 as never),
     /University extension increments/,
   );
+});
+
+test("2026 university extension selector includes every VCAA-approved option", () => {
+  assert.equal(UNIVERSITY_EXTENSION_PROVIDERS.length, 9);
+  assert.equal(UNIVERSITY_EXTENSION_OPTIONS.length, 54);
+  assert.equal(
+    new Set(UNIVERSITY_EXTENSION_OPTIONS.map((option) => option.id)).size,
+    UNIVERSITY_EXTENSION_OPTIONS.length,
+  );
+
+  const mathematics = UNIVERSITY_EXTENSION_OPTION_BY_ID.get(
+    "unimelb-mathematics",
+  );
+  assert.ok(mathematics);
+  assert.equal(
+    formatUniversityExtensionOption(mathematics),
+    "Mathematics - University of Melbourne",
+  );
+  assert.equal(
+    parseUniversityExtensionOptionId("unimelb-mathematics"),
+    "unimelb-mathematics",
+  );
+  assert.equal(parseUniversityExtensionOptionId("unknown-study"), "");
 });
 
 test("ATAR calculation disregards the final subject of seven", () => {
