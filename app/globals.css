@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #17211b;
-  --muted: #667068;
-  --paper: #f5f3ed;
-  --card: #fffefa;
-  --line: #deddd5;
-  --line-strong: #c9ccc4;
-  --green: #143f2c;
-  --green-light: #dce9d7;
-  --orange: #ff7043;
-  --orange-dark: #e9592f;
+  --ink: #10213f;
+  --muted: #61708a;
+  --paper: #f7f9fd;
+  --card: #ffffff;
+  --line: #e1e7f0;
+  --line-strong: #cbd6e6;
+  --blue: #2563eb;
+  --blue-dark: #1746a2;
+  --blue-light: #eaf1ff;
+  --blue-pale: #f4f7ff;
   --display: var(--font-display), Georgia, "Times New Roman", serif;
 }
 
@@ -26,7 +26,7 @@ body {
   min-width: 320px;
   margin: 0;
   background:
-    radial-gradient(circle at 9% 0%, rgb(255 255 255 / 82%), transparent 27rem),
+    radial-gradient(circle at 8% 0%, rgb(219 232 255 / 48%), transparent 28rem),
     var(--paper);
   color: var(--ink);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
@@ -45,7 +45,7 @@ button {
 button:focus-visible,
 input:focus-visible,
 select:focus-visible {
-  outline: 3px solid rgb(255 112 67 / 28%);
+  outline: 3px solid rgb(37 99 235 / 24%);
   outline-offset: 2px;
 }
 
@@ -74,9 +74,9 @@ select:focus-visible {
   align-items: center;
   min-height: 64px;
   padding: 0 4.5vw;
-  border-bottom: 1px solid rgb(23 33 27 / 10%);
-  background: rgb(245 243 237 / 88%);
-  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  background: rgb(255 255 255 / 94%);
+  backdrop-filter: blur(12px);
 }
 
 .brand {
@@ -98,13 +98,13 @@ select:focus-visible {
   height: 34px;
   place-items: center;
   border-radius: 11px;
-  background: var(--green);
+  background: var(--blue);
   color: #fff;
   transform: rotate(-2deg);
 }
 
 .brand-accent {
-  color: var(--orange-dark);
+  color: var(--blue);
 }
 
 .calculator-switcher {
@@ -113,7 +113,7 @@ select:focus-visible {
   padding: 4px;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: rgb(255 254 250 / 80%);
+  background: var(--blue-pale);
 }
 
 .calculator-switcher button {
@@ -128,18 +128,18 @@ select:focus-visible {
 }
 
 .calculator-switcher button.active {
-  background: var(--ink);
+  background: var(--blue);
   color: #fff;
-  box-shadow: 0 2px 8px rgb(23 33 27 / 18%);
+  box-shadow: 0 3px 10px rgb(37 99 235 / 20%);
 }
 
 .data-year {
   justify-self: end;
   padding: 6px 10px;
-  border: 1px solid #d0d8ca;
+  border: 1px solid #cbd9f0;
   border-radius: 999px;
-  background: var(--green-light);
-  color: var(--green);
+  background: var(--blue-light);
+  color: var(--blue-dark);
   font-size: 11px;
   font-weight: 740;
   letter-spacing: 0.05em;
@@ -153,19 +153,19 @@ select:focus-visible {
   display: grid;
   place-items: center;
   padding: 24px;
-  background: rgb(14 30 21 / 55%);
-  backdrop-filter: blur(8px);
+  background: rgb(16 33 63 / 48%);
+  backdrop-filter: blur(6px);
 }
 
 .landing-chooser-card {
   width: min(680px, 100%);
   padding: clamp(30px, 5vw, 48px);
-  border: 1px solid rgb(255 255 255 / 58%);
-  border-radius: 20px;
+  border: 0;
+  border-radius: 16px;
   background:
-    radial-gradient(circle at 100% 0%, rgb(255 112 67 / 16%), transparent 16rem),
+    radial-gradient(circle at 100% 0%, rgb(219 232 255 / 66%), transparent 17rem),
     var(--card);
-  box-shadow: 0 28px 90px rgb(0 0 0 / 30%);
+  box-shadow: 0 28px 70px rgb(16 33 63 / 22%);
   text-align: center;
 }
 
@@ -174,7 +174,7 @@ select:focus-visible {
   font-family: var(--display);
   font-size: clamp(36px, 5vw, 56px);
   font-weight: 500;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.04em;
   line-height: 0.98;
 }
 
@@ -199,7 +199,7 @@ select:focus-visible {
   align-items: center;
   padding: 17px;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: 14px;
   background: #fff;
   color: var(--ink);
   text-align: left;
@@ -208,8 +208,8 @@ select:focus-visible {
 }
 
 .landing-choice:hover {
-  border-color: var(--orange);
-  box-shadow: 0 12px 22px rgb(23 33 27 / 10%);
+  border-color: #9dbaf5;
+  box-shadow: 0 12px 26px rgb(37 99 235 / 10%);
   transform: translateY(-2px);
 }
 
@@ -222,13 +222,13 @@ select:focus-visible {
 }
 
 .study-choice .landing-choice-icon {
-  background: var(--green-light);
-  color: var(--green);
+  background: var(--blue-light);
+  color: var(--blue-dark);
 }
 
 .atar-choice .landing-choice-icon {
-  background: #fff0e9;
-  color: var(--orange-dark);
+  background: #dce8ff;
+  color: var(--blue);
 }
 
 .landing-choice strong,
@@ -250,7 +250,7 @@ select:focus-visible {
 }
 
 .landing-choice > svg {
-  color: var(--orange-dark);
+  color: var(--blue);
 }
 
 .calculator-page {
@@ -286,13 +286,13 @@ select:focus-visible {
 .calculator-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.85fr);
-  gap: 20px;
+  gap: 24px;
   align-items: start;
 }
 
 .input-card,
 .result-card {
-  border-radius: 16px;
+  border-radius: 15px;
 }
 
 .input-card {
@@ -329,8 +329,8 @@ select:focus-visible {
   height: 26px;
   place-items: center;
   border-radius: 50%;
-  background: var(--green-light);
-  color: var(--green);
+  background: var(--blue-light);
+  color: var(--blue-dark);
   font-size: 11px;
   font-weight: 800;
 }
@@ -339,7 +339,7 @@ select:focus-visible {
   margin-left: auto;
   padding: 5px 9px;
   border-radius: 999px;
-  background: #f0eee6;
+  background: var(--blue-pale);
   color: var(--muted);
   font-size: 11px;
   font-weight: 680;
@@ -358,7 +358,7 @@ select:focus-visible {
 .field {
   display: grid;
   gap: 8px;
-  color: #525b54;
+  color: #465672;
   font-size: 12px;
   font-weight: 680;
 }
@@ -370,9 +370,9 @@ select:focus-visible {
 .atar-row select {
   width: 100%;
   height: 44px;
-  border: 1px solid #d8d9d2;
+  border: 1px solid #d7e0ed;
   border-radius: 10px;
-  background: #fff;
+  background: #fbfdff;
   color: var(--ink);
   font-size: 14px;
   font-weight: 550;
@@ -390,7 +390,7 @@ select:focus-visible {
 .rank-row input:hover,
 .atar-row input:hover,
 .atar-row select:hover {
-  border-color: #adb5ae;
+  border-color: #9fb3cf;
 }
 
 .field input:focus,
@@ -398,8 +398,8 @@ select:focus-visible {
 .rank-row input:focus,
 .atar-row input:focus,
 .atar-row select:focus {
-  border-color: var(--green);
-  box-shadow: 0 0 0 3px rgb(20 63 44 / 8%);
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 11%);
   outline: none;
 }
 
@@ -426,7 +426,7 @@ select:focus-visible {
   z-index: 1;
   top: 50%;
   left: 13px;
-  color: #899089;
+  color: #7d8da5;
   transform: translateY(-50%);
 }
 
@@ -435,7 +435,7 @@ select:focus-visible {
 }
 
 .school-data-note {
-  color: #738078;
+  color: #6b7b92;
   font-size: 10px;
   font-weight: 620;
   line-height: 1.35;
@@ -454,7 +454,7 @@ select:focus-visible {
   position: absolute;
   top: 50%;
   right: 12px;
-  color: #899089;
+  color: #7d8da5;
   pointer-events: none;
   transform: translateY(-50%);
 }
@@ -482,14 +482,14 @@ select:focus-visible {
   justify-content: space-between;
   gap: 8px;
   padding: 0 11px;
-  border: 1px solid #d6dfd3;
+  border: 1px solid #d5e1f5;
   border-radius: 10px;
-  background: #f6faf5;
-  color: var(--green);
+  background: var(--blue-pale);
+  color: var(--blue-dark);
 }
 
 .relative-study-score span {
-  color: #6f7c72;
+  color: #60738f;
   font-size: 9px;
   font-weight: 760;
   letter-spacing: 0.05em;
@@ -504,7 +504,7 @@ select:focus-visible {
 
 .rank-header {
   margin-bottom: -3px;
-  color: #858b86;
+  color: #74839a;
   font-size: 10px;
   font-weight: 760;
   letter-spacing: 0.08em;
@@ -523,7 +523,7 @@ select:focus-visible {
   position: absolute;
   top: 50%;
   right: 14px;
-  color: #858b86;
+  color: #74839a;
   font-size: 11px;
   transform: translateY(-50%);
 }
@@ -537,17 +537,16 @@ select:focus-visible {
   align-items: center;
   padding: 34px 30px 25px;
   overflow: hidden;
-  border: 0;
+  border: 1px solid var(--line);
   background:
-    radial-gradient(circle at 50% 12%, rgb(89 136 106 / 30%), transparent 35%),
-    var(--green);
-  color: #fff;
+    radial-gradient(circle at 50% 0%, rgb(219 232 255 / 62%), transparent 16rem),
+    var(--card);
+  color: var(--ink);
   text-align: center;
-  box-shadow: 0 18px 42px rgb(20 63 44 / 18%);
 }
 
 .result-label {
-  color: #b9ccbe;
+  color: var(--blue-dark);
   font-size: 11px;
   font-weight: 760;
   letter-spacing: 0.11em;
@@ -560,29 +559,30 @@ select:focus-visible {
   height: 156px;
   margin: 21px 0 22px;
   place-content: center;
-  border: 1px solid rgb(255 255 255 / 20%);
+  border: 1px solid #c9d8f2;
   border-radius: 50%;
-  background: rgb(255 255 255 / 5%);
-  box-shadow: inset 0 0 0 12px rgb(255 255 255 / 2%);
-  transition: transform 180ms ease, border-color 180ms ease;
+  background: var(--blue-pale);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
 .score-orb.has-score {
-  border-color: var(--orange);
+  border-color: var(--blue);
+  background: var(--blue-light);
   transform: scale(1.025);
 }
 
 .score-orb strong {
+  color: var(--blue-dark);
   font-family: var(--display);
   font-size: 70px;
   font-weight: 500;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.035em;
   line-height: 0.85;
 }
 
 .score-orb span {
   margin-top: 11px;
-  color: #a9c2af;
+  color: #657793;
   font-size: 12px;
   font-weight: 640;
 }
@@ -596,7 +596,7 @@ select:focus-visible {
 .result-card > p {
   max-width: 270px;
   margin: 10px 0 24px;
-  color: #bfd0c2;
+  color: var(--muted);
   font-size: 13px;
   line-height: 1.5;
 }
@@ -608,15 +608,15 @@ select:focus-visible {
   gap: 2px 12px;
   align-items: baseline;
   padding: 13px 14px;
-  border: 1px solid rgb(255 255 255 / 16%);
+  border: 1px solid #d3e0f5;
   border-radius: 12px;
-  background: rgb(255 255 255 / 7%);
+  background: var(--blue-pale);
   text-align: left;
 }
 
 .scaled-study-score span,
 .scaled-study-score small {
-  color: #b9ccbe;
+  color: #60738f;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -626,14 +626,14 @@ select:focus-visible {
 .scaled-study-score strong {
   grid-column: 2;
   grid-row: 1 / span 2;
-  color: #fff;
+  color: var(--blue-dark);
   font-family: var(--font-geist-mono), monospace;
   font-size: 25px;
   line-height: 1;
 }
 
 .scaled-study-score small {
-  color: #8fa997;
+  color: #7a89a1;
   font-size: 9px;
 }
 
@@ -647,8 +647,8 @@ select:focus-visible {
   margin-top: auto;
   border: 0;
   border-radius: 11px;
-  background: var(--orange);
-  color: #1a211c;
+  background: var(--blue);
+  color: #fff;
   font-size: 13px;
   font-weight: 780;
   cursor: pointer;
@@ -656,13 +656,13 @@ select:focus-visible {
 }
 
 .primary-action:hover:not(:disabled) {
-  background: #ff8059;
+  background: var(--blue-dark);
   transform: translateY(-1px);
 }
 
 .primary-action:disabled {
-  background: #52715f;
-  color: #9fb4a5;
+  background: #dce5f2;
+  color: #7d8ba2;
   cursor: not-allowed;
 }
 
@@ -680,7 +680,7 @@ select:focus-visible {
   align-items: center;
   gap: 6px;
   margin: 13px 0 20px;
-  color: #adc0b1;
+  color: #60738f;
   font-size: 12px;
 }
 
@@ -691,13 +691,13 @@ select:focus-visible {
   justify-content: center;
   gap: 7px;
   padding-top: 18px;
-  border-top: 1px solid rgb(255 255 255 / 12%);
-  color: #9fb5a4;
+  border-top: 1px solid var(--line);
+  color: #71819a;
   font-size: 10px;
 }
 
 .result-source svg {
-  color: #8ecb9d;
+  color: var(--blue);
 }
 
 .atar-page .page-heading {
@@ -717,7 +717,7 @@ select:focus-visible {
   grid-template-columns: 24px minmax(190px, 1fr) 90px 62px 72px 138px 32px;
   gap: 10px;
   padding: 8px 10px 10px;
-  color: #858b86;
+  color: #74839a;
   font-size: 10px;
   font-weight: 760;
   letter-spacing: 0.08em;
@@ -735,10 +735,10 @@ select:focus-visible {
   place-content: center;
   gap: 6px;
   padding: 22px;
-  border: 1px dashed #cfd4cd;
+  border: 1px dashed #c7d4e6;
   border-radius: 13px;
-  background: #fbfcf9;
-  color: #69736b;
+  background: #f9fbff;
+  color: #61718a;
   text-align: center;
 }
 
@@ -771,7 +771,7 @@ select:focus-visible {
 
 .atar-row-group-heading h2 {
   margin: 0;
-  color: #657168;
+  color: #536782;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -779,7 +779,7 @@ select:focus-visible {
 }
 
 .atar-row-group-heading span {
-  color: #858d87;
+  color: #7b899e;
   font-size: 10px;
   font-weight: 570;
 }
@@ -791,14 +791,14 @@ select:focus-visible {
   gap: 10px;
   align-items: center;
   padding: 10px 4px;
-  border-top: 1px solid #e4e5df;
+  border-top: 1px solid var(--line);
   background: transparent;
   transition: background 180ms ease, transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .atar-row:hover,
 .atar-row:focus-within {
-  background: #fafbf8;
+  background: #f8faff;
   transform: translateX(2px);
 }
 
@@ -808,8 +808,8 @@ select:focus-visible {
   height: 23px;
   place-items: center;
   border-radius: 7px;
-  background: #f0eee8;
-  color: #626a63;
+  background: var(--blue-light);
+  color: var(--blue-dark);
   font-size: 10px;
   font-weight: 800;
 }
@@ -843,23 +843,23 @@ select:focus-visible {
 }
 
 .contribution-tag.primary {
-  background: var(--green-light);
-  color: var(--green);
+  background: var(--blue-light);
+  color: var(--blue-dark);
 }
 
 .contribution-tag.increment {
-  background: #fff0e9;
-  color: #b34624;
+  background: #dceaff;
+  color: #1857b6;
 }
 
 .contribution-tag.unused {
-  background: #f0f1ed;
-  color: #747c75;
+  background: #edf1f6;
+  color: #66758b;
 }
 
 .contribution-tag.required {
-  background: #f4f0df;
-  color: #8a6c1a;
+  background: #eef3ff;
+  color: #405f9c;
 }
 
 .estimate-button {
@@ -869,14 +869,14 @@ select:focus-visible {
   gap: 5px;
   padding: 7px 9px;
   border-radius: 8px;
-  color: var(--green);
+  color: var(--blue-dark);
   font-size: 11px;
   font-weight: 720;
   white-space: nowrap;
 }
 
 .estimate-button:hover {
-  background: var(--green-light);
+  background: var(--blue-light);
 }
 
 .icon-button {
@@ -885,12 +885,12 @@ select:focus-visible {
   height: 30px;
   place-items: center;
   border-radius: 8px;
-  color: #949a95;
+  color: #7d899b;
 }
 
 .icon-button:hover:not(:disabled) {
-  background: #fff0eb;
-  color: #c14f2c;
+  background: #edf3ff;
+  color: #b3261e;
 }
 
 .icon-button:disabled {
@@ -919,7 +919,7 @@ select:focus-visible {
 }
 
 .university-extension-row span {
-  color: #747d75;
+  color: #6d7c92;
   font-size: 10px;
 }
 
@@ -947,18 +947,18 @@ select:focus-visible {
   gap: 7px;
   padding: 8px 10px;
   border-radius: 8px;
-  color: var(--green);
+  color: var(--blue-dark);
   font-size: 12px;
   font-weight: 720;
 }
 
 .add-subject-button:hover:not(:disabled),
 .atar-actions .reset-button:hover {
-  background: var(--green-light);
+  background: var(--blue-light);
 }
 
 .add-subject-button:disabled {
-  color: #a1a6a2;
+  color: #9aa6b7;
   cursor: not-allowed;
 }
 
@@ -968,7 +968,7 @@ select:focus-visible {
 
 .atar-number {
   margin: 32px 0 28px;
-  color: #8aa392;
+  color: #8da1c2;
   font-family: var(--display);
   font-size: clamp(56px, 6vw, 82px);
   font-weight: 500;
@@ -977,7 +977,7 @@ select:focus-visible {
 }
 
 .atar-number.has-score {
-  color: #fff;
+  color: var(--blue-dark);
 }
 
 .aggregate-row {
@@ -986,14 +986,14 @@ select:focus-visible {
   align-items: center;
   justify-content: space-between;
   padding: 13px 0;
-  border-top: 1px solid rgb(255 255 255 / 12%);
-  border-bottom: 1px solid rgb(255 255 255 / 12%);
-  color: #b9ccbe;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: #60738f;
   font-size: 12px;
 }
 
 .aggregate-row strong {
-  color: #fff;
+  color: var(--blue-dark);
   font-family: var(--font-geist-mono), monospace;
   font-size: 14px;
 }
@@ -1036,7 +1036,7 @@ footer {
   margin: 0 auto;
   padding: 22px 0 30px;
   border-top: 1px solid var(--line);
-  color: #7a817b;
+  color: #738199;
   font-size: 11px;
 }
 
@@ -1221,7 +1221,7 @@ footer {
 
   .scaled-score::before {
     content: "Scaled ";
-    color: #8a918b;
+    color: #7b899e;
     font-family: var(--font-geist-sans), sans-serif;
     font-size: 10px;
     font-weight: 600;
@@ -1258,9 +1258,9 @@ footer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     overflow: hidden;
     border-radius: 14px;
-    background: var(--green);
+    background: var(--blue-dark);
     color: #fff;
-    box-shadow: 0 12px 34px rgb(20 63 44 / 28%);
+    box-shadow: 0 14px 34px rgb(23 70 162 / 24%);
   }
 
   .mobile-result-dock > div {
@@ -1274,7 +1274,7 @@ footer {
   }
 
   .mobile-result-dock span {
-    color: #b9ccbe;
+    color: #dce7fb;
     font-size: 9px;
     font-weight: 760;
     letter-spacing: 0.07em;
@@ -1289,7 +1289,7 @@ footer {
 
   .mobile-result-dock small {
     margin-left: 3px;
-    color: #9fb5a4;
+    color: #b9cbec;
     font-size: 10px;
     font-weight: 650;
   }
